@@ -8119,7 +8119,7 @@ ul {
     transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
                 transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     color: #FFFFFF;
-    font-style: italic;
+    font-style: normal;
 }
 
 .splash-word.active {
