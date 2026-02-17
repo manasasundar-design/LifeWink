@@ -841,7 +841,8 @@ ul {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 40px;
-    min-height: 560px;
+    min-height: 460px;
+    transform: translateX(-45px);
 }
 
 /* Phone - LEFT (Exact Figma: 929.325px width, -7.01deg rotation) */
@@ -850,8 +851,8 @@ ul {
     left: 50%;
     bottom: 0;
     transform-origin: center center;
-    margin-left: -530px;
-    width: 235px;
+    margin-left: -490px;
+    width: 195px;
     z-index: 3;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -872,14 +873,12 @@ ul {
     filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.25));
 }
 
-.hero-device-phone:hover {
-    transform: rotate(-7.01deg) translateY(-15px) scale(1.03);
-}
+/* hero device phone hover removed */
 
 /* Desktop/Monitor - CENTER BACK (Large Monitor - Background) */
 .hero-device-desktop {
     position: relative;
-    width: 810px;
+    width: 670px;
     z-index: 1;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -891,17 +890,15 @@ ul {
     filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.2));
 }
 
-.hero-device-desktop:hover {
-    transform: translateY(-10px) scale(1.01);
-}
+/* hero device desktop hover removed */
 
 /* Tablet - RIGHT (Exact Figma: 1443.831px proportional width) */
 .hero-device-tablet {
     position: absolute;
     right: 50%;
     bottom: 0;
-    margin-right: -530px;
-    width: 370px;
+    margin-right: -580px;
+    width: 310px;
     z-index: 2;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -913,9 +910,7 @@ ul {
     filter: drop-shadow(0 35px 70px rgba(0, 0, 0, 0.22));
 }
 
-.hero-device-tablet:hover {
-    transform: translateY(-15px) scale(1.03);
-}
+/* hero device tablet hover removed */
 
 /* Hero Testimonial */
 .hero-testimonial {
@@ -1033,17 +1028,17 @@ ul {
     }
 
     .hero-device-phone {
-        width: 280px;
-        margin-left: -520px;
+        width: 230px;
+        margin-left: -430px;
     }
 
     .hero-device-desktop {
-        width: 750px;
+        width: 620px;
     }
 
     .hero-device-tablet {
-        width: 420px;
-        margin-right: -520px;
+        width: 350px;
+        margin-right: -430px;
     }
 }
 
@@ -1053,29 +1048,8 @@ ul {
     }
 
     .hero-device-phone {
-        width: 240px;
-        margin-left: -440px;
-    }
-
-    .hero-device-desktop {
-        width: 620px;
-    }
-
-    .hero-device-tablet {
-        width: 360px;
-        margin-right: -440px;
-    }
-}
-
-@media (max-width: 1024px) {
-    .hero-devices-figma {
-        max-width: 850px;
-        min-height: 500px;
-    }
-
-    .hero-device-phone {
-        width: 200px;
-        margin-left: -360px;
+        width: 195px;
+        margin-left: -370px;
     }
 
     .hero-device-desktop {
@@ -1084,7 +1058,28 @@ ul {
 
     .hero-device-tablet {
         width: 300px;
-        margin-right: -360px;
+        margin-right: -370px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero-devices-figma {
+        max-width: 850px;
+        min-height: 420px;
+    }
+
+    .hero-device-phone {
+        width: 170px;
+        margin-left: -310px;
+    }
+
+    .hero-device-desktop {
+        width: 440px;
+    }
+
+    .hero-device-tablet {
+        width: 255px;
+        margin-right: -310px;
     }
 }
 
@@ -1113,9 +1108,7 @@ ul {
         order: 1;
     }
 
-    .hero-device-phone:hover {
-        transform: rotate(0deg) translateY(-10px);
-    }
+    /* mobile hero device phone hover removed */
 
     .hero-device-desktop {
         order: 2;
@@ -1724,7 +1717,7 @@ ul {
 
 .section-description {
     font-size: clamp(1.125rem, 1.6vw, 1.25rem);
-    color: rgba(255, 255, 255, 0.85);
+    color: #FFFFFF;
     line-height: 1.65;
     font-weight: 400;
     margin: 0;
@@ -1791,10 +1784,7 @@ ul {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.feature-icon:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(1, 105, 235, 0.15), 0 2px 4px rgba(0, 0, 0, 0.08);
-}
+/* feature-icon hover removed */
 
 .feature-icon svg {
     width: 26px;
@@ -1808,9 +1798,7 @@ ul {
     box-shadow: 0 4px 12px rgba(1, 105, 235, 0.3), 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.feature-block:nth-child(odd) .feature-icon:hover {
-    box-shadow: 0 6px 16px rgba(1, 105, 235, 0.4), 0 3px 6px rgba(0, 0, 0, 0.12);
-}
+/* odd feature-icon hover removed */
 
 /* White background for 2nd and 4th */
 .feature-block:nth-child(even) .feature-icon {
@@ -1820,9 +1808,7 @@ ul {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
-.feature-block:nth-child(even) .feature-icon:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
-}
+/* even feature-icon hover removed */
 
 .feature-title {
     font-size: clamp(1.5rem, 2.5vw, 1.75rem);
@@ -1861,10 +1847,7 @@ ul {
                 filter 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.feature-screenshot:hover {
-    transform: translateY(-8px) scale(1.02);
-    filter: drop-shadow(0 30px 60px rgba(1, 105, 235, 0.2)) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.12));
-}
+/* hover removed for accessibility */
 
 .feature-screenshot-large {
     max-width: 100%;
@@ -1877,10 +1860,7 @@ ul {
                 filter 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.feature-screenshot-large:hover {
-    transform: translateY(-8px) scale(1.02);
-    filter: drop-shadow(0 30px 60px rgba(1, 105, 235, 0.2)) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.12));
-}
+/* hover removed for accessibility */
 
 /* AI Phones Container - Two phones side by side */
 .ai-phones-container {
@@ -1917,12 +1897,7 @@ ul {
     z-index: 2;
 }
 
-.ai-phone-left:hover,
-.ai-phone-right:hover {
-    transform: translateY(-8px) scale(1.02);
-    filter: drop-shadow(0 30px 60px rgba(1, 105, 235, 0.2)) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.12));
-    z-index: 3;
-}
+/* hover removed for accessibility */
 
 /* Classic Phones Container - Two phones side by side */
 .classic-phones-container {
@@ -1959,12 +1934,7 @@ ul {
     z-index: 2;
 }
 
-.classic-phone-left:hover,
-.classic-phone-right:hover {
-    transform: translateY(-8px) scale(1.02);
-    filter: drop-shadow(0 30px 60px rgba(1, 105, 235, 0.2)) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.12));
-    z-index: 3;
-}
+/* hover removed for accessibility */
 
 /* Sharing Phones Container - Two phones side by side */
 .sharing-phones-container {
@@ -2001,12 +1971,7 @@ ul {
     z-index: 2;
 }
 
-.sharing-phone-left:hover,
-.sharing-phone-right:hover {
-    transform: translateY(-8px) scale(1.02);
-    filter: drop-shadow(0 30px 60px rgba(1, 105, 235, 0.2)) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.12));
-    z-index: 3;
-}
+/* hover removed for accessibility */
 
 /* Scheduled Phones Container - Two phones side by side */
 .scheduled-phones-container {
@@ -2043,12 +2008,7 @@ ul {
     z-index: 2;
 }
 
-.scheduled-phone-left:hover,
-.scheduled-phone-right:hover {
-    transform: translateY(-8px) scale(1.02);
-    filter: drop-shadow(0 30px 60px rgba(1, 105, 235, 0.2)) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.12));
-    z-index: 3;
-}
+/* hover removed for accessibility */
 
 .feature-phone {
     position: relative;
@@ -7707,28 +7667,7 @@ ul {
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover Animation for Classic LifeWinks Circle - Both Layers */
-.features-section .feature-block:first-child .feature-visual:hover::before {
-    width: 480px;
-    height: 480px;
-    opacity: 0.8;
-    filter: blur(35px);
-}
-
-.features-section .feature-block:first-child .feature-visual:hover::after {
-    width: 300px;
-    height: 300px;
-    opacity: 0.8;
-}
-
-/* Hover Animation for Classic LifeWinks Mockup */
-.features-section .feature-block:first-child .feature-visual:hover {
-    transform: scale(1.03) translateY(-5px);
-}
-
-.features-section .feature-block:first-child .feature-visual:hover img {
-    filter: drop-shadow(0 15px 30px rgba(1, 105, 235, 0.15));
-}
+/* Classic LifeWinks hover removed */
 /* Old blue background styling removed - now using light gradient background */
 
 /* ========================================
@@ -7771,27 +7710,7 @@ ul {
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover animations - gentle enhancement */
-.features-section .feature-block:nth-child(2) .feature-visual:hover::before {
-    width: 480px;
-    height: 480px;
-    opacity: 0.9;
-    filter: blur(35px);
-}
-
-.features-section .feature-block:nth-child(2) .feature-visual:hover::after {
-    width: 300px;
-    height: 300px;
-    opacity: 0.9;
-}
-
-.features-section .feature-block:nth-child(2) .feature-visual:hover {
-    transform: scale(1.03) translateY(-5px);
-}
-
-.features-section .feature-block:nth-child(2) .feature-visual:hover img {
-    filter: drop-shadow(0 15px 30px rgba(1, 105, 235, 0.15));
-}
+/* AI LifeWinks hover removed */
 
 /* Ensure feature-image is positioned */
 .feature-image {
@@ -7838,28 +7757,7 @@ ul {
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover animations - Both Layers */
-.features-section .feature-block:nth-child(3) .feature-visual:hover::before {
-    width: 480px;
-    height: 480px;
-    opacity: 0.8;
-    filter: blur(35px);
-}
-
-.features-section .feature-block:nth-child(3) .feature-visual:hover::after {
-    width: 300px;
-    height: 300px;
-    opacity: 0.8;
-}
-
-/* Hover Animation for Mockup */
-.features-section .feature-block:nth-child(3) .feature-visual:hover {
-    transform: scale(1.03) translateY(-5px);
-}
-
-.features-section .feature-block:nth-child(3) .feature-visual:hover img {
-    filter: drop-shadow(0 15px 30px rgba(1, 105, 235, 0.15));
-}
+/* Create Today hover removed */
 
 /* ========================================
    SAFE, SECURE AND PRIVATE - Blue Glow
@@ -7901,27 +7799,7 @@ ul {
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover animations */
-.features-section .feature-block:nth-child(4) .feature-visual:hover::before {
-    width: 480px;
-    height: 480px;
-    opacity: 0.9;
-    filter: blur(35px);
-}
-
-.features-section .feature-block:nth-child(4) .feature-visual:hover::after {
-    width: 300px;
-    height: 300px;
-    opacity: 0.9;
-}
-
-.features-section .feature-block:nth-child(4) .feature-visual:hover {
-    transform: scale(1.03) translateY(-5px);
-}
-
-.features-section .feature-block:nth-child(4) .feature-visual:hover img {
-    filter: drop-shadow(0 15px 30px rgba(1, 105, 235, 0.15));
-}
+/* Safe Secure hover removed */
 
 
 /* ========================================
@@ -8206,20 +8084,7 @@ ul {
     transform: translateX(0) scale(1);
 }
 
-/* Gentle float on feature phone images once visible */
-.feature-visual.fade-in-left.visible .feature-image,
-.feature-visual.fade-in-right.visible .feature-image {
-    animation: featurePhoneFloat 6s ease-in-out infinite;
-}
-
-@keyframes featurePhoneFloat {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-12px);
-    }
-}
+/* Feature phone float animation removed — static images */
 
 
 /* ----------------------------------------
