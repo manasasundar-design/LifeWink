@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscriptions - LifeWink</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-light" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo-white.png" alt="LifeWink" class="logo-img logo-white">
+                <img src="images/logo-blue.png" alt="LifeWink" class="logo-img logo-blue">
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="how-it-works.html" class="nav-link">How it Works</a>
+                <a href="subscriptions.html" class="nav-link active">Subscriptions</a>
+                <a href="our-story.html" class="nav-link">Our Story</a>
+                <a href="download.html" class="btn nav-cta">Get LifeWink for Free</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="how-it-works.html" class="mobile-nav-link">How it Works</a>
+        <a href="subscriptions.html" class="mobile-nav-link active">Subscriptions</a>
+        <a href="our-story.html" class="mobile-nav-link">Our Story</a>
+        <a href="download.html" class="btn btn-primary mobile-cta">Get LifeWink for Free</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="subs-hero">
+        <div class="container">
+            <div class="subs-hero-content fade-in-up">
+                <h1 class="subs-hero-title">Subscriptions</h1>
+                <p class="subs-hero-subtitle">Designed so you can easily start your Beloved LifeWink experience and build over time</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="subs-pricing">
+        <div class="container">
+            <!-- Monthly/Annual Toggle -->
+            <div class="pricing-toggle-wrapper fade-in-up">
+                <div class="pricing-toggle">
+                    <button class="toggle-btn active" data-billing="monthly">Monthly</button>
+                    <button class="toggle-btn" data-billing="annual">Annual</button>
+                    <div class="toggle-slider"></div>
+                </div>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="pricing-cards">
+                <!-- Card 1: Complimentary Starter -->
+                <div class="pricing-card scroll-animate" data-delay="0">
+                    <div class="pricing-card-header">
+                        <h3 class="pricing-card-name">Complimentary Starter Experience</h3>
+                    </div>
+                    <div class="pricing-card-body">
+                        <div class="pricing-card-upper">
+                            <div class="pricing-amount">
+                                <span class="price" data-monthly="$0" data-annual="$0">$0</span>
+                            </div>
+                            <p class="pricing-commitment">&nbsp;</p>
+                            <p class="pricing-tagline">30 days to explore and create your LifeWinks</p>
+                            <div class="pricing-btn-wrapper">
+                                <a href="#" class="pricing-btn pricing-btn-outline">Start your Complimentary Experience</a>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <h4 class="features-title">Key features</h4>
+                            <ul class="features-list">
+                                <li>Create up to 3 Classic LifeWinks</li>
+                                <li>Create 1 AI LifeWink</li>
+                                <li>Complimentary LifeWinks are securely saved and can be delivered once you activate a paid LifeWink subscription</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Unlimited Classic -->
+                <div class="pricing-card scroll-animate" data-delay="100">
+                    <div class="pricing-card-header">
+                        <h3 class="pricing-card-name">Unlimited Classic LifeWinks Subscription</h3>
+                    </div>
+                    <div class="pricing-card-body">
+                        <div class="pricing-card-upper">
+                            <div class="pricing-amount">
+                                <span class="price" data-monthly="$4.99<span class='price-period'>/month</span>" data-annual="$49.99<span class='price-period'>/year</span>">$4.99<span class="price-period">/month</span></span>
+                            </div>
+                            <p class="pricing-commitment">Monthly Commitment</p>
+                            <p class="pricing-tagline">Capture and share your most treasured moments</p>
+                            <div class="pricing-btn-wrapper">
+                                <a href="#" class="pricing-btn">Start your Classic LifeWinks Subscription</a>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <h4 class="features-title">Key features</h4>
+                            <ul class="features-list">
+                                <li>Full access to create and share unlimited authentic Classic LifeWinks using video, audio, photos, and attachments</li>
+                                <li>Ability to save drafts and preview Classic LifeWinks before sharing</li>
+                                <li>Classic LifeWinks can be scheduled for Recipients for both future-dated and undated occasions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Unlimited AI -->
+                <div class="pricing-card scroll-animate" data-delay="200">
+                    <div class="pricing-card-header">
+                        <h3 class="pricing-card-name">Unlimited AI LifeWinks Subscription</h3>
+                    </div>
+                    <div class="pricing-card-body">
+                        <div class="pricing-card-upper">
+                            <div class="pricing-amount">
+                                <span class="price" data-monthly="$6.99<span class='price-period'>/month</span>" data-annual="$69.99<span class='price-period'>/year</span>">$6.99<span class="price-period">/month</span></span>
+                            </div>
+                            <p class="pricing-commitment">Monthly Commitment</p>
+                            <p class="pricing-tagline">Capture and share what you value most</p>
+                            <div class="pricing-btn-wrapper">
+                                <a href="#" class="pricing-btn">Start your AI LifeWinks Subscription</a>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <h4 class="features-title">Key features</h4>
+                            <ul class="features-list">
+                                <li>Full access to create unlimited authentic AI LifeWinks built through your chat and voice conversations</li>
+                                <li>Inspiring prompts, contribution milestones, and preview testing ensure authentic AI LifeWink experiences</li>
+                                <li>AI LifeWinks are tailored to your Recipients and shared beyond your lifetime</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Combined Unlimited -->
+                <div class="pricing-card pricing-card-featured scroll-animate" data-delay="300">
+                    <div class="pricing-card-header">
+                        <h3 class="pricing-card-name">Combined Unlimited Classic and AI LifeWinks Subscription</h3>
+                    </div>
+                    <div class="pricing-card-body">
+                        <div class="pricing-card-upper">
+                            <div class="pricing-amount">
+                                <span class="price" data-monthly="$8.99<span class='price-period'>/month</span>" data-annual="$89.99<span class='price-period'>/year</span>">$8.99<span class="price-period">/month</span></span>
+                            </div>
+                            <p class="pricing-commitment">Monthly Commitment</p>
+                            <p class="pricing-tagline">Full access to everything that LifeWink has to offer</p>
+                            <div class="pricing-btn-wrapper">
+                                <a href="#" class="pricing-btn">Start your Complete LifeWinks Subscription</a>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <h4 class="features-title">Key features</h4>
+                            <ul class="features-list">
+                                <li>Combined access to unlimited Classic and AI LifeWink experiences</li>
+                                <li>Unlimited creation and delivery of Classic and AI LifeWinks to your Recipients</li>
+                                <li>All LifeWinks are securely stored and delivered exactly as you intend</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Included in All Subscriptions Section -->
+    <section class="subs-included">
+        <div class="container">
+            <div class="included-content fade-in-up">
+                <!-- Left Side: Heading + Brief -->
+                <div class="included-left">
+                    <div class="included-logo-mark">
+                        <img src="images/logo-blue.png" alt="LifeWink" class="included-logo-img">
+                    </div>
+                    <h2 class="included-title">Included in All LifeWink Subscriptions</h2>
+                    <p class="included-brief">Every LifeWink subscription comes with these core promises — so you can focus on what matters most: preserving your love.</p>
+                    <a href="download.html" class="btn included-cta-btn">Get LifeWink for Free</a>
+                </div>
+
+                <!-- Right Side: Feature Rows -->
+                <div class="included-right">
+                    <div class="included-feature-row">
+                        <div class="included-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <div class="included-feature-text">
+                            <h4 class="included-feature-title">Securely Stored Forever</h4>
+                            <p class="included-feature-desc">Your Classic and AI LifeWinks are securely stored, even if you unsubscribe.</p>
+                        </div>
+                    </div>
+
+                    <div class="included-feature-row">
+                        <div class="included-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <div class="included-feature-text">
+                            <h4 class="included-feature-title">Delivered Exactly as Intended</h4>
+                            <p class="included-feature-desc">Your scheduled Classic and AI LifeWinks are delivered privately and on time, exactly as you intended, even if you unsubscribe.</p>
+                        </div>
+                    </div>
+
+                    <div class="included-feature-row">
+                        <div class="included-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </div>
+                        <div class="included-feature-text">
+                            <h4 class="included-feature-title">Free for Recipients</h4>
+                            <p class="included-feature-desc">Your Recipients can view their Classic LifeWinks for free.</p>
+                        </div>
+                    </div>
+
+                    <div class="included-feature-row">
+                        <div class="included-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="included-feature-text">
+                            <h4 class="included-feature-title">Interactive AI Experiences</h4>
+                            <p class="included-feature-desc">Your Recipients can interact with their AI LifeWinks via chat and voice, with up to X monthly credits included and the option to purchase more.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="subs-faq">
+        <div class="container">
+            <h2 class="faq-title fade-in-up">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item scroll-animate">
+                    <div class="faq-question">
+                        <h3>How long is the complimentary starter experience?</h3>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The Complimentary Starter Experience lasts 30 days once you begin, and you have 30 days to start after enrolling.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item scroll-animate">
+                    <div class="faq-question">
+                        <h3>Can I share my LifeWinks in the complimentary starter experience?</h3>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>During the Complimentary Starter Experience, you can create and save LifeWinks, but sharing begins once you move to a paid experience.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item scroll-animate">
+                    <div class="faq-question">
+                        <h3>Can I cancel paid subscriptions?</h3>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. You can cancel your subscription at any time. Paid experiences are 12 month commitments, whether billed monthly or annually.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item scroll-animate">
+                    <div class="faq-question">
+                        <h3>What happens to my LifeWinks if I am no longer subscribed?</h3>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>All LifeWinks you've created are securely stored and never lost. Any LifeWinks that were built and scheduled will still be delivered as planned.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item scroll-animate">
+                    <div class="faq-question">
+                        <h3>Can I unsubscribe and resubscribe later?</h3>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. You can unsubscribe and return later to continue building and sharing your LifeWinks.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item scroll-animate">
+                    <div class="faq-question">
+                        <h3>Do my Recipients have to pay for LifeWinks?</h3>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Your Classic LifeWinks Recipients can view their Classic LifeWink for free. Your AI LifeWinks Recipients can interact with their AI LifeWinks via Chat and Voice, with up to X monthly credits included and the option to purchase more.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item scroll-animate">
+                    <div class="faq-question">
+                        <h3>Is there an age requirement for LifeWink?</h3>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, Beloved's must be 18 years old and Recipients who are under 18 require consent before being able to receive a LifeWink.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA + Footer Wrapper -->
+    <div class="cta-footer-wrapper">
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content fade-in-up">
+                    <h2 class="cta-title">Life's greatest gifts are to love and to be loved.</h2>
+                    <p class="cta-subtitle">Turn your love into LifeWinks today</p>
+                    <p class="cta-description">Download the free LifeWinks app or access LifeWink from any browser.</p>
+                    <a href="download.html" class="btn cta-btn">
+                        Get LifeWink for Free
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-main">
+                    <div class="footer-left">
+                        <a href="index.html" class="footer-logo">
+                            <img src="images/logo-white.png" alt="LifeWink">
+                        </a>
+                        <nav class="footer-nav">
+                            <a href="index.html">Home</a>
+                            <a href="how-it-works.html">How it Works</a>
+                            <a href="subscriptions.html">Subscriptions</a>
+                            <a href="our-story.html">Our Story</a>
+                        </nav>
+                    </div>
+                    <div class="footer-right">
+                        <div class="footer-badges">
+                            <a href="#" class="footer-badge">
+                                <img src="images/badges/app-store.png" alt="Download on the App Store">
+                            </a>
+                            <a href="#" class="footer-badge">
+                                <img src="images/badges/google-play.png" alt="Get it on Google Play">
+                            </a>
+                            <a href="#" class="footer-badge">
+                                <img src="images/badges/web-app.png" alt="Use Web App">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 LifeWink. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Pricing Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtns = document.querySelectorAll('.toggle-btn');
+            const prices = document.querySelectorAll('.price');
+            const slider = document.querySelector('.toggle-slider');
+
+            toggleBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    toggleBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    // Get billing type
+                    const billing = this.dataset.billing;
+
+                    // Update slider position
+                    if (billing === 'monthly') {
+                        slider.style.transform = 'translateX(0)';
+                    } else {
+                        slider.style.transform = 'translateX(100%)';
+                    }
+
+                    // Update all prices
+                    prices.forEach(price => {
+                        price.innerHTML = price.dataset[billing];
+                    });
+
+                    // Update commitment text
+                    const commitments = document.querySelectorAll('.pricing-commitment');
+                    const commitmentText = billing === 'monthly' ? 'Monthly Commitment' : 'Annual Commitment';
+                    commitments.forEach(el => {
+                        if (el.innerHTML.trim() !== '&nbsp;' && el.textContent.trim() !== '') {
+                            el.textContent = commitmentText;
+                        }
+                    });
+                });
+            });
+
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', function() {
+                    // Close other open items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

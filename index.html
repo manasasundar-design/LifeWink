@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeWink - Capture and share your love, today and beyond your lifetime</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo-white.png" alt="LifeWink" class="logo-img logo-white">
+                <img src="images/logo-blue.png" alt="LifeWink" class="logo-img logo-blue">
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="how-it-works.html" class="nav-link">How it Works</a>
+                <a href="subscriptions.html" class="nav-link">Subscriptions</a>
+                <a href="our-story.html" class="nav-link">Our Story</a>
+                <a href="download.html" class="btn nav-cta">Get LifeWink for Free</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-nav-link active">Home</a>
+        <a href="how-it-works.html" class="mobile-nav-link">How it Works</a>
+        <a href="subscriptions.html" class="mobile-nav-link">Subscriptions</a>
+        <a href="our-story.html" class="mobile-nav-link">Our Story</a>
+        <a href="download.html" class="btn btn-primary mobile-cta">Get LifeWink for Free</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-particles" aria-hidden="true"></div>
+
+        <!-- Splash Intro Overlay -->
+        <div class="hero-splash" id="heroSplash">
+            <div class="splash-particles" id="splashParticles"></div>
+            <h1 class="hero-splash-title">Turn your <span class="splash-rotating-wrapper"><span class="splash-rotating-words"><span class="splash-word active">love</span><span class="splash-word">memories</span><span class="splash-word">moments</span><span class="splash-word">stories</span><span class="splash-word">legacy</span></span></span> into LifeWinks today</h1>
+        </div>
+
+        <div class="container">
+            <div class="hero-content-wrapper">
+                <div class="hero-content fade-in-up">
+                    <h1 class="hero-title">Turn your <em>love</em> into LifeWinks today</h1>
+                    <p class="hero-subtitle">A private and safe multimedia and AI experience that authentically captures and shares your love with those you love — today and beyond your lifetime</p>
+                    <a href="download.html" class="btn hero-btn">
+                        Get LifeWink for Free
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Device Mockups - Figma Design Layout (CORRECT ORDER) -->
+            <div class="hero-devices-wrapper">
+                <div class="hero-devices-figma">
+                    <!-- Phone Mockup - LEFT (Rotated -7.01deg, Wedding Message) -->
+                    <div class="hero-device-phone fade-in-left">
+                        <img src="images/hero-phone-left.png" alt="LifeWink Mobile - Wedding Message">
+                    </div>
+                    <!-- Desktop/Monitor Mockup - CENTER BACK (Large Monitor) -->
+                    <div class="hero-device-desktop fade-in-up">
+                        <img src="images/hero-desktop-center.png" alt="LifeWink Desktop Dashboard">
+                    </div>
+                    <!-- Tablet Mockup - RIGHT (AI Chat Interface) -->
+                    <div class="hero-device-tablet fade-in-right">
+                        <img src="images/hero-tablet-right.png" alt="LifeWink Tablet - AI Chat">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="hero-testimonial fade-in-up">
+        <div class="testimonial-card">
+            <div class="testimonial-quote-left">
+                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m120 77.728c-66.182 0-120 53.833-120 120 0 60.41 44.854 110.537 103.037 118.799-4.658 33.838-17.578 66.035-37.764 93.955-3.926 5.449-3.779 12.832.41 18.105 4.11 5.189 11.252 7.156 17.52 4.512 95.244-39.755 156.797-132.158 156.797-235.371 0-66.167-53.818-120-120-120zm272 0c-66.182 0-120 53.833-120 120 0 60.41 44.854 110.537 103.037 118.799-4.658 33.838-17.578 66.035-37.764 93.955-3.926 5.449-3.779 12.832.41 18.105 4.11 5.189 11.252 7.156 17.52 4.512 95.244-39.755 156.797-132.158 156.797-235.371 0-66.167-53.818-120-120-120z"/>
+                </svg>
+            </div>
+            <div class="testimonial-content">
+                <blockquote class="testimonial-text">
+                    I treasure my photos, voicemails, emails and letters, but it's just not enough, the LifeWink experience keeps me connected in a whole new way, I never thought possible
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <cite class="author-name">Testimonial Placeholder</cite>
+                </div>
+            </div>
+            <div class="testimonial-quote-right">
+                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m120 77.728c-66.182 0-120 53.833-120 120 0 60.41 44.854 110.537 103.037 118.799-4.658 33.838-17.578 66.035-37.764 93.955-3.926 5.449-3.779 12.832.41 18.105 4.11 5.189 11.252 7.156 17.52 4.512 95.244-39.755 156.797-132.158 156.797-235.371 0-66.167-53.818-120-120-120zm272 0c-66.182 0-120 53.833-120 120 0 60.41 44.854 110.537 103.037 118.799-4.658 33.838-17.578 66.035-37.764 93.955-3.926 5.449-3.779 12.832.41 18.105 4.11 5.189 11.252 7.156 17.52 4.512 95.244-39.755 156.797-132.158 156.797-235.371 0-66.167-53.818-120-120-120z"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is LifeWink Section -->
+    <section class="what-is-section" id="what-is">
+        <div class="container">
+            <div class="what-is-border-layout fade-in-up">
+                <div class="blue-accent-bar"></div>
+                <div class="what-is-content">
+                    <span class="section-label-pill">WHAT IS LIFEWINK</span>
+                    <h2 class="what-is-heading">LifeWink provides two ways to capture and share your love</h2>
+                    <p class="what-is-subheading">Classic LifeWinks and AI LifeWinks</p>
+                    <p class="section-description">All LifeWinks are authentically created by you, the Beloved, and delivered to those you love, your Recipients, on-time and privately beyond your lifetime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <!-- Feature 1: Classic LifeWinks -->
+            <div class="feature-block feature-left">
+                <div class="feature-content fade-in-left">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/>
+                            <path d="M21 15L16 10L9 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2 class="feature-title">Classic LifeWinks</h2>
+                    <p class="feature-description">Authentically capture your most treasured moments using video, photos, audio, and attachments, and share them on dated, undated, or custom occasions with those you love—today and beyond your lifetime.</p>
+                </div>
+                <div class="feature-visual fade-in-right">
+                    <div class="feature-image classic-phones-container">
+                        <img src="images/classic-phone-left.png" alt="Classic LifeWinks - Undated" class="classic-phone-left">
+                        <img src="images/classic-phone-right.png" alt="Classic LifeWinks - Dated" class="classic-phone-right">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2: AI LifeWinks -->
+            <div class="feature-block feature-right">
+                <div class="feature-visual fade-in-left">
+                    <div class="feature-image ai-phones-container">
+                        <img src="images/ai-phone-left.png" alt="AI LifeWinks - My Progress" class="ai-phone-left">
+                        <img src="images/ai-phone-right.png" alt="AI LifeWinks - Topic Areas" class="ai-phone-right">
+                    </div>
+                </div>
+                <div class="feature-content fade-in-right">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2 class="feature-title">AI LifeWinks</h2>
+                    <p class="feature-description">Authentically capture what you value most through meaningful prompts and questions across six key topic areas and share it as a chat and voice AI experience with those you love—today and beyond your lifetime.</p>
+                </div>
+            </div>
+
+            <!-- Feature 3: Create Today and Share Beyond Your Lifetime -->
+            <div class="feature-block feature-left">
+                <div class="feature-content fade-in-left">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2 class="feature-title">Create Today and Share Beyond Your Lifetime</h2>
+                    <p class="feature-description">As a Beloved, you create authentic Classic and AI LifeWinks today, which are shared with your Recipients beyond your lifetime, supported by your Stewards and Guardians.</p>
+                </div>
+                <div class="feature-visual fade-in-right">
+                    <div class="feature-image sharing-phones-container">
+                        <img src="images/sharing-phone-left.png" alt="Sharing & Private Delivery - Steward & Guardian Roles" class="sharing-phone-left">
+                        <img src="images/sharing-phone.png" alt="Sharing & Private Delivery - Role Selection" class="sharing-phone-right">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 4: Safe, Secure and Private -->
+            <div class="feature-block feature-right">
+                <div class="feature-visual fade-in-left">
+                    <div class="feature-image scheduled-phones-container">
+                        <img src="images/scheduled-phone-left.png" alt="Safe, Secure and Private - Received LifeWinks Chat" class="scheduled-phone-left">
+                        <img src="images/scheduled-phone-right.png" alt="Safe, Secure and Private - AI Recipients" class="scheduled-phone-right">
+                    </div>
+                </div>
+                <div class="feature-content fade-in-right">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2 class="feature-title">Safe, Secure and Private</h2>
+                    <p class="feature-description">Anyone 18+ can create, share, and receive LifeWinks. Individuals under 18 can receive LifeWinks with guardian consent. Every LifeWink is authentic—built only by you, securely stored, and delivered privately and on time, exactly as you intend.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore Section -->
+    <section class="explore-section">
+        <div class="container">
+            <div class="section-header centered fade-in-up">
+                <span class="section-label-pill">EXPLORE LIFEWINK</span>
+            </div>
+            <div class="explore-cards" style="margin-top: 40px;">
+                <a href="how-it-works.html" class="explore-card fade-in-up" data-delay="0">
+                    <div class="card-background-layer"></div>
+                    <div class="card-content-layer">
+                        <div class="explore-icon">
+                            <!-- Film/Video Grid Icon -->
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="4" width="10" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <rect x="18" y="4" width="10" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <rect x="4" y="18" width="10" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <rect x="18" y="18" width="10" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="9" cy="9" r="2" fill="currentColor"/>
+                                <path d="M21 8L25 11L21 14V8Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 class="explore-title">How It Works</h3>
+                        <p class="explore-description">See how to capture and share your love, today and beyond your lifetime, using Classic and AI LifeWinks</p>
+                        <span class="explore-link">Learn more <span class="arrow">→</span></span>
+                    </div>
+                </a>
+                <a href="subscriptions.html" class="explore-card fade-in-up" data-delay="100">
+                    <div class="card-background-layer"></div>
+                    <div class="card-content-layer">
+                        <div class="explore-icon">
+                            <!-- Sparkle/Star Icon -->
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 4L18.5 12.5L27 12.5L20.5 17.5L23 26L16 21L9 26L11.5 17.5L5 12.5L13.5 12.5L16 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 8L17.5 13H22L18.5 16L20 21L16 18L12 21L13.5 16L10 13H14.5L16 8Z" fill="currentColor" opacity="0.3"/>
+                            </svg>
+                        </div>
+                        <h3 class="explore-title">Subscriptions</h3>
+                        <p class="explore-description">Turn your love into LifeWinks today with our Beloved Complimentary Starter Subscription</p>
+                        <span class="explore-link">View subscriptions <span class="arrow">→</span></span>
+                    </div>
+                </a>
+                <a href="our-story.html" class="explore-card fade-in-up" data-delay="200">
+                    <div class="card-background-layer"></div>
+                    <div class="card-content-layer">
+                        <div class="explore-icon">
+                            <!-- Heart Icon -->
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 28C16 28 4 20 4 12C4 8.13401 7.13401 5 11 5C13.2091 5 15.2091 6.08411 16 7.5C16.7909 6.08411 18.7909 5 21 5C24.866 5 28 8.13401 28 12C28 20 16 28 16 28Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="explore-title">Our Story</h3>
+                        <p class="explore-description">Why we built LifeWink on four simple beliefs, love, life, legacy and longevity</p>
+                        <span class="explore-link">Who we are <span class="arrow">→</span></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA + Footer Wrapper -->
+    <div class="cta-footer-wrapper">
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content fade-in-up">
+                    <h2 class="cta-title">Life's greatest gifts are to love and to be loved.</h2>
+                    <p class="cta-subtitle">Turn your love into LifeWinks today</p>
+                    <p class="cta-description">Download the free LifeWinks app or access LifeWink from any browser.</p>
+                    <a href="download.html" class="btn cta-btn">
+                        Get LifeWink for Free
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-main">
+                    <div class="footer-left">
+                        <a href="index.html" class="footer-logo">
+                            <img src="images/logo-white.png" alt="LifeWink">
+                        </a>
+                        <nav class="footer-nav">
+                            <a href="index.html">Home</a>
+                            <a href="how-it-works.html">How it Works</a>
+                            <a href="subscriptions.html">Subscriptions</a>
+                            <a href="our-story.html">Our Story</a>
+                        </nav>
+                    </div>
+                    <div class="footer-right">
+                        <div class="footer-badges">
+                            <a href="#" class="footer-badge">
+                                <img src="images/badges/app-store.png" alt="Download on the App Store">
+                            </a>
+                            <a href="#" class="footer-badge">
+                                <img src="images/badges/google-play.png" alt="Get it on Google Play">
+                            </a>
+                            <a href="#" class="footer-badge">
+                                <img src="images/badges/web-app.png" alt="Use Web App">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 LifeWink. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

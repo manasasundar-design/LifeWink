@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story - LifeWink</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           Our Story Page - Specific Styles
+           ======================================== */
+
+        /* Hero Section with Light Blue Gradient */
+        .story-hero {
+            position: relative;
+            padding: 130px 0 50px;
+            background: linear-gradient(180deg,
+                #c8e2fd 0%,
+                #d8ecfe 15%,
+                #e8f3fe 35%,
+                #f2f8ff 55%,
+                #f9fcff 75%,
+                #FFFFFF 100%
+            );
+            overflow: hidden;
+        }
+
+        .story-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse 600px 400px at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 70%),
+                radial-gradient(ellipse 500px 300px at 80% 60%, rgba(255,255,255,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .story-hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .story-hero-title {
+            font-size: 46px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .story-hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* Video Container */
+        .story-video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            background: var(--gray-200);
+            aspect-ratio: 16 / 9;
+        }
+
+        .story-video-wrapper video,
+        .story-video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .story-video-wrapper video {
+            display: block;
+        }
+
+        /* Video Overlay with Play Button */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            z-index: 2;
+        }
+
+        .video-overlay:hover {
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        .video-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .video-play-btn {
+            width: 90px;
+            height: 90px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(1, 105, 235, 0.4);
+            border: none;
+        }
+
+        .video-play-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(1, 105, 235, 0.5);
+        }
+
+        .video-play-btn svg {
+            width: 36px;
+            height: 36px;
+            color: white;
+            margin-left: 5px;
+        }
+
+        .story-video-caption {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            margin-bottom: 30px;
+        }
+
+        .story-hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .story-hero-buttons .btn {
+            min-width: 160px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gray-700);
+            border: 2px solid var(--gray-300);
+        }
+
+        .btn-outline:hover {
+            background: var(--gray-100);
+            border-color: var(--gray-400);
+            transform: translateY(-2px);
+        }
+
+        /* Founder Section */
+        .founder-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .founder-image-wrapper {
+            position: sticky;
+            top: 120px;
+        }
+
+        .founder-image {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .founder-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .founder-image-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--gray-200) 0%, var(--gray-300) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .founder-image-placeholder svg {
+            width: 64px;
+            height: 64px;
+            color: var(--gray-400);
+        }
+
+        .founder-image-placeholder span {
+            color: var(--gray-500);
+            font-size: 0.875rem;
+        }
+
+        .founder-content {
+            padding-top: 10px;
+        }
+
+        .founder-section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .founder-text {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: var(--gray-700);
+        }
+
+        .founder-text p {
+            margin-bottom: 24px;
+        }
+
+        .founder-text p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .founder-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 32px;
+            margin-bottom: 32px;
+        }
+
+        .founder-signature {
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .founder-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+
+        .founder-title {
+            font-size: 1rem;
+            color: var(--gray-500);
+        }
+
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .founder-grid {
+                grid-template-columns: 280px 1fr;
+                gap: 40px;
+            }
+
+        }
+
+        @media (max-width: 768px) {
+            .story-hero {
+                padding: 110px 0 40px;
+            }
+
+            .story-hero-title {
+                font-size: 32px;
+            }
+
+            .founder-section {
+                padding: 60px 0;
+            }
+
+            .founder-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .founder-image-wrapper {
+                position: static;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .founder-content {
+                padding-top: 0;
+            }
+
+        }
+
+        /* Animation Classes */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-light" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo-white.png" alt="LifeWink" class="logo-img logo-white">
+                <img src="images/logo-blue.png" alt="LifeWink" class="logo-img logo-blue">
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="how-it-works.html" class="nav-link">How it Works</a>
+                <a href="subscriptions.html" class="nav-link">Subscriptions</a>
+                <a href="our-story.html" class="nav-link active">Our Story</a>
+                <a href="download.html" class="btn nav-cta">Get LifeWink for Free</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="how-it-works.html" class="mobile-nav-link">How it Works</a>
+        <a href="subscriptions.html" class="mobile-nav-link">Subscriptions</a>
+        <a href="our-story.html" class="mobile-nav-link active">Our Story</a>
+        <a href="download.html" class="btn btn-primary mobile-cta">Get LifeWink for Free</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="story-hero">
+        <div class="container">
+            <div class="story-hero-content fade-in-up">
+                <h1 class="story-hero-title">Our story</h1>
+                <p class="story-hero-subtitle">LifeWink carries forth the greatest gifts we have in life – to love and to be loved</p>
+
+                <!-- Video Container -->
+                <div class="story-video-wrapper">
+                    <video id="storyVideo">
+                        <source src="images/story/jim-video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-overlay" id="videoOverlay">
+                        <button class="video-play-btn" aria-label="Play video">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <p class="story-video-caption">Hear from our Founder, Jim Baumann</p>
+
+                <div class="story-hero-buttons">
+                    <a href="download.html" class="btn btn-primary">Get started</a>
+                    <a href="how-it-works.html" class="btn btn-outline">How it works</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Message Section -->
+    <section class="founder-section">
+        <div class="container">
+            <div class="founder-grid">
+                <!-- Founder Image -->
+                <div class="founder-image-wrapper fade-in-left">
+                    <div class="founder-image">
+                        <img src="images/story/jim-baumann.png" alt="Jim Baumann, Founder of LifeWink">
+                    </div>
+                </div>
+
+                <!-- Founder Content -->
+                <div class="founder-content fade-in-right">
+                    <div class="founder-text">
+                        <p>Over the past two decades, I've lost my parents and many cherished family members and friends. Those experiences shaped me deeply and reinforced something I believe to be true: to love and to be loved are life's greatest gift.</p>
+
+                        <p>LifeWink was created from that belief.</p>
+
+                        <p>LifeWink is a profoundly personal platform designed to help people authentically capture their love while they are living and share it with the people they love, today and beyond their lifetime. Our hope is that LifeWink inspires new conversations, deeper reflection, and more intentional connection, helping people express love today and carry it forward into the future.</p>
+
+                        <p>Guided by love, integrity, curiosity, and excellence, we put our users' well-being at the center of everything we do. We are deeply committed to privacy, security, and ensuring every LifeWink remains authentic and true to the person who created it.</p>
+
+                        <p>I often wish I could be receiving LifeWinks today from those I've loved and lost. It's my sincere hope that LifeWink earns your trust, feels meaningful to you, and helps you share what matters most with the people you love—today and beyond your lifetime.</p>
+                    </div>
+
+                    <a href="download.html" class="btn btn-primary founder-cta-btn">Get LifeWink for Free</a>
+
+                    <div class="founder-signature">
+                        <p class="founder-name">Jim Baumann</p>
+                        <p class="founder-title">Founder, Chief Trust Officer & CEO</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA + Footer Wrapper -->
+    <div class="cta-footer-wrapper">
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content fade-in-up">
+                    <h2 class="cta-title">Life's greatest gifts are to love and to be loved.</h2>
+                    <p class="cta-subtitle">Turn your love into LifeWinks today</p>
+                    <p class="cta-description">Download the free LifeWinks app or access LifeWink from any browser.</p>
+                    <a href="download.html" class="btn cta-btn">
+                        Get LifeWink for Free
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-main">
+                    <div class="footer-left">
+                        <a href="index.html" class="footer-logo">
+                            <img src="images/logo-white.png" alt="LifeWink">
+                        </a>
+                        <nav class="footer-nav">
+                            <a href="index.html">Home</a>
+                            <a href="how-it-works.html">How it Works</a>
+                            <a href="subscriptions.html">Subscriptions</a>
+                            <a href="our-story.html">Our Story</a>
+                        </nav>
+                    </div>
+                    <div class="footer-right">
+                        <div class="footer-badges">
+                            <a href="#" class="footer-badge">
+                                <img src="images/badges/app-store.png" alt="Download on the App Store">
+                            </a>
+                            <a href="#" class="footer-badge">
+                                <img src="images/badges/google-play.png" alt="Get it on Google Play">
+                            </a>
+                            <a href="#" class="footer-badge">
+                                <img src="images/badges/web-app.png" alt="Use Web App">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 LifeWink. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Video play button functionality
+            const video = document.getElementById('storyVideo');
+            const overlay = document.getElementById('videoOverlay');
+
+            if (video && overlay) {
+                // Click overlay to play
+                overlay.addEventListener('click', function() {
+                    video.play();
+                    video.controls = true;
+                    overlay.classList.add('hidden');
+                });
+
+                // Show overlay again when video ends
+                video.addEventListener('ended', function() {
+                    overlay.classList.remove('hidden');
+                    video.controls = false;
+                });
+
+                // Show overlay when video is paused (optional - clicking video area)
+                video.addEventListener('pause', function() {
+                    if (video.currentTime > 0 && !video.ended) {
+                        // Only show overlay if paused manually, not at the end
+                        overlay.classList.remove('hidden');
+                        video.controls = false;
+                    }
+                });
+
+                // Hide overlay when playing
+                video.addEventListener('play', function() {
+                    overlay.classList.add('hidden');
+                    video.controls = true;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

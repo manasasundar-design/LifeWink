@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - LifeWink</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo-white.png" alt="LifeWink" class="logo-img logo-white">
+                <img src="images/logo-blue.png" alt="LifeWink" class="logo-img logo-blue">
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="how-it-works.html" class="nav-link active">How it Works</a>
+                <a href="subscriptions.html" class="nav-link">Subscriptions</a>
+                <a href="our-story.html" class="nav-link">Our Story</a>
+                <a href="download.html" class="btn nav-cta">Get LifeWink for Free</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="how-it-works.html" class="mobile-nav-link active">How it Works</a>
+        <a href="subscriptions.html" class="mobile-nav-link">Subscriptions</a>
+        <a href="our-story.html" class="mobile-nav-link">Our Story</a>
+        <a href="download.html" class="btn btn-primary mobile-cta">Get LifeWink for Free</a>
+    </div>
+
+    <!-- Hero Section - Split Layout with Gradient -->
+    <section class="hiw-hero-split">
+        <div class="hiw-hero-gradient-bg"></div>
+        <div class="container-wide">
+            <div class="hiw-hero-grid">
+                <!-- Left Content -->
+                <div class="hiw-hero-left fade-in-left">
+                    <h1 class="hiw-hero-title-lg">How It Works</h1>
+                    <p class="hiw-hero-subtitle-lg">LifeWink provides two ways to capture and share your love — multimedia Classic LifeWinks and AI LifeWinks — All LifeWinks are authentically created by you, the Beloved, and delivered to those you love, your Recipients, on-time and privately beyond your lifetime.</p>
+                    <a href="download.html" class="btn hero-btn">
+                        Get LifeWink for Free
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Right - Device Mockups (Figma layout) -->
+                <div class="hiw-hero-right fade-in-right">
+                    <div class="hiw-hero-devices" id="hiwHeroDevices">
+                        <!-- Two phones - bottom aligned, in front -->
+                        <div class="hiw-devices-phones">
+                            <!-- Phone Left - AI LifeWink Test -->
+                            <div class="hiw-device hiw-device-phone-left">
+                                <img src="images/hiw-phone-ai-test.png" alt="LifeWink AI Test - Recipient Mode">
+                            </div>
+                            <!-- Phone Center - Wedding Message -->
+                            <div class="hiw-device hiw-device-phone-center">
+                                <img src="images/hiw-phone-wedding.png" alt="LifeWink Wedding Message">
+                            </div>
+                        </div>
+                        <!-- Monitor - Right edge, 3/4 visible, behind phones -->
+                        <div class="hiw-device hiw-device-monitor">
+                            <img src="images/hiw-monitor-dashboard.png" alt="LifeWink Desktop Dashboard">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: Classic LifeWinks - Asymmetric Bento Grid -->
+    <section class="hiw-section hiw-gradient-section hiw-gradient-classic">
+        <div class="container">
+            <div class="hiw-section-header fade-in-up">
+                <h2 class="hiw-section-title">Create Classic LifeWinks to authentically capture <span class="text-blue">your most treasured moments</span></h2>
+            </div>
+
+            <div class="asym-bento-grid fade-in-up">
+                <!-- Row 1: Narrow (1 phone) left + Wide (2 phones) right -->
+                <div class="asym-card asym-narrow classic-2x2-card scroll-animate">
+                    <div class="asym-card-images">
+                        <img src="images/classic-card-1.png" alt="Authentic Capture - LifeWink App">
+                    </div>
+                    <div class="asym-card-text">
+                        <h3 class="classic-2x2-title">Authentic Capture</h3>
+                        <p class="classic-2x2-desc">Beloveds create Classic LifeWinks using video, audio, photos, and attachments</p>
+                    </div>
+                </div>
+
+                <div class="asym-card asym-wide classic-2x2-card scroll-animate">
+                    <div class="asym-card-images">
+                        <img src="images/classic-card-2a.png" alt="Dated Occasions - LifeWink App">
+                        <img src="images/classic-card-2b.png" alt="Dated Occasions - LifeWink App">
+                    </div>
+                    <div class="asym-card-text">
+                        <h3 class="classic-2x2-title">Share on Dated Occasions</h3>
+                        <p class="classic-2x2-desc">Deliver on future-dated occasions like birthdays, anniversaries, and custom moments</p>
+                    </div>
+                </div>
+
+                <!-- Row 2: Wide (2 phones) left + Narrow (1 phone) right -->
+                <div class="asym-card asym-wide classic-2x2-card scroll-animate">
+                    <div class="asym-card-images">
+                        <img src="images/classic-card-3a.png" alt="Undated Occasions - LifeWink App">
+                        <img src="images/classic-card-3b.png" alt="Undated Occasions - LifeWink App">
+                    </div>
+                    <div class="asym-card-text">
+                        <h3 class="classic-2x2-title">Share on Undated Occasions</h3>
+                        <p class="classic-2x2-desc">Set up delivery for moments where timing isn't yet known, such as weddings, graduations, and births</p>
+                    </div>
+                </div>
+
+                <div class="asym-card asym-narrow classic-2x2-card scroll-animate">
+                    <div class="asym-card-images">
+                        <img src="images/classic-card-4.png" alt="Start Small - LifeWink App">
+                    </div>
+                    <div class="asym-card-text">
+                        <h3 class="classic-2x2-title">Start Small, Build Over Time</h3>
+                        <p class="classic-2x2-desc">Save Classic LifeWinks as drafts and preview them before scheduling to your Recipients</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: AI LifeWinks - Asymmetric Bento Grid -->
+    <section class="hiw-section hiw-gradient-section hiw-gradient-ai">
+        <div class="container">
+            <div class="hiw-section-header fade-in-up">
+                <h2 class="hiw-section-title">Create AI LifeWinks to authentically capture <span class="text-blue">what you value most</span></h2>
+            </div>
+
+            <div class="asym-bento-grid asym-bento-grid-ai fade-in-up">
+                <!-- Row 1: Wide (2 phones) left + Narrow (1 phone) right -->
+                <div class="asym-card asym-wide classic-2x2-card scroll-animate">
+                    <div class="asym-card-images">
+                        <img src="images/ai-card-1a.png" alt="AI Authentic Capture - LifeWink App">
+                        <img src="images/ai-card-1b.png" alt="AI Authentic Capture - LifeWink App">
+                    </div>
+                    <div class="asym-card-text">
+                        <h3 class="classic-2x2-title">Authentic Capture</h3>
+                        <p class="classic-2x2-desc">Create AI LifeWinks using only your chat and voice responses to 125+ meaningful prompts and questions</p>
+                    </div>
+                </div>
+
+                <div class="asym-card asym-narrow classic-2x2-card scroll-animate">
+                    <div class="asym-card-images">
+                        <img src="images/ai-card-2.png" alt="AI Tailor for Recipient - LifeWink App">
+                    </div>
+                    <div class="asym-card-text">
+                        <h3 class="classic-2x2-title">Tailor for Each Recipient</h3>
+                        <p class="classic-2x2-desc">Beyond prompts and questions, each LifeWink is further tailored to the Recipient</p>
+                    </div>
+                </div>
+
+                <!-- Row 2: Narrow (1 phone) left + Wide (2 phones) right -->
+                <div class="asym-card asym-narrow classic-2x2-card scroll-animate">
+                    <div class="asym-card-images">
+                        <img src="images/ai-card-3.png" alt="AI Build Over Time - LifeWink App">
+                    </div>
+                    <div class="asym-card-text">
+                        <h3 class="classic-2x2-title">Start Small, Build Over Time</h3>
+                        <p class="classic-2x2-desc">Track progress through contribution milestones as you build your AI LifeWinks over time</p>
+                    </div>
+                </div>
+
+                <div class="asym-card asym-wide classic-2x2-card scroll-animate">
+                    <div class="asym-card-images">
+                        <img src="images/ai-card-4a.png" alt="AI Preview and Test - LifeWink App">
+                        <img src="images/ai-card-4b.png" alt="AI Preview and Test - LifeWink App">
+                    </div>
+                    <div class="asym-card-text">
+                        <h3 class="classic-2x2-title">Preview and Test Before Sharing</h3>
+                        <p class="classic-2x2-desc">Preview and test the chat and voice AI experience before scheduling delivery to your Recipient</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Roles - Scroll-Driven Sticky Section -->
+    <section class="hiw-roles-section" id="rolesSection">
+        <!-- Scroll-driven area: tall container with sticky content inside -->
+        <div class="hiw-roles-scroll-area">
+            <div class="container">
+                <div class="hiw-roles-sticky-content">
+                    <!-- Two-column grid: left text + right phone -->
+                    <div class="hiw-roles-grid">
+                        <!-- Left Side: Heading + Role items -->
+                        <div class="hiw-roles-left">
+                            <div class="hiw-roles-header">
+                                <h2 class="hiw-roles-heading">Share Your Classic and AI LifeWinks — <span>today and beyond your lifetime</span></h2>
+                            </div>
+                            <div class="hiw-role-item active" data-role="0">
+                                <div class="hiw-role-indicator"></div>
+                                <div class="hiw-role-content">
+                                    <div class="hiw-role-title-row">
+                                        <h3 class="hiw-role-title">Recipients</h3>
+                                        <span class="hiw-role-toggle"></span>
+                                    </div>
+                                    <p class="hiw-role-desc">You choose your Recipients—the people who receive your LifeWinks. Recipients under 18 require guardian consent.</p>
+                                </div>
+                            </div>
+
+                            <div class="hiw-role-item" data-role="1">
+                                <div class="hiw-role-indicator"></div>
+                                <div class="hiw-role-content">
+                                    <div class="hiw-role-title-row">
+                                        <h3 class="hiw-role-title">Stewards</h3>
+                                        <span class="hiw-role-toggle"></span>
+                                    </div>
+                                    <p class="hiw-role-desc">You assign Stewards to deliver undated Classic LifeWinks. They set the delivery date once the exact timing is known.</p>
+                                </div>
+                            </div>
+
+                            <div class="hiw-role-item" data-role="2">
+                                <div class="hiw-role-indicator"></div>
+                                <div class="hiw-role-content">
+                                    <div class="hiw-role-title-row">
+                                        <h3 class="hiw-role-title">Guardians</h3>
+                                        <span class="hiw-role-toggle"></span>
+                                    </div>
+                                    <p class="hiw-role-desc">You assign Guardians to confirm your passing with LifeWink, ensuring your Classic and AI LifeWinks are delivered as intended.</p>
+                                </div>
+                            </div>
+
+                            <div class="hiw-role-item" data-role="3">
+                                <div class="hiw-role-indicator"></div>
+                                <div class="hiw-role-content">
+                                    <div class="hiw-role-title-row">
+                                        <h3 class="hiw-role-title">Safe. Secure. Private.</h3>
+                                        <span class="hiw-role-toggle"></span>
+                                    </div>
+                                    <p class="hiw-role-desc">You must be 18 or older to become a Beloved and create LifeWinks. Every LifeWink is securely stored and delivered privately and on time, exactly as you intend.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Side: Sticky Image -->
+                        <div class="hiw-roles-right">
+                            <div class="hiw-roles-image-container">
+                                <img src="images/roles-recipients.png" alt="Recipients" class="hiw-role-image active" data-role-img="0">
+                                <img src="images/roles-stewards.png" alt="Stewards" class="hiw-role-image" data-role-img="1">
+                                <img src="images/roles-guardians.png" alt="Guardians" class="hiw-role-image" data-role-img="2">
+                                <img src="images/hero-phone-left.png" alt="Safe Secure Private" class="hiw-role-image" data-role-img="3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Section 4: Final CTA - Desktop Bleed with Overlay Devices -->
+    <section class="hiw-final-cta">
+        <!-- Text row inside container -->
+        <div class="container">
+            <div class="hiw-final-cta-text">
+                <h2 class="hiw-final-title">Turn your love into LifeWinks <span class="text-blue">Today</span></h2>
+                <p class="hiw-final-subtitle">Authentically capture and share your love by creating multimedia Classic LifeWinks and building authentic chat and voice AI LifeWinks.</p>
+                <a href="download.html" class="hiw-final-btn">
+                    Get LifeWink for Free
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Device showcase — Figma arrangement: phone left, desktop center, tablet right -->
+        <div class="hiw-device-showcase">
+            <div class="hiw-showcase-desktop">
+                <img src="images/cta-desktop.png" alt="LifeWink on Desktop">
+            </div>
+            <div class="hiw-showcase-phone">
+                <img src="images/cta-phone.png" alt="LifeWink on Phone">
+            </div>
+            <div class="hiw-showcase-tablet">
+                <img src="images/cta-tablet.png" alt="LifeWink on Tablet">
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA + Footer Wrapper -->
+    <div class="cta-footer-wrapper">
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content fade-in-up">
+                    <h2 class="cta-title">Life's greatest gifts are to love and to be loved.</h2>
+                    <p class="cta-subtitle">Turn your love into LifeWinks today</p>
+                    <p class="cta-description">Download the free LifeWinks app or access LifeWink from any browser.</p>
+                    <a href="download.html" class="btn cta-btn">
+                        Get LifeWink for Free
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-main">
+                    <div class="footer-left">
+                        <a href="index.html" class="footer-logo">
+                            <img src="images/logo-white.png" alt="LifeWink">
+                        </a>
+                        <nav class="footer-nav">
+                            <a href="index.html">Home</a>
+                            <a href="how-it-works.html">How it Works</a>
+                            <a href="subscriptions.html">Subscriptions</a>
+                            <a href="our-story.html">Our Story</a>
+                        </nav>
+                    </div>
+                    <div class="footer-right">
+                        <div class="footer-badges">
+                            <a href="#" class="footer-badge">
+                                <img src="images/badges/app-store.png" alt="Download on the App Store">
+                            </a>
+                            <a href="#" class="footer-badge">
+                                <img src="images/badges/google-play.png" alt="Get it on Google Play">
+                            </a>
+                            <a href="#" class="footer-badge">
+                                <img src="images/badges/web-app.png" alt="Use Web App">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 LifeWink. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
