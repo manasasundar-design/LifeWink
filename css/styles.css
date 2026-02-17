@@ -3590,14 +3590,7 @@ ul {
     z-index: 1;
 }
 
-.hiw-gradient-section .asym-card.classic-2x2-card:hover {
-    background: rgba(255, 255, 255, 0.62);
-    border-color: rgba(255, 255, 255, 0.7);
-    box-shadow:
-        0 8px 28px rgba(1, 105, 235, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.75);
-    transform: translateY(-3px);
-}
+/* Hover effects removed */
 
 /* Glass card image area - keep animated gradient, just add border */
 .hiw-gradient-section .asym-card-images {
@@ -3664,63 +3657,7 @@ ul {
     transition: background 0.5s ease;
 }
 
-/* Concentric circles - default state */
-.asym-card-images::before {
-    content: '';
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    border: 2px solid rgba(1, 105, 235, 0.12);
-    box-shadow:
-        0 0 0 16px rgba(1, 105, 235, 0.08),
-        0 0 0 34px rgba(1, 105, 235, 0.05),
-        0 0 0 54px rgba(1, 105, 235, 0.03);
-    z-index: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-}
-
-/* Different positions per card */
-.asym-bento-grid .asym-card:nth-child(1) .asym-card-images::before {
-    top: -50px;
-    right: -40px;
-}
-.asym-bento-grid .asym-card:nth-child(2) .asym-card-images::before {
-    bottom: -60px;
-    left: -30px;
-    top: auto;
-}
-.asym-bento-grid .asym-card:nth-child(3) .asym-card-images::before {
-    top: -40px;
-    left: -50px;
-}
-.asym-bento-grid .asym-card:nth-child(4) .asym-card-images::before {
-    bottom: -50px;
-    right: -35px;
-    top: auto;
-}
-
-/* Hover: subtle animated gradient */
-.asym-card:hover .asym-card-images {
-    background: linear-gradient(135deg,
-        #E4EEFE, #DAE6FC, #CFE0FA, #D4E2FC, #E2EAFD, #C8DAFB, #E4EEFE);
-    background-size: 300% 300%;
-    animation: gradientShift 10s ease infinite;
-}
-
-/* Fade out circles on hover */
-.asym-card:hover .asym-card-images::before {
-    opacity: 0;
-}
-
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    25% { background-position: 100% 0%; }
-    50% { background-position: 100% 100%; }
-    75% { background-position: 0% 100%; }
-    100% { background-position: 0% 50%; }
-}
+/* Concentric circles and hover gradient removed */
 
 .asym-card-images img {
     height: auto;
