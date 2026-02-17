@@ -25,5 +25,8 @@ START-HERE.html
 Open How It Works.bat
 save_clipboard.ps1
 
+# Large files (exceed GitHub 100MB limit)
+*.mp4
+
 # Documentation / planning (not needed in production)
 *.md
