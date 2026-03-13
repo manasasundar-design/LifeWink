@@ -30,3 +30,5 @@ save_clipboard.ps1
 
 # Documentation / planning (not needed in production)
 *.md
+
+.vercel
