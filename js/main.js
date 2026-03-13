@@ -109,8 +109,66 @@ function initScrollAnimations() {
         observer.observe(el);
     });
 
+    // Word-by-word scroll reveal for what-is section
+    initWordReveal();
+
     // Classic Bento Cards Scroll Animation
     initBentoCardAnimations();
+}
+
+/* ========================================
+   Word-by-Word Timed Reveal
+   ======================================== */
+function initWordReveal() {
+    const section = document.querySelector('.what-is-section');
+    if (!section) return;
+
+    const targets = section.querySelectorAll('.word-reveal-target');
+    if (!targets.length) return;
+
+    // Split each target's text into individual word spans
+    const allWords = [];
+    targets.forEach(target => {
+        const text = target.textContent;
+        target.innerHTML = '';
+        const words = text.split(/\s+/);
+        words.forEach((word, i) => {
+            const span = document.createElement('span');
+            span.className = 'reveal-word';
+            span.textContent = word;
+            target.appendChild(span);
+            if (i < words.length - 1) {
+                target.appendChild(document.createTextNode(' '));
+            }
+            allWords.push(span);
+        });
+    });
+
+    let isAnimating = false;
+
+    // When section enters viewport, reveal words; when it leaves, reset them
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !isAnimating) {
+                isAnimating = true;
+
+                // Reveal each word with 60ms interval
+                allWords.forEach((word, index) => {
+                    setTimeout(() => {
+                        word.classList.add('revealed');
+                    }, index * 60);
+                });
+            } else if (!entry.isIntersecting) {
+                // Reset all words when section leaves viewport
+                isAnimating = false;
+                allWords.forEach(word => {
+                    word.classList.remove('revealed');
+                });
+            }
+        });
+    }, { threshold: 0.15 });
+
+    revealObserver.observe(section);
 }
 
 /* ========================================
@@ -481,28 +539,7 @@ function initHoverEffects() {
         document.head.appendChild(style);
     }
 
-    // Explore card tilt effect
-    const exploreCards = document.querySelectorAll('.explore-card');
-
-    exploreCards.forEach(card => {
-        card.addEventListener('mousemove', function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
-
-            this.style.transform = `translateY(-8px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) perspective(1000px) rotateX(0) rotateY(0)';
-        });
-    });
+    // Explore card tilt effect — REMOVED (cards use CSS-only hover: border + shadow)
 
     // Feature phone float animation
     const featurePhones = document.querySelectorAll('.feature-phone');
@@ -721,6 +758,32 @@ function throttle(func, limit = 100) {
 
 
 /* ----------------------------------------
+   Shared helper: measure word widths
+   Temporarily makes each word static/visible,
+   measures offsetWidth, adds proportional buffer.
+   ---------------------------------------- */
+function measureWordWidths(words) {
+    const widths = [];
+    words.forEach(word => {
+        word.style.position = 'static';
+        word.style.visibility = 'hidden';
+        word.style.display = 'inline-block';
+        word.style.opacity = '1';
+        word.style.transform = 'none';
+        // Proportional buffer (8% of width, min 8px) scales with font size
+        const raw = word.offsetWidth;
+        widths.push(raw + Math.max(8, Math.ceil(raw * 0.08)));
+        word.style.position = '';
+        word.style.visibility = '';
+        word.style.display = '';
+        word.style.opacity = '';
+        word.style.transform = '';
+    });
+    return widths;
+}
+
+
+/* ----------------------------------------
    Rotating Words in Hero Title
    Cycles: love → memories → moments →
            stories → legacy
@@ -743,24 +806,33 @@ function initRotatingWords() {
     const totalWords = words.length;
     const INTERVAL = 2800; // ms between word changes
 
-    // Measure each word's natural width
-    const wordWidths = [];
-    words.forEach(word => {
-        word.style.position = 'static';
-        word.style.visibility = 'hidden';
-        word.style.display = 'inline-block';
-        word.style.opacity = '1';
-        word.style.transform = 'none';
-        wordWidths.push(word.offsetWidth + 8);
-        word.style.position = '';
-        word.style.visibility = '';
-        word.style.display = '';
-        word.style.opacity = '';
-        word.style.transform = '';
-    });
+    // Measure word widths (will re-measure after fonts load and on resize)
+    let wordWidths = measureWordWidths(words);
 
-    wrapper.style.width = wordWidths[0] + 'px';
+    function applyCurrentWidth() {
+        wrapper.style.width = wordWidths[currentIndex] + 'px';
+    }
+
+    applyCurrentWidth();
     wrapper.style.transition = 'width 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+
+    // Re-measure after fonts load to get accurate Axiforma widths
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => {
+            wordWidths = measureWordWidths(words);
+            applyCurrentWidth();
+        });
+    }
+
+    // Re-measure on viewport resize (debounced)
+    let heroResizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(heroResizeTimer);
+        heroResizeTimer = setTimeout(() => {
+            wordWidths = measureWordWidths(words);
+            applyCurrentWidth();
+        }, 150);
+    });
 
     function rotateWord() {
         const current = words[currentIndex];
@@ -832,24 +904,33 @@ function initSplashIntro(splashEl) {
         });
     }
 
-    // Measure splash word widths
-    const splashWidths = [];
-    splashWords.forEach(word => {
-        word.style.position = 'static';
-        word.style.visibility = 'hidden';
-        word.style.display = 'inline-block';
-        word.style.opacity = '1';
-        word.style.transform = 'none';
-        splashWidths.push(word.offsetWidth + 8);
-        word.style.position = '';
-        word.style.visibility = '';
-        word.style.display = '';
-        word.style.opacity = '';
-        word.style.transform = '';
-    });
+    // Measure splash word widths (will re-measure after fonts load and on resize)
+    let splashWidths = measureWordWidths(splashWords);
 
-    splashWrapper.style.width = splashWidths[0] + 'px';
+    function applySplashWidth() {
+        splashWrapper.style.width = splashWidths[splashIndex] + 'px';
+    }
+
+    applySplashWidth();
     splashWrapper.style.transition = 'width 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+
+    // Re-measure after fonts load to get accurate Axiforma widths
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => {
+            splashWidths = measureWordWidths(splashWords);
+            applySplashWidth();
+        });
+    }
+
+    // Re-measure on viewport resize (debounced)
+    let splashResizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(splashResizeTimer);
+        splashResizeTimer = setTimeout(() => {
+            splashWidths = measureWordWidths(splashWords);
+            applySplashWidth();
+        }, 150);
+    });
 
     function rotateSplashWord() {
         const current = splashWords[splashIndex];

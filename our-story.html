@@ -13,19 +13,73 @@
            Our Story Page - Specific Styles
            ======================================== */
 
-        /* Hero Section with Light Blue Gradient */
+        /* Hero Section with Primary Blue */
         .story-hero {
             position: relative;
-            padding: 130px 0 50px;
+            padding: 120px 0 75px;
+            background: #0068E6;
+        }
+
+        /* Hide navbar during video expansion */
+        .navbar.hide-navbar {
+            transform: translateY(-100%) !important;
+            transition: transform 0.4s ease !important;
+        }
+
+        /* Scroll-animated video section */
+        .story-video-scroll {
+            position: relative;
+            z-index: 1;
+            height: 160vh;
             background: linear-gradient(180deg,
-                #c8e2fd 0%,
-                #d8ecfe 15%,
-                #e8f3fe 35%,
-                #f2f8ff 55%,
-                #f9fcff 75%,
-                #FFFFFF 100%
+                #0068E6 0%,
+                #0068E6 80px,
+                #0A75ED 120px,
+                #1882F3 160px,
+                #2D94F8 210px,
+                #46A4FA 260px,
+                #62B3FC 320px,
+                #82C4FD 380px,
+                #A8D8FE 440px,
+                #C8E6FF 510px,
+                #E2F1FF 580px,
+                #F2F8FF 650px,
+                #FAFCFF 720px,
+                #FFFFFF 800px
             );
+            margin-top: -40px;
+            padding-top: 0;
+            margin-bottom: 0;
+        }
+
+        .story-video-sticky {
+            position: sticky;
+            top: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 90px);
+            transition: top 0.4s ease, min-height 0.4s ease;
+        }
+
+        body.navbar-hidden .story-video-sticky {
+            top: 0;
+            min-height: 100vh;
+        }
+
+        .story-video-wrapper {
+            position: relative;
+            width: 60%;
+            max-width: 1000px;
+            max-height: 75vh;
+            margin: 0 auto;
+            border-radius: 16px;
             overflow: hidden;
+            box-shadow: 0 0 60px 20px rgba(255, 255, 255, 0.35), 0 0 120px 40px rgba(255, 255, 255, 0.2);
+            background: var(--gray-200);
+            aspect-ratio: 16 / 9;
+            will-change: transform;
+            transform: translateZ(0);
         }
 
         .story-hero::before {
@@ -36,14 +90,14 @@
             right: 0;
             bottom: 0;
             background:
-                radial-gradient(ellipse 600px 400px at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 70%),
-                radial-gradient(ellipse 500px 300px at 80% 60%, rgba(255,255,255,0.06) 0%, transparent 70%);
+                radial-gradient(ellipse 600px 400px at 20% 30%, rgba(255,255,255,0.06) 0%, transparent 70%),
+                radial-gradient(ellipse 500px 300px at 80% 60%, rgba(255,255,255,0.04) 0%, transparent 70%);
             pointer-events: none;
         }
 
         .story-hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 3;
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
@@ -52,31 +106,21 @@
         .story-hero-title {
             font-size: 46px;
             font-weight: 700;
-            color: var(--primary-blue);
+            color: #FFFFFF;
             line-height: 1.2;
             margin-bottom: 20px;
         }
 
         .story-hero-subtitle {
             font-size: 1.15rem;
-            color: var(--gray-600);
+            color: #FFFFFF;
             line-height: 1.6;
-            max-width: 700px;
-            margin: 0 auto 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            white-space: nowrap;
         }
 
-        /* Video Container */
-        .story-video-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            background: var(--gray-200);
-            aspect-ratio: 16 / 9;
-        }
+        /* Video Container — old styles replaced by scroll-animated version above */
 
         .story-video-wrapper video,
         .story-video-wrapper iframe {
@@ -173,6 +217,8 @@
 
         /* Founder Section */
         .founder-section {
+            position: relative;
+            z-index: 3;
             padding: 100px 0;
             background: var(--white);
         }
@@ -286,6 +332,31 @@
 
         }
 
+        @media (min-width: 1440px) {
+            .story-hero {
+                padding: 110px 0 30px;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .story-video-wrapper {
+                max-width: 1100px;
+            }
+            .story-hero {
+                padding: 100px 0 20px;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .story-video-wrapper {
+                width: 55%;
+                max-width: 1300px;
+            }
+            .story-hero {
+                padding: 90px 0 15px;
+            }
+        }
+
         @media (max-width: 768px) {
             .story-hero {
                 padding: 110px 0 40px;
@@ -293,6 +364,18 @@
 
             .story-hero-title {
                 font-size: 32px;
+            }
+
+            .story-hero-subtitle {
+                white-space: normal;
+            }
+
+            .story-video-scroll {
+                height: 120vh;
+            }
+
+            .story-video-wrapper {
+                width: 85% !important;
             }
 
             .founder-section {
@@ -358,7 +441,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-light" id="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <img src="images/logo-white.png" alt="LifeWink" class="logo-img logo-white">
@@ -369,7 +452,7 @@
                 <a href="how-it-works.html" class="nav-link">How it Works</a>
                 <a href="subscriptions.html" class="nav-link">Subscriptions</a>
                 <a href="our-story.html" class="nav-link active">Our Story</a>
-                <a href="download.html" class="btn nav-cta">Get LifeWink for Free</a>
+                <a href="download.html" class="btn nav-cta">Try LifeWink for Free</a>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <span></span>
@@ -385,40 +468,37 @@
         <a href="how-it-works.html" class="mobile-nav-link">How it Works</a>
         <a href="subscriptions.html" class="mobile-nav-link">Subscriptions</a>
         <a href="our-story.html" class="mobile-nav-link active">Our Story</a>
-        <a href="download.html" class="btn btn-primary mobile-cta">Get LifeWink for Free</a>
+        <a href="download.html" class="btn btn-primary mobile-cta">Try LifeWink for Free</a>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (Blue) -->
     <section class="story-hero">
         <div class="container">
             <div class="story-hero-content fade-in-up">
-                <h1 class="story-hero-title">Our story</h1>
+                <h1 class="story-hero-title">Our Story</h1>
                 <p class="story-hero-subtitle">LifeWink carries forth the greatest gifts we have in life – to love and to be loved</p>
-
-                <!-- Video Container -->
-                <div class="story-video-wrapper">
-                    <video id="storyVideo">
-                        <source src="images/story/jim-video.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="video-overlay" id="videoOverlay">
-                        <button class="video-play-btn" aria-label="Play video">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <p class="story-video-caption">Hear from our Founder, Jim Baumann</p>
-
-                <div class="story-hero-buttons">
-                    <a href="download.html" class="btn btn-primary">Get started</a>
-                    <a href="how-it-works.html" class="btn btn-outline">How it works</a>
-                </div>
             </div>
         </div>
     </section>
+
+    <!-- Video Section with Scroll Animation -->
+    <div class="story-video-scroll" id="videoScrollContainer">
+        <div class="story-video-sticky">
+            <div class="story-video-wrapper" id="videoWrapper">
+                <video id="storyVideo">
+                    <source src="images/story/jim-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay" id="videoOverlay">
+                    <button class="video-play-btn" aria-label="Play video">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Founder Message Section -->
     <section class="founder-section">
@@ -440,12 +520,10 @@
 
                         <p>LifeWink is a profoundly personal platform designed to help people authentically capture their love while they are living and share it with the people they love, today and beyond their lifetime. Our hope is that LifeWink inspires new conversations, deeper reflection, and more intentional connection, helping people express love today and carry it forward into the future.</p>
 
-                        <p>Guided by love, integrity, curiosity, and excellence, we put our users' well-being at the center of everything we do. We are deeply committed to privacy, security, and ensuring every LifeWink remains authentic and true to the person who created it.</p>
+                        <p>Guided by love, integrity, curiosity, and excellence, we put our users' well-being at the center of everything we do. We are deeply committed to your privacy, safety, and ensuring every LifeWink remains authentic and true to the person who created it.</p>
 
                         <p>I often wish I could be receiving LifeWinks today from those I've loved and lost. It's my sincere hope that LifeWink earns your trust, feels meaningful to you, and helps you share what matters most with the people you love—today and beyond your lifetime.</p>
                     </div>
-
-                    <a href="download.html" class="btn btn-primary founder-cta-btn">Get LifeWink for Free</a>
 
                     <div class="founder-signature">
                         <p class="founder-name">Jim Baumann</p>
@@ -462,11 +540,10 @@
         <section class="cta-section">
             <div class="container">
                 <div class="cta-content fade-in-up">
-                    <h2 class="cta-title">Life's greatest gifts are to love and to be loved.</h2>
-                    <p class="cta-subtitle">Turn your love into LifeWinks today</p>
-                    <p class="cta-description">Download the free LifeWinks app or access LifeWink from any browser.</p>
+                    <h2 class="cta-title">LifeWink carries forth the greatest gift we have in life – to love and to be loved.</h2>
+                    <p class="cta-subtitle">To Love is to create a LifeWink. To be Loved is to receive a LifeWink.</p>
                     <a href="download.html" class="btn cta-btn">
-                        Get LifeWink for Free
+                        Try LifeWink for Free
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
@@ -491,6 +568,7 @@
                         </nav>
                     </div>
                     <div class="footer-right">
+                        <p class="footer-download-hint">Download LifeWink for free or access it in any browser.</p>
                         <div class="footer-badges">
                             <a href="#" class="footer-badge">
                                 <img src="images/badges/app-store.png" alt="Download on the App Store">
@@ -565,6 +643,85 @@
                     overlay.classList.add('hidden');
                     video.controls = true;
                 });
+            }
+
+            // Scroll-driven video scaling animation
+            const scrollContainer = document.getElementById('videoScrollContainer');
+            const videoWrapper = document.getElementById('videoWrapper');
+
+            if (scrollContainer && videoWrapper) {
+                const navbar = document.getElementById('navbar');
+                const startScale = 1;
+                const endScale = 1.35;  // 60% * 1.35 = 81%, keeps padding on all sides
+                const startRadius = 16;
+                const endRadius = 8;
+                let lastProgress = -1;
+                let navbarHidden = false;
+
+                function easeOutCubic(t) {
+                    return 1 - Math.pow(1 - t, 3);
+                }
+
+                function updateVideoScale() {
+                    const rect = scrollContainer.getBoundingClientRect();
+                    const scrollHeight = scrollContainer.offsetHeight - window.innerHeight;
+                    const scrolled = -rect.top;
+                    const rawProgress = Math.min(Math.max(scrolled / scrollHeight, 0), 1);
+
+                    // Round to avoid sub-pixel jitter
+                    const progress = Math.round(rawProgress * 1000) / 1000;
+                    if (progress === lastProgress) return;
+                    lastProgress = progress;
+
+                    // Hide navbar when video is scaling, show when back at top or past video
+                    if (navbar) {
+                        if (progress > 0.1 && progress < 1) {
+                            if (!navbarHidden) {
+                                navbar.classList.add('hide-navbar');
+                                document.body.classList.add('navbar-hidden');
+                                navbarHidden = true;
+                            }
+                        } else {
+                            if (navbarHidden) {
+                                navbar.classList.remove('hide-navbar');
+                                document.body.classList.remove('navbar-hidden');
+                                navbarHidden = false;
+                            }
+                        }
+                    }
+
+                    const easedProgress = easeOutCubic(progress);
+                    const currentScale = startScale + (endScale - startScale) * easedProgress;
+                    const currentRadius = startRadius - (startRadius - endRadius) * easedProgress;
+
+                    videoWrapper.style.transform = 'translateZ(0) scale(' + currentScale + ')';
+                    videoWrapper.style.borderRadius = currentRadius + 'px';
+
+                    // Glow reduces as video scales up
+                    var inv = 1 - easedProgress;
+                    var g1o = (0.35 * inv).toFixed(3);
+                    var g2o = (0.2 * inv).toFixed(3);
+                    var g1s = Math.round(20 * inv);
+                    var g1b = Math.round(60 * inv);
+                    var g2s = Math.round(40 * inv);
+                    var g2b = Math.round(120 * inv);
+                    var so = (0.1 * easedProgress).toFixed(3);
+                    videoWrapper.style.boxShadow = '0 0 ' + g1b + 'px ' + g1s + 'px rgba(255,255,255,' + g1o + '), 0 0 ' + g2b + 'px ' + g2s + 'px rgba(255,255,255,' + g2o + '), 0 4px 20px rgba(0,0,0,' + so + ')';
+                }
+
+                let ticking = false;
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        requestAnimationFrame(function() {
+                            updateVideoScale();
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                });
+
+                // Run once on load
+                updateVideoScale();
             }
         });
     </script>

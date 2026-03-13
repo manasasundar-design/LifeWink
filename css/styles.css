@@ -222,7 +222,7 @@ ul {
 }
 
 .navbar.scrolled .nav-link {
-    color: var(--gray-600);
+    color: var(--gray-700);
 }
 
 .navbar.scrolled .nav-link:hover {
@@ -299,7 +299,7 @@ ul {
 .nav-link {
     font-size: 0.875rem;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.9);
+    color: #FFFFFF;
     transition: color var(--transition-fast);
     position: relative;
 }
@@ -635,8 +635,8 @@ ul {
 }
 
 .hero-content-wrapper {
-    padding-top: 40px;
-    padding-bottom: 20px;
+    padding-top: 60px;
+    padding-bottom: 10px;
 }
 
 .hero-content {
@@ -650,7 +650,7 @@ ul {
     font-weight: 700;
     color: var(--white);
     line-height: 1.2;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     letter-spacing: -0.02em;
 }
 
@@ -662,7 +662,7 @@ ul {
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.9);
     line-height: 1.5;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     max-width: 640px;
     margin-left: auto;
     margin-right: auto;
@@ -749,7 +749,7 @@ ul {
 .hero-devices-wrapper {
     position: relative;
     z-index: 2;
-    margin-top: 10px;
+    margin-top: 70px;
     padding-bottom: 30px;
 }
 
@@ -905,8 +905,9 @@ ul {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 40px;
-    min-height: 460px;
-    transform: translateX(-45px);
+    min-height: 400px;
+    transform: scale(0.87);
+    transform-origin: center top;
 }
 
 /* Phone - LEFT (Exact Figma: 929.325px width, -7.01deg rotation) */
@@ -980,7 +981,7 @@ ul {
 .hero-testimonial {
     margin-top: 0;
     margin-bottom: 0;
-    padding: 72px 0 80px;
+    padding: 100px 0;
     background: #F8FBFF;
     position: relative;
 }
@@ -995,8 +996,8 @@ ul {
 
 .testimonial-quote-left {
     display: block;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     margin-bottom: 20px;
 }
 
@@ -1016,13 +1017,13 @@ ul {
 }
 
 .testimonial-text {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     line-height: 1.7;
     color: #1E293B;
     font-weight: 500;
     margin: 0 0 24px 0;
     font-style: italic;
-    text-align: left;
+    text-align: center;
 }
 
 .testimonial-author {
@@ -1717,25 +1718,14 @@ ul {
    What is LifeWink Section
    ======================================== */
 .what-is-section {
-    padding: 64px 24px 80px;
-    background: #F8FBFF;
-    position: relative;
-}
-
-.what-is-border-layout {
-    max-width: var(--container-max);
-    margin: 0 auto;
-    position: relative;
+    padding: 80px 24px;
     background: linear-gradient(135deg, #0051CC 0%, #0169EB 40%, #2E8AF5 100%);
-    border-radius: 24px;
-    padding: 56px 48px;
-}
-
-.blue-accent-bar {
-    display: none;
+    position: relative;
 }
 
 .what-is-content {
+    max-width: 900px;
+    margin: 0 auto;
     padding: 0;
     text-align: center;
 }
@@ -1758,7 +1748,7 @@ ul {
 }
 
 .what-is-heading {
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-size: clamp(2.25rem, 4vw, 3rem);
     font-weight: 600;
     color: #FFFFFF;
     line-height: 1.3;
@@ -1767,17 +1757,15 @@ ul {
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    white-space: nowrap;
 }
 
 .what-is-subheading {
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-size: clamp(2.25rem, 4vw, 3rem);
     font-weight: 800;
     color: #FFFFFF;
     line-height: 1.3;
     letter-spacing: -0.02em;
     margin-bottom: 28px;
-    white-space: nowrap;
 }
 
 .section-description {
@@ -1789,6 +1777,17 @@ ul {
     max-width: 720px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Word-by-word timed reveal for what-is section */
+.reveal-word {
+    color: rgba(255, 255, 255, 0.25);
+    transition: color 400ms ease-out;
+    display: inline;
+}
+
+.reveal-word.revealed {
+    color: rgba(255, 255, 255, 1.0);
 }
 
 .section-header {
@@ -1841,39 +1840,18 @@ ul {
     justify-content: center;
     width: 48px;
     height: 48px;
-    background: rgba(1, 105, 235, 0.08);
+    background: var(--primary-blue);
     border-radius: 12px;
-    color: var(--primary-blue);
+    color: var(--white);
     margin-bottom: 16px;
-    box-shadow: 0 2px 8px rgba(1, 105, 235, 0.1), 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(1, 105, 235, 0.3), 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-/* feature-icon hover removed */
 
 .feature-icon svg {
     width: 26px;
     height: 26px;
 }
-
-/* Alternating icon backgrounds - Blue background for 1st and 3rd */
-.feature-block:nth-child(odd) .feature-icon {
-    background: var(--primary-blue);
-    color: var(--white);
-    box-shadow: 0 4px 12px rgba(1, 105, 235, 0.3), 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* odd feature-icon hover removed */
-
-/* White background for 2nd and 4th */
-.feature-block:nth-child(even) .feature-icon {
-    background: var(--white);
-    color: var(--primary-blue);
-    border: 1px solid rgba(1, 105, 235, 0.1);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-/* even feature-icon hover removed */
 
 .feature-title {
     font-size: clamp(1.5rem, 2.5vw, 1.75rem);
@@ -1885,7 +1863,7 @@ ul {
 
 .feature-description {
     font-size: 1.125rem;
-    color: var(--gray-600);
+    color: #1a1a1a;
     line-height: 1.65;
 }
 
@@ -1907,7 +1885,7 @@ ul {
     max-height: 500px;
     object-fit: contain;
     border-radius: 16px;
-    filter: drop-shadow(0 20px 40px rgba(1, 105, 235, 0.15)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.08));
+    filter: drop-shadow(0 20px 40px rgba(1, 105, 235, 0.10)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.06));
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                 filter 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -1920,7 +1898,7 @@ ul {
     max-height: 580px;
     object-fit: contain;
     border-radius: 16px;
-    filter: drop-shadow(0 20px 40px rgba(1, 105, 235, 0.15)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.08));
+    filter: drop-shadow(0 20px 40px rgba(1, 105, 235, 0.10)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.06));
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                 filter 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -1940,24 +1918,24 @@ ul {
 
 .ai-phone-left,
 .ai-phone-right {
-    max-height: 580px;
+    max-height: 505px;
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 20px 40px rgba(1, 105, 235, 0.15)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.08));
+    filter: drop-shadow(0 20px 40px rgba(1, 105, 235, 0.10)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.06));
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                 filter 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .ai-phone-left {
     width: auto;
-    max-width: 48%;
-    margin-right: -80px;
+    max-width: 46%;
+    margin-right: -50px;
     z-index: 1;
 }
 
 .ai-phone-right {
     width: auto;
-    max-width: 48%;
+    max-width: 46%;
     margin-top: 80px;
     z-index: 2;
 }
@@ -1977,24 +1955,24 @@ ul {
 
 .classic-phone-left,
 .classic-phone-right {
-    max-height: 580px;
+    max-height: 505px;
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 20px 40px rgba(1, 105, 235, 0.15)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.08));
+    filter: drop-shadow(0 20px 40px rgba(1, 105, 235, 0.10)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.06));
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                 filter 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .classic-phone-left {
     width: auto;
-    max-width: 48%;
-    margin-right: -80px;
+    max-width: 46%;
+    margin-right: -50px;
     z-index: 1;
 }
 
 .classic-phone-right {
     width: auto;
-    max-width: 48%;
+    max-width: 46%;
     margin-top: 80px;
     z-index: 2;
 }
@@ -2014,24 +1992,24 @@ ul {
 
 .sharing-phone-left,
 .sharing-phone-right {
-    max-height: 580px;
+    max-height: 505px;
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 20px 40px rgba(1, 105, 235, 0.15)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.08));
+    filter: drop-shadow(0 20px 40px rgba(1, 105, 235, 0.10)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.06));
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                 filter 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .sharing-phone-left {
     width: auto;
-    max-width: 48%;
-    margin-right: -80px;
+    max-width: 46%;
+    margin-right: -50px;
     z-index: 1;
 }
 
 .sharing-phone-right {
     width: auto;
-    max-width: 48%;
+    max-width: 46%;
     margin-top: 80px;
     z-index: 2;
 }
@@ -2051,24 +2029,24 @@ ul {
 
 .scheduled-phone-left,
 .scheduled-phone-right {
-    max-height: 580px;
+    max-height: 505px;
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 20px 40px rgba(1, 105, 235, 0.15)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.08));
+    filter: drop-shadow(0 20px 40px rgba(1, 105, 235, 0.10)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.06));
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                 filter 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .scheduled-phone-left {
     width: auto;
-    max-width: 48%;
-    margin-right: -80px;
+    max-width: 46%;
+    margin-right: -50px;
     z-index: 1;
 }
 
 .scheduled-phone-right {
     width: auto;
-    max-width: 48%;
+    max-width: 46%;
     margin-top: 80px;
     z-index: 2;
 }
@@ -2300,88 +2278,96 @@ ul {
    Explore Section - Clean & Simple
    ======================================== */
 .explore-section {
-    padding: 64px 0;
+    padding: 60px 0 80px;
     background: linear-gradient(180deg, #F8FBFF 0%, #EEF6FF 50%, #F8FBFF 100%);
     text-align: center;
 }
 
-.explore-section .section-label {
+/* Section heading with blue dot indicator */
+.explore-heading {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1;
     margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+.explore-heading-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--primary-blue);
+    position: relative;
+    top: -1px;
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
 .explore-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
-    margin-top: 20px;
 }
 
-/* Card - White frosted glass with subtle corner gradient */
+/* Card — plain white, no movement on hover */
 .explore-card {
-    position: relative;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
+    background: #FFFFFF;
+    border-radius: 16px;
     text-align: center;
-    transition: none;
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-    min-height: 320px;
+    border: 1.5px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    min-height: 280px;
     display: block;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    -webkit-font-smoothing: antialiased;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Background layer - static blue glow in one corner */
-.card-background-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    pointer-events: none;
-    opacity: 1;
+/* Override fade-in-up transition once card is visible */
+.explore-card.fade-in-up.visible {
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.explore-card:nth-child(1) .card-background-layer {
-    background: radial-gradient(ellipse at 0% 0%, rgba(1, 105, 235, 0.18) 0%, rgba(1, 105, 235, 0.06) 35%, transparent 65%);
-}
-
-.explore-card:nth-child(2) .card-background-layer {
-    background: radial-gradient(ellipse at 100% 0%, rgba(1, 105, 235, 0.18) 0%, rgba(1, 105, 235, 0.06) 35%, transparent 65%);
-}
-
-.explore-card:nth-child(3) .card-background-layer {
-    background: radial-gradient(ellipse at 0% 0%, rgba(1, 105, 235, 0.18) 0%, rgba(1, 105, 235, 0.06) 35%, transparent 65%);
+/* HOVER: blue shadow + primary blue border stroke only — no movement */
+.explore-card:hover {
+    box-shadow: 0 4px 20px rgba(1, 105, 235, 0.15), 0 2px 8px rgba(1, 105, 235, 0.08);
+    border-color: var(--primary-blue);
 }
 
 /* Content layer */
 .card-content-layer {
     position: relative;
-    z-index: 2;
-    padding: 32px 28px;
+    padding: 36px 28px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 320px;
+    min-height: 280px;
 }
 
-/* Icon */
+/* Icon — blue bg + white icon (matches feature icons) */
 .explore-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 56px;
-    height: 56px;
-    background: rgba(1, 105, 235, 0.08);
-    border-radius: 14px;
-    color: var(--primary-blue);
-    margin-bottom: 24px;
+    width: 48px;
+    height: 48px;
+    background: var(--primary-blue);
+    border-radius: 12px;
+    color: var(--white);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(1, 105, 235, 0.3), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.explore-icon svg {
+    width: 24px;
+    height: 24px;
 }
 
 /* Title */
@@ -2396,13 +2382,13 @@ ul {
 /* Description */
 .explore-description {
     font-size: 0.875rem;
-    color: var(--gray-600);
+    color: #1a1a1a;
     line-height: 1.6;
     margin-bottom: 24px;
     font-weight: 400;
 }
 
-/* Link */
+/* CTA Link — subtle at rest, highlighted on card hover */
 .explore-link {
     font-size: 0.9375rem;
     font-weight: 600;
@@ -2410,13 +2396,26 @@ ul {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 8px 20px;
+    border-radius: 50px;
     background: transparent;
+    border: 1.5px solid transparent;
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .explore-link .arrow {
     display: inline-block;
+    transition: transform 0.15s ease;
+}
+
+/* On card hover: CTA gets light blue pill bg + blue border + arrow nudges */
+.explore-card:hover .explore-link {
+    background: rgba(1, 105, 235, 0.06);
+    border-color: rgba(1, 105, 235, 0.2);
+}
+
+.explore-card:hover .explore-link .arrow {
+    transform: translateX(4px);
 }
 
 /* ========================================
@@ -2442,17 +2441,21 @@ ul {
 }
 
 .cta-title {
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
     font-weight: 700;
     color: var(--white);
-    line-height: 1.3;
+    line-height: 1.35;
     margin-bottom: 12px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cta-subtitle {
-    font-size: 1.0625rem;
-    color: var(--white);
-    margin-bottom: 6px;
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    font-weight: 400;
 }
 
 .cta-description {
@@ -2466,11 +2469,40 @@ ul {
     padding: 12px 28px;
     background: var(--white);
     color: var(--primary-blue);
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cta-btn::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: var(--white);
+    border-radius: calc(var(--border-radius) - 2px);
+    z-index: -1;
+    transition: background 0.3s ease;
 }
 
 .cta-btn:hover {
-    background: var(--gray-50);
     transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 255, 255, 0.2);
+}
+
+.cta-btn:hover::after {
+    background: var(--gray-50);
+}
+
+.cta-btn svg {
+    transition: transform var(--transition-fast);
+}
+
+.cta-btn:hover svg {
+    transform: translateX(4px);
 }
 
 /* ========================================
@@ -2512,7 +2544,7 @@ ul {
 .footer-nav a {
     font-size: 0.875rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.6);
+    color: #FFFFFF;
     transition: color var(--transition-fast);
 }
 
@@ -2524,7 +2556,14 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    align-items: flex-end;
+    align-items: flex-start;
+}
+
+.footer-download-hint {
+    font-size: 0.85rem;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+    font-weight: 400;
 }
 
 .footer-badges {
@@ -2709,8 +2748,8 @@ ul {
     }
 }
 
-/* Mobile */
-@media (max-width: 768px) {
+/* Nav collapse — hamburger at 900px and below */
+@media (max-width: 900px) {
     .nav-links {
         display: none;
     }
@@ -2723,6 +2762,13 @@ ul {
         display: flex;
     }
 
+    .hero-title {
+        font-size: 2.25rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
     .hero {
         min-height: auto;
     }
@@ -2953,12 +2999,13 @@ ul {
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 3fr;
     gap: 60px;
     align-items: center;
     max-width: var(--container-wide);
     margin: 0 auto;
     width: 100%;
+    padding-left: 80px;
 }
 
 .hiw-hero-left {
@@ -2968,18 +3015,32 @@ ul {
 .hiw-hero-title-lg {
     font-size: 3.25rem;
     font-weight: 800;
-    color: var(--white);
+    color: #FFFFFF;
     line-height: 1.15;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     letter-spacing: -0.03em;
 }
 
+.hiw-hero-intro {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.hiw-hero-divider {
+    width: 40px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.35);
+    margin-bottom: 20px;
+}
+
 .hiw-hero-subtitle-lg {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.85);
-    line-height: 1.7;
+    font-size: 0.95rem;
+    color: #FFFFFF;
+    line-height: 1.8;
     margin-bottom: 28px;
-    font-style: italic;
 }
 
 .hiw-hero-left .btn-lg {
@@ -3228,7 +3289,7 @@ ul {
     z-index: 2;
     flex-shrink: 0;
     padding-top: 56px;
-    margin-left: 20px;
+    margin-left: 60px;
 }
 
 /* Phone Left - AI LifeWink Test (larger phone/tablet mockup) */
@@ -3288,6 +3349,58 @@ ul {
     filter: drop-shadow(0 22px 48px rgba(0, 0, 0, 0.25));
 }
 
+/* HIW Hero - Large screen (1650px+): homepage-style centered arrangement */
+@media (min-width: 1650px) {
+    .hiw-hero-devices {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        min-height: 340px;
+    }
+
+    /* Let phone children escape their wrapper for absolute positioning */
+    .hiw-devices-phones {
+        display: contents;
+    }
+
+    /* Monitor becomes the centered base element — scaled up for grid cell */
+    .hiw-device-monitor {
+        position: relative;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        width: 72%;
+        z-index: 1;
+        overflow: visible;
+    }
+
+    .hiw-device-monitor img {
+        border-radius: 8px;
+        filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.2));
+    }
+
+    /* Tablet (phone-left) positioned to the left, overlapping monitor */
+    .hiw-device-phone-left {
+        position: absolute;
+        left: 50%;
+        bottom: 15px;
+        margin-left: -48%;
+        width: 32%;
+        z-index: 3;
+    }
+
+    /* Phone (phone-center) positioned to the right, overlapping monitor */
+    .hiw-device-phone-center {
+        position: absolute;
+        right: 50%;
+        bottom: 15px;
+        margin-right: -56%;
+        width: 20%;
+        z-index: 3;
+    }
+}
+
 /* HIW Hero Device Responsive */
 @media (max-width: 1200px) {
     .hiw-hero-devices {
@@ -3299,16 +3412,17 @@ ul {
     }
 
     .hiw-device-phone-center {
-        width: 100px;
+        width: 98px;
     }
 
     .hiw-device-monitor {
-        width: 480px;
-        right: -280px;
+        width: 446px;
+        right: -230px;
     }
 
     .hiw-devices-phones {
-        gap: 16px;
+        gap: 15px;
+        margin-left: 40px;
         margin-right: -50px;
     }
 }
@@ -3323,17 +3437,18 @@ ul {
     }
 
     .hiw-device-phone-center {
-        width: 85px;
+        width: 81px;
     }
 
     .hiw-device-monitor {
-        width: 380px;
-        right: -200px;
+        width: 370px;
+        right: -170px;
     }
 
     .hiw-devices-phones {
         gap: 12px;
         padding-top: 40px;
+        margin-left: 20px;
         margin-right: -40px;
     }
 }
@@ -3348,17 +3463,18 @@ ul {
     }
 
     .hiw-device-phone-center {
-        width: 80px;
+        width: 73px;
     }
 
     .hiw-device-monitor {
-        width: 320px;
-        right: -140px;
+        width: 330px;
+        right: -120px;
     }
 
     .hiw-devices-phones {
-        gap: 12px;
+        gap: 10px;
         padding-top: 32px;
+        margin-left: 10px;
     }
 }
 
@@ -3386,9 +3502,7 @@ ul {
 }
 
 .classic-2x2-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 28px rgba(1, 105, 235, 0.08);
-    border-color: rgba(1, 105, 235, 0.12);
+    transform: none;
 }
 
 /* Text area */
@@ -3398,7 +3512,7 @@ ul {
 }
 
 .classic-2x2-title {
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 700;
     color: var(--gray-900);
     margin: 0 0 6px 0;
@@ -3411,8 +3525,8 @@ ul {
 }
 
 .classic-2x2-desc {
-    font-size: 0.8rem;
-    color: var(--gray-500);
+    font-size: 14px;
+    color: var(--gray-900);
     line-height: 1.5;
     margin: 0;
 }
@@ -3473,8 +3587,7 @@ ul {
 }
 
 .classic-2x2-card:hover .classic-2x2-image img {
-    transform: translateY(-4px);
-    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.12));
+    transform: none;
 }
 
 /* Scroll animations for 2x2 cards */
@@ -3506,7 +3619,7 @@ ul {
 }
 
 .classic-2x2-card.scroll-animate.animate-in:hover {
-    transform: translateY(-6px);
+    transform: none;
 }
 
 /* 4-column Grid Responsive */
@@ -3583,43 +3696,53 @@ ul {
 .hiw-gradient-classic {
     background: linear-gradient(180deg,
         #8AC4FA 0%,
-        #B8DCFE 8%,
-        #D0E8FC 16%,
-        #E0EDFE 28%,
-        #E8F2FF 45%,
-        #EDF5FF 65%,
-        #E8F2FF 80%,
-        #E0EDFE 100%);
+        #C0DFFD 3%,
+        #DDEAFB 6%,
+        #EDF4FF 10%,
+        #F5F9FF 15%,
+        #FAFCFF 20%,
+        #FFFFFF 28%,
+        #FFFFFF 100%);
 }
 
 .hiw-gradient-ai {
-    background: linear-gradient(225deg,
-        #E8F2FF 0%,
-        #DCE8FC 20%,
-        #D0E4FB 45%,
-        #C4DAFA 55%,
-        #D6E6FB 75%,
-        #E8F2FF 100%);
+    background: linear-gradient(180deg,
+        #FFFFFF 0%,
+        #F8FBFF 8%,
+        #F0F6FF 18%,
+        #E8F2FF 32%,
+        #E0EDFE 50%,
+        #E8F2FF 70%,
+        #F0F6FF 85%,
+        #F8FBFF 95%,
+        #FFFFFF 100%);
 }
 
-/* Glass morphism card override */
-.hiw-gradient-section .asym-card.classic-2x2-card {
-    background: rgba(255, 255, 255, 0.55);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow:
-        0 4px 24px rgba(1, 105, 235, 0.06),
-        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+/* Classic section cards — subtle light blue background */
+.hiw-gradient-classic .asym-card.classic-2x2-card {
+    background: #F5F9FF;
+    border: 1px solid #E8F0FC;
+    box-shadow: 0 2px 12px rgba(1, 105, 235, 0.04);
     position: relative;
     z-index: 1;
 }
 
-/* Hover effects removed */
+/* AI section cards — glassmorphism: blue gradient shows through */
+.hiw-gradient-ai .asym-card.classic-2x2-card {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow:
+        0 4px 24px rgba(1, 105, 235, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    position: relative;
+    z-index: 1;
+}
 
-/* Glass card image area - keep animated gradient, just add border */
+/* Card image area — no border */
 .hiw-gradient-section .asym-card-images {
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: none;
 }
 
 /* Section title contrast on gradient bg */
@@ -3667,26 +3790,25 @@ ul {
     position: relative;
 }
 
-/* Image area - animated blue gradient */
+/* Image area - transparent, mockups sit directly on outer card */
 .asym-card-images {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 16px;
-    background: #EDF3FC;
-    border-radius: 14px;
+    background: transparent;
+    border-radius: 0;
     padding: 16px;
     position: relative;
     overflow: hidden;
-    transition: background 0.5s ease;
 }
 
 /* Concentric circles and hover gradient removed */
 
 .asym-card-images img {
     height: auto;
-    max-height: calc(100vh - 260px);
+    max-height: calc(100vh - 388px);
     width: auto;
     max-width: 100%;
     object-fit: contain;
@@ -3697,8 +3819,7 @@ ul {
 }
 
 .asym-card:hover .asym-card-images img {
-    transform: translateY(-2px);
-    filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.10));
+    transform: none;
 }
 
 /* Text area - below images (fixed height so all cards align) */
@@ -3766,7 +3887,7 @@ ul {
     }
 
     .asym-card-images img {
-        max-height: calc(100vh - 260px);
+        max-height: calc(100vh - 388px);
     }
 }
 
@@ -3786,7 +3907,7 @@ ul {
     }
 
     .asym-card-images img {
-        max-height: calc(100vh - 240px);
+        max-height: calc(100vh - 368px);
     }
 }
 
@@ -4644,6 +4765,40 @@ ul {
     padding: 60px 0;
 }
 
+/* Push Classic & AI sections down so headings land on white background */
+.hiw-gradient-classic {
+    padding-top: 100px;
+}
+
+.hiw-gradient-ai {
+    padding-top: 100px;
+}
+
+/* Section label — matches homepage "Explore LifeWink" style */
+.hiw-section-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+.hiw-section-label-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--primary-blue);
+    position: relative;
+    top: -1px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
 .hiw-section-light {
     background: #F8FBFF;
 }
@@ -4668,6 +4823,7 @@ ul {
 
 .hiw-section-title .text-blue {
     white-space: nowrap;
+    color: var(--gray-900);
 }
 
 /* HIW Grid */
@@ -4759,12 +4915,13 @@ ul {
     color: var(--gray-900);
     line-height: 1.2;
     margin-bottom: 16px;
+    white-space: nowrap;
     letter-spacing: -0.03em;
 }
 
 .hiw-final-subtitle {
     font-size: 1.0625rem;
-    color: var(--gray-600);
+    color: var(--gray-900);
     line-height: 1.7;
     margin-bottom: 28px;
 }
@@ -4832,8 +4989,8 @@ ul {
 /* Phone — front-left, overlapping desktop */
 .hiw-showcase-phone {
     position: absolute;
-    width: 16%;
-    left: 8%;
+    width: 13.75%;
+    left: 14.25%;
     bottom: -8%;
     z-index: 2;
     opacity: 0;
@@ -4920,7 +5077,9 @@ ul {
     }
 
     .hiw-hero-grid {
+        grid-template-columns: 1fr 1fr;
         gap: 32px;
+        padding-left: 40px;
     }
 
     .hiw-hero-right {
@@ -4972,6 +5131,16 @@ ul {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 32px;
+        padding-left: 0;
+    }
+
+    .hiw-hero-intro {
+        font-size: 1.05rem;
+    }
+
+    .hiw-hero-divider {
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hiw-hero-left {
@@ -6806,15 +6975,8 @@ ul {
 
 /* Subscriptions Hero */
 .subs-hero {
-    background: linear-gradient(180deg,
-        #c8e2fd 0%,
-        #d8ecfe 15%,
-        #e8f3fe 35%,
-        #f2f8ff 55%,
-        #f9fcff 75%,
-        #FFFFFF 100%
-    );
-    padding: 130px 0 50px;
+    background: var(--primary-blue);
+    padding: 120px 0 25px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -6823,30 +6985,233 @@ ul {
 .subs-hero-content {
     position: relative;
     z-index: 1;
-    max-width: 700px;
+    max-width: 860px;
     margin: 0 auto;
 }
 
 .subs-hero-title {
     font-size: 46px;
     font-weight: 700;
-    color: var(--primary-blue);
+    color: #FFFFFF;
     line-height: 1.2;
     margin-bottom: 20px;
 }
 
 .subs-hero-subtitle {
     font-size: 1.2rem;
-    color: var(--gray-600);
-    max-width: 560px;
+    color: #ffffff;
+    max-width: none;
     margin: 0 auto;
     line-height: 1.65;
 }
 
+/* Complimentary Card — Option C */
+.complimentary-card {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 28px 40px;
+    margin-top: 36px;
+    margin-bottom: 10px;
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    border: none;
+    overflow: hidden;
+}
+
+/* Running white border animation */
+.complimentary-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1.5px;
+    background: conic-gradient(
+        from var(--border-angle, 0deg),
+        transparent 30%,
+        rgba(255, 255, 255, 0.9) 50%,
+        transparent 70%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    animation: borderRotate 6s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Subtle static border underneath for when animation is at transparent part */
+.complimentary-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1px;
+    background: rgba(255, 255, 255, 0.15);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@property --border-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes borderRotate {
+    to {
+        --border-angle: 360deg;
+    }
+}
+
+.complimentary-card-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.complimentary-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--primary-blue);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.complimentary-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.complimentary-card-price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.complimentary-card-amount {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.complimentary-card-period {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+}
+
+.complimentary-card-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    color: var(--primary-blue);
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.complimentary-card-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.complimentary-card-right {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.complimentary-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.complimentary-features li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.complimentary-features li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+    .complimentary-card {
+        flex-direction: column;
+        gap: 24px;
+        padding: 28px 24px;
+        max-width: 100%;
+    }
+
+    .complimentary-card-left {
+        flex: none;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .complimentary-card-price {
+        justify-content: center;
+    }
+
+    .complimentary-card-amount {
+        font-size: 2rem;
+    }
+}
+
 /* Pricing Section */
 .subs-pricing {
-    padding: 60px 0 80px;
-    background: var(--gray-50);
+    padding: 25px 0 80px;
+    background: linear-gradient(to bottom, var(--primary-blue) 0%, #7ab5f5 15%, #d4e5fa 30%, var(--gray-50) 50%);
     position: relative;
     overflow: hidden;
 }
@@ -6936,40 +7301,61 @@ ul {
 /* Pricing Cards Grid */
 .pricing-cards {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
     align-items: stretch;
+    max-width: 1080px;
+    margin: 0 auto;
 }
 
-/* Pricing Card - Clean, Subtle Design */
+/* Pricing Card - White with Light Blue Border */
 .pricing-card {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    background: #ffffff;
     border-radius: 16px;
-    border: 1px solid rgba(226, 232, 240, 0.8);
+    border: 1.5px solid rgba(1, 105, 235, 0.25);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    transition: all var(--transition-normal);
     display: flex;
     flex-direction: column;
     position: relative;
     overflow: visible;
 }
 
-.pricing-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-    border-color: var(--gray-300);
+/* Complimentary Card - Highlighted with light blue */
+.pricing-card-complimentary {
+    background: linear-gradient(180deg, #EDF4FF 0%, #E0EDFE 100%);
+    border: 1px solid #C8DDFB;
+    box-shadow: 0 4px 16px rgba(1, 105, 235, 0.10);
+}
+
+.pricing-card-complimentary:hover {
+    box-shadow: 0 12px 36px rgba(1, 105, 235, 0.15);
+}
+
+.pricing-card-complimentary::before {
+    content: 'FREE';
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 6px 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 20px;
+    letter-spacing: 0.8px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.pricing-card-complimentary .pricing-card-header {
+    border-bottom-color: #C8DDFB;
 }
 
 /* Featured Card - Most Popular */
 .pricing-card-featured {
     border: 2px solid var(--primary-blue);
     box-shadow: 0 4px 20px rgba(1, 105, 235, 0.15);
-}
-
-.pricing-card-featured:hover {
-    box-shadow: 0 12px 40px rgba(1, 105, 235, 0.2);
 }
 
 /* Most Popular Badge - Centered Capsule */
@@ -6992,13 +7378,13 @@ ul {
 
 /* Card Header - Clean, No Heavy Background */
 .pricing-card-header {
-    padding: 32px 24px 20px;
+    padding: 28px 24px 16px;
     text-align: center;
     border-bottom: 1px solid var(--gray-100);
-}
-
-.pricing-card-featured .pricing-card-header {
-    padding-top: 40px;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .pricing-card-name {
@@ -7007,7 +7393,6 @@ ul {
     color: var(--gray-800);
     text-align: center;
     line-height: 1.4;
-    min-height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7015,15 +7400,15 @@ ul {
 
 /* Card Body — two-part layout: upper (price/btn) + features */
 .pricing-card-body {
-    padding: 24px;
+    padding: 20px 24px;
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
-/* Upper section wrapper — fixed height ensures KEY FEATURES aligns across all cards */
+/* Upper section wrapper — fixed height ensures buttons + KEY FEATURES align across all cards */
 .pricing-card-upper {
-    min-height: 240px;
+    height: 210px;
     display: flex;
     flex-direction: column;
 }
@@ -7076,7 +7461,7 @@ ul {
 /* Button Container - Fixed Position for Alignment */
 .pricing-btn-wrapper {
     margin-top: auto;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .pricing-btn {
@@ -7084,8 +7469,8 @@ ul {
     align-items: center;
     justify-content: center;
     width: 100%;
-    min-height: 68px;
-    padding: 12px 16px;
+    min-height: 44px;
+    padding: 10px 16px;
     background: var(--primary-blue);
     color: var(--white);
     font-size: 0.85rem;
@@ -7171,10 +7556,7 @@ ul {
 /* Included in All Subscriptions Section — Apollo-inspired split layout */
 .subs-included {
     padding: 70px 0 90px;
-    background: linear-gradient(135deg,
-        #0051CC 0%,
-        #0169EB 40%,
-        #2E8AF5 100%);
+    background: var(--primary-blue);
     position: relative;
     overflow: hidden;
 }
@@ -7282,10 +7664,10 @@ ul {
     align-items: flex-start;
     gap: 20px;
     padding: 24px 28px;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 16px;
     transition: all var(--transition-normal);
 }
@@ -7334,7 +7716,7 @@ ul {
 .included-feature-desc {
     font-size: 0.925rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--white);
 }
 
 /* FAQ Section — Light blue gradient with glass-effect cards */
@@ -7645,30 +8027,6 @@ ul {
 }
 
 /* Pill on light backgrounds - blue glass variant */
-.explore-section .section-label-pill {
-    background: rgba(1, 105, 235, 0.08);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border: 1.5px solid rgba(1, 105, 235, 0.2);
-    color: #0169EB;
-    box-shadow: 0 2px 12px rgba(1, 105, 235, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-}
-
-.explore-section .section-label-pill:hover {
-    background: rgba(1, 105, 235, 0.15);
-    color: #0169EB;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(1, 105, 235, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-}
-
-.explore-section .section-label-pill::before {
-    background: #0169EB;
-}
-
-.explore-section .section-label-pill:hover::before {
-    background: #0169EB;
-}
-
 .section-header.centered {
     display: flex;
     flex-direction: column;
@@ -7930,6 +8288,11 @@ ul {
    the rotating words once before fading out
    to reveal the main hero content.
    ---------------------------------------- */
+/* Hide splash instantly on return visits (class set by inline script in <head>) */
+.splash-seen .hero-splash {
+    display: none !important;
+}
+
 .hero-splash {
     position: fixed;
     top: 0;
@@ -7975,10 +8338,9 @@ ul {
     display: inline-block;
     position: relative;
     overflow: hidden;
-    vertical-align: baseline;
+    vertical-align: top;
     text-align: center;
-    height: 1.2em;
-    margin-bottom: -0.22em;
+    height: 1.3em;
 }
 
 .splash-rotating-words {
@@ -7994,7 +8356,7 @@ ul {
     left: 50%;
     transform: translateX(-50%) translateY(100%);
     white-space: nowrap;
-    line-height: 1.2;
+    line-height: 1.3;
     opacity: 0;
     transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
                 transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -8157,81 +8519,32 @@ ul {
    A light sweep that glides across the card
    surface, like light catching glass.
    ---------------------------------------- */
-.explore-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 60%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.08) 30%,
-        rgba(255, 255, 255, 0.15) 50%,
-        rgba(255, 255, 255, 0.08) 70%,
-        transparent 100%
-    );
-    z-index: 3;
-    pointer-events: none;
-    transition: none;
-    transform: skewX(-15deg);
-}
-
-.explore-card:hover::after {
-    animation: cardShimmer 0.8s ease-out forwards;
-}
-
-@keyframes cardShimmer {
-    0% {
-        left: -100%;
-    }
-    100% {
-        left: 150%;
-    }
-}
-
-
 /* ----------------------------------------
-   5. CTA BUTTON — GENTLE PULSE GLOW
-   A breathing ring of light around the
-   CTA button that draws the eye.
+   5. CTA BUTTON — GLOWING BORDER (matches hero)
    ---------------------------------------- */
-.cta-btn {
-    position: relative;
-}
-
 .cta-btn::before {
     content: '';
     position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.8) 25%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(255, 255, 255, 0.8) 75%,
+        transparent 100%
+    );
     border-radius: inherit;
-    background: transparent;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3),
-                0 0 40px rgba(255, 255, 255, 0.15);
-    animation: ctaPulseGlow 3s ease-in-out infinite;
-    pointer-events: none;
-    z-index: -1;
-}
-
-@keyframes ctaPulseGlow {
-    0%, 100% {
-        opacity: 0.4;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.03);
-    }
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .cta-btn:hover::before {
     opacity: 1;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5),
-                0 0 60px rgba(255, 255, 255, 0.25);
+    animation: glowingBorder 2s linear infinite;
 }
 
 
