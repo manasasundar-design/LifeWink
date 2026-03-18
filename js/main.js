@@ -653,7 +653,7 @@ function initScrollToTop() {
         visibility: hidden;
         transition: all 0.3s ease;
         z-index: 1000;
-        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4), 0 0 20px rgba(255, 255, 255, 0.3);
     `;
 
     document.body.appendChild(scrollBtn);
@@ -875,7 +875,7 @@ function initSplashIntro(splashEl) {
     const contentWrapper = document.querySelector('.hero-content-wrapper');
     const devicesWrapper = document.querySelector('.hero-devices-wrapper');
 
-    const SPLASH_INTERVAL = 1800; // ms per word
+    const SPLASH_INTERVAL = 1400; // ms per word
     const totalWords = splashWords.length;
     let splashIndex = 0;
 
@@ -1000,7 +1000,7 @@ function initSplashIntro(splashEl) {
                 setTimeout(() => revealHero(), 1500);
             }
         }, SPLASH_INTERVAL);
-    }, 1000);
+    }, 200);
 }
 
 

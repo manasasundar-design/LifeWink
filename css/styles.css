@@ -129,6 +129,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: clip;
 }
 
 body {
@@ -356,10 +357,10 @@ ul {
     color: var(--primary-blue);
     font-weight: 500;
     font-size: 0.875rem;
-    padding: 10px 24px;
+    padding: 11px 28px 9px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
     text-align: center;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.02em;
 }
 
 .nav-cta:hover {
@@ -486,7 +487,7 @@ ul {
     position: relative;
     min-height: 100vh;
     padding-top: 72px;
-    overflow: visible;
+    overflow: clip;
     background: #F5FAFF;
 }
 
@@ -1095,8 +1096,8 @@ ul {
     }
 
     .hero-device-phone {
-        width: 230px;
-        margin-left: -430px;
+        width: 172px;
+        margin-left: -434px;
     }
 
     .hero-device-desktop {
@@ -1104,8 +1105,8 @@ ul {
     }
 
     .hero-device-tablet {
-        width: 350px;
-        margin-right: -430px;
+        width: 292px;
+        margin-right: -514px;
     }
 }
 
@@ -1115,8 +1116,8 @@ ul {
     }
 
     .hero-device-phone {
-        width: 195px;
-        margin-left: -370px;
+        width: 145px;
+        margin-left: -364px;
     }
 
     .hero-device-desktop {
@@ -1124,8 +1125,8 @@ ul {
     }
 
     .hero-device-tablet {
-        width: 300px;
-        margin-right: -370px;
+        width: 245px;
+        margin-right: -431px;
     }
 }
 
@@ -1136,8 +1137,8 @@ ul {
     }
 
     .hero-device-phone {
-        width: 170px;
-        margin-left: -310px;
+        width: 122px;
+        margin-left: -308px;
     }
 
     .hero-device-desktop {
@@ -1145,56 +1146,60 @@ ul {
     }
 
     .hero-device-tablet {
-        width: 255px;
-        margin-right: -310px;
+        width: 207px;
+        margin-right: -300px;
     }
 }
 
 @media (max-width: 768px) {
-    .hero-devices-figma {
-        flex-direction: column;
-        align-items: center;
-        min-height: auto;
-        gap: 30px;
+    .hero-devices-wrapper {
+        margin-top: 20px;
+        padding-bottom: 0 !important;
     }
 
-    .hero-device-phone,
-    .hero-device-desktop,
-    .hero-device-tablet {
+    .hero-subtitle {
+        font-size: 0.875rem;
+    }
+
+    .hero-devices-wrapper {
         position: relative;
-        left: auto;
-        right: auto;
-        top: auto;
-        margin: 0 auto;
-        width: 85%;
-        max-width: 400px;
+        height: var(--devices-height, 280px);
+    }
+
+    .hero-devices-figma {
+        position: absolute;
+        width: 900px;
+        left: 50%;
+        transform: translateX(-50%) scale(var(--device-scale, 0.58));
+        transform-origin: center top;
+        max-width: none;
+        padding: 0;
     }
 
     .hero-device-phone {
-        transform: rotate(0deg);
-        order: 1;
+        width: 160px;
+        margin-left: -375px;
     }
 
-    /* mobile hero device phone hover removed */
-
     .hero-device-desktop {
-        order: 2;
+        width: 500px;
+        flex-shrink: 0;
     }
 
     .hero-device-tablet {
-        order: 3;
+        width: 228px;
+        margin-right: -390px;
     }
 }
 
 @media (max-width: 480px) {
-    .hero-devices-figma {
-        padding: 0 10px;
+    .hero-subtitle {
+        font-size: 0.825rem;
     }
 
-    .hero-device-phone,
-    .hero-device-desktop,
-    .hero-device-tablet {
-        width: 95%;
+    .hero-devices-wrapper {
+        --devices-height: 220px;
+        --device-scale: 0.47;
     }
 }
 
@@ -1932,14 +1937,14 @@ ul {
     width: auto;
     max-width: 46%;
     margin-right: -50px;
-    z-index: 1;
+    z-index: 2;
 }
 
 .ai-phone-right {
     width: auto;
     max-width: 46%;
     margin-top: 80px;
-    z-index: 2;
+    z-index: 1;
 }
 
 /* hover removed for accessibility */
@@ -2043,14 +2048,14 @@ ul {
     width: auto;
     max-width: 46%;
     margin-right: -50px;
-    z-index: 1;
+    z-index: 2;
 }
 
 .scheduled-phone-right {
     width: auto;
     max-width: 46%;
     margin-top: 80px;
-    z-index: 2;
+    z-index: 1;
 }
 
 /* hover removed for accessibility */
@@ -2824,9 +2829,12 @@ ul {
         margin-bottom: 80px;
     }
 
-    .feature-right .feature-content,
+    .feature-right .feature-content {
+        order: -1;
+    }
+
     .feature-right .feature-visual {
-        order: unset;
+        order: 1;
     }
 
     .feature-content {
@@ -2900,7 +2908,7 @@ ul {
     }
 
     .hero-subtitle {
-        font-size: 0.95rem;
+        font-size: 0.825rem;
     }
 
     .btn {
@@ -3387,7 +3395,7 @@ ul {
         position: absolute;
         left: 50%;
         bottom: 15px;
-        margin-left: -48%;
+        margin-left: -56%;
         width: 32%;
         z-index: 3;
     }
@@ -7408,9 +7416,8 @@ ul {
     flex: 1;
 }
 
-/* Upper section wrapper — fixed height ensures buttons + KEY FEATURES align across all cards */
+/* Upper section wrapper — flex layout, no fixed height so it adapts to content */
 .pricing-card-upper {
-    height: 210px;
     display: flex;
     flex-direction: column;
 }
@@ -7438,6 +7445,22 @@ ul {
     color: var(--gray-500);
 }
 
+.pricing-savings {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: none;
+    background: linear-gradient(135deg, #e06b8a, #a678d6, #5b93e0);
+    padding: 4px 16px;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .pricing-commitment {
     text-align: center;
     font-size: 0.8rem;
@@ -7460,10 +7483,11 @@ ul {
     justify-content: center;
 }
 
-/* Button Container - Fixed Position for Alignment */
+/* Button Container - pushes to bottom of upper section */
 .pricing-btn-wrapper {
     margin-top: auto;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--gray-100);
 }
 
 .pricing-btn {
@@ -7510,10 +7534,9 @@ ul {
     line-height: 1.4;
 }
 
-/* Features Section — starts right after the fixed-height upper area */
+/* Features Section */
 .pricing-features {
     padding-top: 20px;
-    border-top: 1px solid var(--gray-100);
     flex: 1;
 }
 

@@ -371,11 +371,18 @@
             }
 
             .story-video-scroll {
-                height: 120vh;
+                height: auto;
+                padding-bottom: 40px;
+            }
+
+            .story-video-sticky {
+                position: relative;
+                top: auto;
+                min-height: auto;
             }
 
             .story-video-wrapper {
-                width: 85% !important;
+                width: 90% !important;
             }
 
             .founder-section {
@@ -437,6 +444,132 @@
         .delay-200 { transition-delay: 0.2s; }
         .delay-300 { transition-delay: 0.3s; }
         .delay-400 { transition-delay: 0.4s; }
+
+        /* ========================================
+           Our Values Section — matches site-wide style
+           ======================================== */
+        .values-section {
+            padding: 48px 0 64px;
+            background: #F8FBFF;
+            text-align: center;
+        }
+
+        .values-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--primary-blue);
+            line-height: 1;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+        }
+
+        .values-label-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--primary-blue);
+            position: relative;
+            top: -1px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .values-heading {
+            font-size: clamp(1.5rem, 2.5vw, 1.75rem);
+            font-weight: 700;
+            color: var(--gray-900);
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .values-subtitle {
+            font-size: 1.125rem;
+            color: #1a1a1a;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.65;
+            margin-bottom: 64px;
+            text-align: center;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .value-card {
+            text-align: left;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 32px 28px;
+        }
+
+        .value-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 20px;
+            background: var(--primary-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(1, 105, 235, 0.3), 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon svg {
+            width: 26px;
+            height: 26px;
+            stroke-width: 1.5;
+            color: #ffffff;
+        }
+
+        .value-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 12px;
+        }
+
+        .value-divider {
+            width: 48px;
+            height: 2px;
+            background: var(--primary-blue);
+            margin-bottom: 12px;
+        }
+
+        .value-description {
+            font-size: 0.875rem;
+            color: var(--gray-900);
+            line-height: 1.65;
+        }
+
+        @media (max-width: 1024px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px 32px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .values-section {
+                padding: 40px 0 48px;
+            }
+            .values-heading {
+                font-size: 1.5rem;
+            }
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -529,6 +662,61 @@
                         <p class="founder-name">Jim Baumann</p>
                         <p class="founder-title">Founder, Chief Trust Officer & CEO</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="values-label fade-in-up"><span class="values-label-dot"></span>Our Values</h2>
+            <h2 class="values-heading fade-in-up delay-100">Guiding Principles</h2>
+            <p class="values-subtitle fade-in-up delay-200">LifeWink is driven by the desire to create a trusted, secure, private, and authentic experience for our users, guided by the following principles.</p>
+            <div class="values-grid">
+                <!-- Love -->
+                <div class="value-card fade-in-up delay-100">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="value-title">Love</h3>
+                    <div class="value-divider"></div>
+                    <p class="value-description">Treat others as you want to be treated; be respectful, kind, accepting, and build trusting, healthy relationships.</p>
+                </div>
+                <!-- Integrity -->
+                <div class="value-card fade-in-up delay-200">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="value-title">Integrity</h3>
+                    <div class="value-divider"></div>
+                    <p class="value-description">Act with honesty, transparency, and high-minded principles; always do what's right.</p>
+                </div>
+                <!-- Innovation -->
+                <div class="value-card fade-in-up delay-300">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="value-title">Innovation</h3>
+                    <div class="value-divider"></div>
+                    <p class="value-description">Be curious and creative; go above and beyond the status quo.</p>
+                </div>
+                <!-- Excellence -->
+                <div class="value-card fade-in-up delay-400">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="value-title">Excellence</h3>
+                    <div class="value-divider"></div>
+                    <p class="value-description">Create an experience of the highest quality; be a leader in the communication technology space.</p>
                 </div>
             </div>
         </div>

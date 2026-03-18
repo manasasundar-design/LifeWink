@@ -95,6 +95,7 @@
                             <div class="pricing-amount">
                                 <span class="price" data-monthly="$6.99<span class='price-period'>/month</span>" data-annual="$69.99<span class='price-period'>/year</span>">$6.99<span class="price-period">/month</span></span>
                             </div>
+                            <p class="pricing-savings" data-savings="Save $13.89/year">&nbsp;</p>
                             <p class="pricing-commitment">Monthly Commitment</p>
                             <p class="pricing-tagline">Capture and share your most treasured moments</p>
                             <div class="pricing-btn-wrapper">
@@ -104,7 +105,7 @@
                         <div class="pricing-features">
                             <h4 class="features-title">Key features</h4>
                             <ul class="features-list">
-                                <li>Create and share <strong>unlimited</strong> Classic LifeWinks.</li>
+                                <li>Create and share unlimited Classic LifeWinks.</li>
                                 <li>Ability to save drafts, preview and edit Classic LifeWinks before sharing.</li>
                                 <li>Classic LifeWinks can be scheduled for dated and undated occasions.</li>
                                 <li>Your Recipients can view Classic LifeWinks for free.</li>
@@ -117,13 +118,14 @@
                 <!-- Card 3: Unlimited AI -->
                 <div class="pricing-card scroll-animate" data-delay="200">
                     <div class="pricing-card-header">
-                        <h3 class="pricing-card-name">Unlimited AI LifeWinks Subscription</h3>
+                        <h3 class="pricing-card-name">Unlimited AI LifeWinks<br>Subscription</h3>
                     </div>
                     <div class="pricing-card-body">
                         <div class="pricing-card-upper">
                             <div class="pricing-amount">
                                 <span class="price" data-monthly="$8.99<span class='price-period'>/month</span>" data-annual="$89.99<span class='price-period'>/year</span>">$8.99<span class="price-period">/month</span></span>
                             </div>
+                            <p class="pricing-savings" data-savings="Save $17.89/year">&nbsp;</p>
                             <p class="pricing-commitment">Monthly Commitment</p>
                             <p class="pricing-tagline">Capture and share what you value most</p>
                             <div class="pricing-btn-wrapper">
@@ -133,7 +135,8 @@
                         <div class="pricing-features">
                             <h4 class="features-title">Key features</h4>
                             <ul class="features-list">
-                                <li>Create unlimited AI LifeWinks using Chat and Voice.</li>
+                                <li>Create and share unlimited AI LifeWinks.</li>
+                                <li>Ability to save and preview chat and voice contributions.</li>
                                 <li>Smart prompts and questions help inspire authentic contributions.</li>
                                 <li>Your Recipients enjoy a free Complimentary Experience and an option to purchase additional Chat and Voice interactions.</li>
                                 <li>Secure, private storage and delivery of AI LifeWinks even if unsubscribed.</li>
@@ -152,6 +155,7 @@
                             <div class="pricing-amount">
                                 <span class="price" data-monthly="$9.99<span class='price-period'>/month</span>" data-annual="$99.99<span class='price-period'>/year</span>">$9.99<span class="price-period">/month</span></span>
                             </div>
+                            <p class="pricing-savings" data-savings="Save $19.89/year">&nbsp;</p>
                             <p class="pricing-commitment">Monthly Commitment</p>
                             <p class="pricing-tagline">Full access to everything that LifeWink has to offer</p>
                             <div class="pricing-btn-wrapper">
@@ -412,6 +416,17 @@
                     commitments.forEach(el => {
                         if (el.innerHTML.trim() !== '&nbsp;' && el.textContent.trim() !== '') {
                             el.textContent = commitmentText;
+                        }
+                    });
+
+                    // Show/hide savings text
+                    const savings = document.querySelectorAll('.pricing-savings');
+                    savings.forEach(el => {
+                        if (billing === 'annual') {
+                            el.textContent = el.dataset.savings;
+                            el.style.display = 'inline-block';
+                        } else {
+                            el.style.display = 'none';
                         }
                     });
                 });
