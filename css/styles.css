@@ -1817,7 +1817,7 @@ ul {
    Features Section
    ======================================== */
 .features-section {
-    padding: 48px 0 64px;
+    padding: 72px 0 64px;
     background: #F8FBFF;
 }
 
@@ -1928,7 +1928,7 @@ ul {
     max-height: 505px;
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 20px 40px rgba(1, 105, 235, 0.10)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.06));
+    filter: drop-shadow(0 20px 40px rgba(1, 105, 235, 0.08)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.06));
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                 filter 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
