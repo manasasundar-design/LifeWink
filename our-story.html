@@ -287,7 +287,7 @@
         .founder-text {
             font-size: 1.0625rem;
             line-height: 1.8;
-            color: var(--gray-700);
+            color: #000000;
         }
 
         .founder-text p {
@@ -306,22 +306,31 @@
         }
 
         .founder-signature {
-            padding-top: 20px;
-            border-top: 1px solid var(--gray-200);
+            padding-top: 24px;
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: #000000;
+        }
+
+        .founder-closing {
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--gray-200);
+            display: inline-block;
+            min-width: 80px;
         }
 
         .founder-name {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: 4px;
+            font-size: 1.1875rem;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 2px;
         }
 
         .founder-title {
-            font-size: 1rem;
-            color: var(--gray-500);
+            color: #000000;
+            margin-bottom: 1px;
         }
-
 
         /* Responsive Styles */
         @media (max-width: 1024px) {
@@ -446,7 +455,7 @@
         .delay-400 { transition-delay: 0.4s; }
 
         /* ========================================
-           Our Values Section — matches site-wide style
+           Our Values Section — Individual Cards
            ======================================== */
         .values-section {
             padding: 48px 0 64px;
@@ -483,45 +492,45 @@
             font-weight: 700;
             color: var(--gray-900);
             letter-spacing: -0.02em;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-
-        .values-subtitle {
-            font-size: 1.125rem;
-            color: #1a1a1a;
-            max-width: 760px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.65;
-            margin-bottom: 64px;
+            margin-bottom: 40px;
             text-align: center;
         }
 
         .values-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
-        }
-
-        .value-card {
-            text-align: left;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
             background: #ffffff;
             border: 1px solid #e2e8f0;
             border-radius: 16px;
-            padding: 32px 28px;
+            padding: 40px 32px;
+        }
+
+        .value-card {
+            text-align: center;
+            background: transparent;
+            padding: 16px 24px;
+            border-right: 1px solid #e2e8f0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .value-card:last-child {
+            border-right: none;
         }
 
         .value-icon {
             width: 48px;
             height: 48px;
-            margin-bottom: 20px;
-            background: var(--primary-blue);
+            background: #0169EB;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 12px rgba(1, 105, 235, 0.3), 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 0 auto 20px;
         }
 
         .value-icon svg {
@@ -531,30 +540,24 @@
             color: #ffffff;
         }
 
-        .value-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: 12px;
-        }
-
         .value-divider {
             width: 48px;
             height: 2px;
-            background: var(--primary-blue);
-            margin-bottom: 12px;
+            background: #d1d5db;
+            margin: 0 auto 16px;
+            border: none;
         }
 
-        .value-description {
-            font-size: 0.875rem;
-            color: var(--gray-900);
-            line-height: 1.65;
+        .value-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 0;
         }
 
         @media (max-width: 1024px) {
             .values-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 40px 32px;
+                padding: 32px 20px;
             }
         }
 
@@ -566,8 +569,17 @@
                 font-size: 1.5rem;
             }
             .values-grid {
-                grid-template-columns: 1fr;
-                gap: 36px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                background: transparent;
+                border: none;
+                border-radius: 0;
+                padding: 0;
+            }
+            .value-card {
+                border-right: none;
+                padding: 24px 16px;
             }
         }
     </style>
@@ -584,6 +596,7 @@
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="how-it-works.html" class="nav-link">How it Works</a>
                 <a href="subscriptions.html" class="nav-link">Subscriptions</a>
+                <a href="faqs.html" class="nav-link">FAQs</a>
                 <a href="our-story.html" class="nav-link active">Our Story</a>
                 <a href="download.html" class="btn nav-cta">Try LifeWink for Free</a>
             </div>
@@ -600,6 +613,7 @@
         <a href="index.html" class="mobile-nav-link">Home</a>
         <a href="how-it-works.html" class="mobile-nav-link">How it Works</a>
         <a href="subscriptions.html" class="mobile-nav-link">Subscriptions</a>
+        <a href="faqs.html" class="mobile-nav-link">FAQs</a>
         <a href="our-story.html" class="mobile-nav-link active">Our Story</a>
         <a href="download.html" class="btn btn-primary mobile-cta">Try LifeWink for Free</a>
     </div>
@@ -609,7 +623,7 @@
         <div class="container">
             <div class="story-hero-content fade-in-up">
                 <h1 class="story-hero-title">Our Story</h1>
-                <p class="story-hero-subtitle">LifeWink carries forth the greatest gifts we have in life – to love and to be loved</p>
+                <p class="story-hero-subtitle">LifeWink carries forth the greatest gift we have in life – to love and to be loved</p>
             </div>
         </div>
     </section>
@@ -647,20 +661,20 @@
                 <!-- Founder Content -->
                 <div class="founder-content fade-in-right">
                     <div class="founder-text">
-                        <p>Over the past two decades, I've lost my parents and many cherished family members and friends. Those experiences shaped me deeply and reinforced something I believe to be true: to love and to be loved are life's greatest gift.</p>
+                        <p>Life experiences have reinforced something I believe to be true: to love and to be loved is life's greatest gift.</p>
 
-                        <p>LifeWink was created from that belief.</p>
+                        <p>LifeWink was created from that belief — reimagining how we capture and share our love, today and beyond our lifetime.</p>
 
-                        <p>LifeWink is a profoundly personal platform designed to help people authentically capture their love while they are living and share it with the people they love, today and beyond their lifetime. Our hope is that LifeWink inspires new conversations, deeper reflection, and more intentional connection, helping people express love today and carry it forward into the future.</p>
+                        <p>Guided by love, integrity, innovation, and excellence, we put your well-being at the center of everything we do. We are deeply committed to your privacy, your safety, and ensuring that every LifeWink is authentic and true to you.</p>
 
-                        <p>Guided by love, integrity, curiosity, and excellence, we put our users' well-being at the center of everything we do. We are deeply committed to your privacy, safety, and ensuring every LifeWink remains authentic and true to the person who created it.</p>
-
-                        <p>I often wish I could be receiving LifeWinks today from those I've loved and lost. It's my sincere hope that LifeWink earns your trust, feels meaningful to you, and helps you share what matters most with the people you love—today and beyond your lifetime.</p>
+                        <p>I wish our world was more loving, and that I could be receiving LifeWinks today from those I love and who are no longer here. Hoping you choose to capture and share your love through LifeWink, and that we leave you in awe, every step of the way.</p>
                     </div>
 
                     <div class="founder-signature">
+                        <p class="founder-closing">Kindly,</p>
                         <p class="founder-name">Jim Baumann</p>
-                        <p class="founder-title">Founder, Chief Trust Officer & CEO</p>
+                        <p class="founder-title">Founder</p>
+                        <p class="founder-title">Chief Trust Officer and CEO</p>
                     </div>
                 </div>
             </div>
@@ -672,7 +686,6 @@
         <div class="container">
             <h2 class="values-label fade-in-up"><span class="values-label-dot"></span>Our Values</h2>
             <h2 class="values-heading fade-in-up delay-100">Guiding Principles</h2>
-            <p class="values-subtitle fade-in-up delay-200">LifeWink is driven by the desire to create a trustworthy, secure, private, and authentic experience for our users, guided by the following principles.</p>
             <div class="values-grid">
                 <!-- Love -->
                 <div class="value-card fade-in-up delay-100">
@@ -681,9 +694,8 @@
                             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <h3 class="value-title">Love</h3>
                     <div class="value-divider"></div>
-                    <p class="value-description">Treat others as you want to be treated; be respectful, kind, accepting, and build trusting, healthy relationships.</p>
+                    <h3 class="value-title">Love</h3>
                 </div>
                 <!-- Integrity -->
                 <div class="value-card fade-in-up delay-200">
@@ -692,9 +704,8 @@
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <h3 class="value-title">Integrity</h3>
                     <div class="value-divider"></div>
-                    <p class="value-description">Act with honesty, transparency, and high-minded principles; always do what's right.</p>
+                    <h3 class="value-title">Integrity</h3>
                 </div>
                 <!-- Innovation -->
                 <div class="value-card fade-in-up delay-300">
@@ -703,9 +714,8 @@
                             <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <h3 class="value-title">Innovation</h3>
                     <div class="value-divider"></div>
-                    <p class="value-description">Be curious and creative; go above and beyond the status quo.</p>
+                    <h3 class="value-title">Innovation</h3>
                 </div>
                 <!-- Excellence -->
                 <div class="value-card fade-in-up delay-400">
@@ -714,9 +724,8 @@
                             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <h3 class="value-title">Excellence</h3>
                     <div class="value-divider"></div>
-                    <p class="value-description">Create an experience of the highest quality; be a leader in the communication technology space.</p>
+                    <h3 class="value-title">Excellence</h3>
                 </div>
             </div>
         </div>
@@ -744,19 +753,26 @@
         <footer class="footer">
             <div class="container">
                 <div class="footer-main">
-                    <div class="footer-left">
+                    <div class="footer-col footer-col-logo">
                         <a href="index.html" class="footer-logo">
                             <img src="images/logo-white.png" alt="LifeWink">
                         </a>
+                        <div class="footer-soc2-seal">
+                            <img src="images/badges/soc2-badge-light.png" alt="SOC 2 Compliance" style="max-width: 80px; height: auto;">
+                        </div>
+                    </div>
+                    <div class="footer-col footer-col-nav">
+                        <h4 class="footer-col-title">Navigation</h4>
                         <nav class="footer-nav">
                             <a href="index.html">Home</a>
                             <a href="how-it-works.html">How it Works</a>
                             <a href="subscriptions.html">Subscriptions</a>
+                            <a href="faqs.html">FAQs</a>
                             <a href="our-story.html">Our Story</a>
                         </nav>
                     </div>
-                    <div class="footer-right">
-                        <p class="footer-download-hint">Download LifeWink for free or access it in any browser.</p>
+                    <div class="footer-col footer-col-download">
+                        <h4 class="footer-col-title">Download for free or access it in any browser.</h4>
                         <div class="footer-badges">
                             <a href="#" class="footer-badge">
                                 <img src="images/badges/app-store.png" alt="Download on the App Store">
@@ -768,10 +784,18 @@
                                 <img src="images/badges/web-app.png" alt="Use Web App">
                             </a>
                         </div>
+                        <h4 class="footer-col-title footer-follow-title">Follow Us</h4>
+                        <div class="footer-social">
+                            <a href="#" class="footer-social-icon" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                            <a href="#" class="footer-social-icon" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                            <a href="#" class="footer-social-icon" aria-label="TikTok"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+                            <a href="#" class="footer-social-icon" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                            <a href="#" class="footer-social-icon" aria-label="X"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                        </div>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2026 LifeWink. All rights reserved.</p>
+                    <p class="footer-copyright">&copy; 2026 LifeWink. All rights reserved.</p>
                 </div>
             </div>
         </footer>

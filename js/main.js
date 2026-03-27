@@ -126,21 +126,32 @@ function initWordReveal() {
     const targets = section.querySelectorAll('.word-reveal-target');
     if (!targets.length) return;
 
-    // Split each target's text into individual word spans
+    // Split each target's text into individual word spans, preserving <br> tags
     const allWords = [];
+    const BR_MARKER = '\u2063BREAK\u2063';
     targets.forEach(target => {
+        // Replace <br> elements with a text marker so we can detect them after split
+        target.querySelectorAll('br').forEach(br => {
+            br.replaceWith(document.createTextNode(' ' + BR_MARKER + ' '));
+        });
+
         const text = target.textContent;
         target.innerHTML = '';
-        const words = text.split(/\s+/);
+        const words = text.split(/\s+/).filter(w => w.length > 0);
         words.forEach((word, i) => {
-            const span = document.createElement('span');
-            span.className = 'reveal-word';
-            span.textContent = word;
-            target.appendChild(span);
-            if (i < words.length - 1) {
-                target.appendChild(document.createTextNode(' '));
+            if (word === BR_MARKER) {
+                // Insert a <br> element in place of the marker
+                target.appendChild(document.createElement('br'));
+            } else {
+                const span = document.createElement('span');
+                span.className = 'reveal-word';
+                span.textContent = word;
+                target.appendChild(span);
+                if (i < words.length - 1 && words[i + 1] !== BR_MARKER) {
+                    target.appendChild(document.createTextNode(' '));
+                }
+                allWords.push(span);
             }
-            allWords.push(span);
         });
     });
 
@@ -212,6 +223,12 @@ function initBentoCardAnimations() {
 
     // Observe share cards (they already have scroll-animate class in HTML)
     shareCards.forEach(card => {
+        bentoObserver.observe(card);
+    });
+
+    // Observe classic rect cards (they already have scroll-animate class in HTML)
+    const classicRectCards = document.querySelectorAll('.classic-rect-card.scroll-animate');
+    classicRectCards.forEach(card => {
         bentoObserver.observe(card);
     });
 
@@ -712,6 +729,32 @@ window.addEventListener('load', () => {
                 }, index * 150);
             });
         }, 100);
+    }
+
+    // Complimentary Sticky Banner - show when card scrolls out of view
+    const complimentaryCard = document.querySelector('.complimentary-card');
+    const stickyBanner = document.getElementById('complimentaryStickyBanner');
+    if (complimentaryCard && stickyBanner) {
+        // Force initial hidden state to prevent race condition
+        stickyBanner.style.opacity = '0';
+        stickyBanner.style.transform = 'translateY(-100%)';
+
+        requestAnimationFrame(function() {
+            // Remove inline styles after a frame so CSS transitions take over
+            stickyBanner.style.opacity = '';
+            stickyBanner.style.transform = '';
+
+            const bannerObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (!entry.isIntersecting) {
+                        stickyBanner.classList.add('visible');
+                    } else {
+                        stickyBanner.classList.remove('visible');
+                    }
+                });
+            }, { threshold: 0, rootMargin: '-80px 0px 0px 0px' });
+            bannerObserver.observe(complimentaryCard);
+        });
     }
 });
 
