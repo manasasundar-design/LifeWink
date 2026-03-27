@@ -3888,7 +3888,7 @@ ul {
 }
 
 .classic-rect-title {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-family);
     font-size: 1rem;
     font-weight: 700;
     color: var(--gray-900);
@@ -3899,7 +3899,7 @@ ul {
 }
 
 .classic-rect-desc {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-family);
     font-size: 0.875rem;
     font-weight: 400;
     color: var(--gray-900);
@@ -7428,7 +7428,7 @@ ul {
 
 .complimentary-sticky-title {
     color: #fff;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-family);
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: -0.02em;
@@ -7442,7 +7442,7 @@ ul {
 
 .complimentary-sticky-price {
     color: #fff;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-family);
     font-size: 1.5rem;
     font-weight: 800;
 }
@@ -7450,7 +7450,7 @@ ul {
 .complimentary-sticky-btn {
     background: #fff;
     color: var(--primary-blue);
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-family);
     font-size: 0.85rem;
     font-weight: 700;
     padding: 10px 24px;
