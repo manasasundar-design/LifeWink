@@ -431,10 +431,12 @@ ul {
     padding: 1.5rem;
     box-shadow: var(--shadow-lg);
     z-index: 999;
+    pointer-events: none;
 }
 
 .mobile-menu.active {
     display: flex;
+    pointer-events: auto;
     flex-direction: column;
     gap: 1rem;
 }
