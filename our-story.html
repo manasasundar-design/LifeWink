@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Story - LifeWink</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="fonts/Axiforma-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/Axiforma-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
     <style>
         /* ========================================
            Our Story Page - Specific Styles
@@ -321,7 +320,7 @@
         }
 
         .founder-name {
-            font-size: 1.1875rem;
+            font-size: 1.0625rem;
             font-weight: 600;
             color: #000000;
             margin-bottom: 2px;
@@ -492,45 +491,44 @@
             font-weight: 700;
             color: var(--gray-900);
             letter-spacing: -0.02em;
-            margin-bottom: 40px;
+            margin-bottom: 16px;
             text-align: center;
+        }
+
+        .values-subtitle {
+            font-size: 1.125rem;
+            color: #1a1a1a;
+            max-width: 100%;
+            margin: 0 auto 40px;
+            line-height: 1.7;
         }
 
         .values-grid {
             display: flex;
             justify-content: space-evenly;
-            align-items: center;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 40px 32px;
+            gap: 24px;
+            padding: 0;
         }
 
         .value-card {
-            text-align: center;
-            background: transparent;
-            padding: 16px 24px;
-            border-right: 1px solid #e2e8f0;
+            text-align: left;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 32px 28px;
             flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .value-card:last-child {
-            border-right: none;
         }
 
         .value-icon {
             width: 48px;
             height: 48px;
-            background: #0169EB;
+            background: var(--primary-blue);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 12px rgba(1, 105, 235, 0.3), 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin: 0 auto 20px;
+            margin-bottom: 20px;
         }
 
         .value-icon svg {
@@ -543,8 +541,8 @@
         .value-divider {
             width: 48px;
             height: 2px;
-            background: #d1d5db;
-            margin: 0 auto 16px;
+            background: var(--primary-blue);
+            margin-bottom: 12px;
             border: none;
         }
 
@@ -552,12 +550,18 @@
             font-size: 1.125rem;
             font-weight: 700;
             color: #000000;
-            margin-bottom: 0;
+            margin-bottom: 12px;
+        }
+
+        .value-description {
+            font-size: 0.875rem;
+            color: var(--gray-900);
+            line-height: 1.65;
         }
 
         @media (max-width: 1024px) {
             .values-grid {
-                padding: 32px 20px;
+                gap: 16px;
             }
         }
 
@@ -572,13 +576,9 @@
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
-                background: transparent;
-                border: none;
-                border-radius: 0;
                 padding: 0;
             }
             .value-card {
-                border-right: none;
                 padding: 24px 16px;
             }
         }
@@ -686,6 +686,7 @@
         <div class="container">
             <h2 class="values-label fade-in-up"><span class="values-label-dot"></span>Our Values</h2>
             <h2 class="values-heading fade-in-up delay-100">Guiding Principles</h2>
+            <p class="values-subtitle fade-in-up delay-200">LifeWink's highest priority is our users' well-being. Guided by our core principles, we are dedicated to creating a trustworthy, private, safe, secure and authentic experience.</p>
             <div class="values-grid">
                 <!-- Love -->
                 <div class="value-card fade-in-up delay-100">
@@ -694,8 +695,9 @@
                             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <div class="value-divider"></div>
                     <h3 class="value-title">Love</h3>
+                    <div class="value-divider"></div>
+                    <p class="value-description">Be respectful, kind, accepting and trustworthy</p>
                 </div>
                 <!-- Integrity -->
                 <div class="value-card fade-in-up delay-200">
@@ -704,8 +706,9 @@
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <div class="value-divider"></div>
                     <h3 class="value-title">Integrity</h3>
+                    <div class="value-divider"></div>
+                    <p class="value-description">Act with honesty, transparency and high minded principles</p>
                 </div>
                 <!-- Innovation -->
                 <div class="value-card fade-in-up delay-300">
@@ -714,8 +717,9 @@
                             <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <div class="value-divider"></div>
                     <h3 class="value-title">Innovation</h3>
+                    <div class="value-divider"></div>
+                    <p class="value-description">Work curiously, creatively and brilliantly; build something that's never existed</p>
                 </div>
                 <!-- Excellence -->
                 <div class="value-card fade-in-up delay-400">
@@ -724,8 +728,9 @@
                             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <div class="value-divider"></div>
                     <h3 class="value-title">Excellence</h3>
+                    <div class="value-divider"></div>
+                    <p class="value-description">Create a customer experience of the highest quality</p>
                 </div>
             </div>
         </div>

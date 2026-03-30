@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQs - LifeWink</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="fonts/Axiforma-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/Axiforma-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
     <style>
         /* ========================================
            FAQs Page - Specific Styles
@@ -151,7 +150,6 @@
                 #EDF4FF 150px,
                 #EDF4FF 100%);
             position: relative;
-            overflow-x: clip;
         }
 
         .faq-common-wrapper {
@@ -165,6 +163,9 @@
             border-radius: 20px;
             background: #FFFFFF;
             box-shadow: 0 4px 24px rgba(1, 105, 235, 0.06);
+            min-width: 0;
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         .faq-common-box .faq-category-items {
@@ -274,6 +275,7 @@
             grid-template-columns: 280px 1fr;
             gap: 60px;
             align-items: start;
+            max-width: 100%;
         }
 
         /* Sidebar */
@@ -338,11 +340,13 @@
         .faq-tabs-mobile {
             display: none;
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
             -ms-overflow-style: none;
-            gap: 4px;
+            gap: 6px;
             margin-bottom: 32px;
             padding-bottom: 4px;
+            max-width: 100%;
         }
 
         .faq-tabs-mobile::-webkit-scrollbar {
@@ -352,13 +356,13 @@
         .faq-tab {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 12px 18px;
+            gap: 6px;
+            padding: 10px 14px;
             border: 1.5px solid rgba(1,105,235,0.15);
-            border-radius: 12px;
+            border-radius: 10px;
             background: #fff;
             font-family: inherit;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
             color: #666;
             cursor: pointer;
@@ -387,6 +391,8 @@
             display: flex;
             flex-direction: column;
             gap: 56px;
+            min-width: 0;
+            max-width: 100%;
         }
 
         /* Category Boxes */
@@ -397,6 +403,9 @@
             background: #FFFFFF;
             box-shadow: 0 4px 24px rgba(1, 105, 235, 0.06);
             scroll-margin-top: 140px;
+            min-width: 0;
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         .faq-category-header {
@@ -582,6 +591,11 @@
             .faq-qa-pair {
                 padding: 18px 0;
             }
+
+            .faq-grid-content {
+                min-width: 0;
+                max-width: 100%;
+            }
         }
 
         @media (max-width: 768px) {
@@ -590,6 +604,10 @@
             }
             .faq-hero-title {
                 font-size: 2rem;
+            }
+            .faq-hero-subtitle {
+                font-size: 1rem;
+                padding: 0 8px;
             }
             .faq-search {
                 margin: -24px 16px 0;
@@ -606,10 +624,97 @@
 
             .faq-body-section {
                 padding: 48px 0 0;
+                overflow-x: hidden;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+                overflow: hidden;
+            }
+
+            .faq-grid-content {
+                min-width: 0;
+                max-width: 100%;
+                overflow: hidden;
+                gap: 40px;
+            }
+
+            .faq-common-box {
+                padding: 20px 16px;
+            }
+
+            .faq-category {
+                padding: 20px 16px;
+            }
+
+            .faq-common-box .faq-item-question {
+                padding: 14px 4px;
+                gap: 12px;
+            }
+
+            .faq-common-box .faq-item-question h3 {
+                font-size: 0.95rem;
+            }
+
+            .faq-item-answer p {
+                padding: 0 4px 16px;
+                font-size: 0.875rem;
+            }
+
+            .faq-qa-pair {
+                padding: 16px 0;
+            }
+
+            .faq-qa-question {
+                font-size: 0.95rem;
+            }
+
+            .faq-qa-answer {
+                font-size: 0.875rem;
+            }
+
+            .faq-category-title {
+                font-size: 1.2rem;
+            }
+
+            .faq-category-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 10px;
+            }
+
+            .faq-category-icon svg {
+                width: 20px;
+                height: 20px;
             }
 
             .faq-section-heading {
                 font-size: 1.6rem;
+            }
+
+            .faq-support-section {
+                padding: 48px 0;
+            }
+
+            .faq-support-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .faq-support-section p {
+                font-size: 0.95rem;
+            }
+
+            .faq-tab {
+                padding: 8px 12px;
+                font-size: 0.75rem;
+                gap: 5px;
+                border-radius: 8px;
+            }
+
+            .faq-tab svg {
+                width: 14px;
+                height: 14px;
             }
         }
 
@@ -633,10 +738,122 @@
 
         @media (max-width: 480px) {
             .faq-hero {
-                padding: 90px 0 32px;
+                padding: 90px 0 28px;
             }
             .faq-hero-title {
-                font-size: 1.75rem;
+                font-size: 1.5rem;
+            }
+            .faq-hero-subtitle {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+
+            .faq-body-section {
+                padding: 36px 0 0;
+            }
+
+            .faq-common-box {
+                padding: 16px 12px;
+                border-radius: 14px;
+                border-width: 1.5px;
+            }
+
+            .faq-category {
+                padding: 16px 12px;
+                border-radius: 14px;
+                border-width: 1.5px;
+            }
+
+            .faq-common-box .faq-item-question {
+                padding: 12px 2px;
+                gap: 10px;
+            }
+
+            .faq-common-box .faq-item-question h3 {
+                font-size: 0.875rem;
+            }
+
+            .faq-item-answer p {
+                padding: 0 2px 14px;
+                font-size: 0.8125rem;
+            }
+
+            .faq-category-header {
+                margin-bottom: 16px;
+                padding-bottom: 12px;
+            }
+
+            .faq-category-header-left {
+                gap: 10px;
+            }
+
+            .faq-category-title {
+                font-size: 1.05rem;
+            }
+
+            .faq-category-count {
+                font-size: 0.75rem;
+            }
+
+            .faq-qa-pair {
+                padding: 14px 0;
+            }
+
+            .faq-qa-question {
+                font-size: 0.875rem;
+                margin-bottom: 8px;
+            }
+
+            .faq-qa-answer {
+                font-size: 0.8125rem;
+                line-height: 1.6;
+            }
+
+            .faq-grid-content {
+                gap: 32px;
+            }
+
+            .faq-common-wrapper {
+                margin-bottom: 24px;
+            }
+
+            .faq-search-input {
+                padding: 14px 40px;
+                font-size: 0.9rem;
+            }
+
+            .faq-tabs-mobile {
+                margin-bottom: 24px;
+                gap: 4px;
+            }
+
+            .faq-tab {
+                padding: 7px 10px;
+                font-size: 0.7rem;
+                gap: 4px;
+                border-radius: 8px;
+            }
+
+            .faq-tab svg {
+                width: 12px;
+                height: 12px;
+            }
+
+            .faq-support-section {
+                padding: 40px 0;
+            }
+
+            .faq-support-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .faq-support-section p {
+                font-size: 0.875rem;
+            }
+
+            .faq-support-btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -701,11 +918,11 @@
                         </button>
                         <button class="faq-sidebar-link" data-target="#faq-experience">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 1.5L12.09 6.26L17.27 6.97L13.64 10.52L14.49 15.67L10 13.27L5.51 15.67L6.36 10.52L2.73 6.97L7.91 6.26L10 1.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-                            The LifeWink Experience
+                            Classic and AI LifeWinks
                         </button>
                         <button class="faq-sidebar-link" data-target="#faq-complimentary">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="8" width="16" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M10 8V18" stroke="currentColor" stroke-width="1.5"/><path d="M2 11H18" stroke="currentColor" stroke-width="1.5"/><path d="M10 8C10 8 8 2 5.5 2C3 2 2 4 4 6C6 8 10 8 10 8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 8C10 8 12 2 14.5 2C17 2 18 4 16 6C14 8 10 8 10 8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-                            Complimentary Starter
+                            Complimentary Experience
                         </button>
                         <button class="faq-sidebar-link" data-target="#faq-subscriptions">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 8H18" stroke="currentColor" stroke-width="1.5"/><path d="M6 12H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -713,7 +930,7 @@
                         </button>
                         <button class="faq-sidebar-link" data-target="#faq-privacy">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 1.5L3 5V9.5C3 13.92 6.05 18.04 10 19C13.95 18.04 17 13.92 17 9.5V5L10 1.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 10L9.5 12.5L13.5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            Privacy &amp; Security
+                            Privacy, Safety &amp; Security
                         </button>
                     </nav>
                 </aside>
@@ -744,7 +961,7 @@
                                         </span>
                                     </button>
                                     <div class="faq-item-answer">
-                                        <p>LifeWink is a private and safe multimedia and AI experience that authentically captures your love and shares it with those you love — today and beyond your lifetime.</p>
+                                        <p>LifeWink is a private and safe multimedia and AI experience that authentically captures and shares your love with those you love — today and beyond your lifetime.</p>
                                     </div>
                                 </div>
                                 <div class="faq-item">
@@ -760,13 +977,13 @@
                                 </div>
                                 <div class="faq-item">
                                     <button class="faq-item-question">
-                                        <h3>What is the Complimentary Starter Experience?</h3>
+                                        <h3>What is the Complimentary Beloved Experience?</h3>
                                         <span class="faq-item-toggle">
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8L10 13L15 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                                         </span>
                                     </button>
                                     <div class="faq-item-answer">
-                                        <p>The Complimentary Starter Experience is a free 30-day experience that gives you access to both Classic LifeWinks and AI LifeWinks, so you can begin capturing and sharing your love before subscribing.</p>
+                                        <p>The Complimentary Beloved Experience is a free 30-day period that gives you access to both Classic LifeWinks and AI LifeWinks, so you can begin experiencing LifeWinks before subscribing.</p>
                                     </div>
                                 </div>
                                 <div class="faq-item">
@@ -799,7 +1016,7 @@
                                         </span>
                                     </button>
                                     <div class="faq-item-answer">
-                                        <p>Beyond your lifetime, your assigned Guardian notifies LifeWink. Dated Classic LifeWinks are delivered according to the schedule and instructions you set. Undated Classic LifeWinks are assigned a delivery date by your Steward and delivered as planned. AI LifeWinks are delivered to your Recipients to access.</p>
+                                        <p>Beyond your lifetime, your assigned Guardian notifies LifeWink. Dated Classic LifeWinks are delivered according to the schedule and instructions you set. Undated Classic LifeWinks are assigned a delivery date by your Steward and delivered as planned. AI LifeWinks are delivered to your Recipients to access after your Guardian notifies LifeWink. Beloveds can choose when AI LifeWinks are delivered, either immediately or 1, 2, or 3 weeks after their passing, through their profile settings.</p>
                                     </div>
                                 </div>
                             </div>
@@ -818,11 +1035,11 @@
                         </button>
                         <button class="faq-tab" data-target="#faq-experience">
                             <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M10 1.5L12.09 6.26L17.27 6.97L13.64 10.52L14.49 15.67L10 13.27L5.51 15.67L6.36 10.52L2.73 6.97L7.91 6.26L10 1.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-                            The LifeWink Experience
+                            Classic and AI LifeWinks
                         </button>
                         <button class="faq-tab" data-target="#faq-complimentary">
                             <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="2" y="8" width="16" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M10 8V18" stroke="currentColor" stroke-width="1.5"/><path d="M2 11H18" stroke="currentColor" stroke-width="1.5"/><path d="M10 8C10 8 8 2 5.5 2C3 2 2 4 4 6C6 8 10 8 10 8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 8C10 8 12 2 14.5 2C17 2 18 4 16 6C14 8 10 8 10 8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-                            Complimentary Starter
+                            Complimentary Experience
                         </button>
                         <button class="faq-tab" data-target="#faq-subscriptions">
                             <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 8H18" stroke="currentColor" stroke-width="1.5"/><path d="M6 12H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -830,7 +1047,7 @@
                         </button>
                         <button class="faq-tab" data-target="#faq-privacy">
                             <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M10 1.5L3 5V9.5C3 13.92 6.05 18.04 10 19C13.95 18.04 17 13.92 17 9.5V5L10 1.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 10L9.5 12.5L13.5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            Privacy &amp; Security
+                            Privacy, Safety &amp; Security
                         </button>
                     </div>
 
@@ -850,7 +1067,7 @@
                         <div class="faq-category-items">
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">What is LifeWink?</h3>
-                                <p class="faq-qa-answer">LifeWink is a private and safe multimedia and AI experience that authentically captures your love and shares it with those you love — today and beyond your lifetime.</p>
+                                <p class="faq-qa-answer">LifeWink is a private and safe multimedia and AI experience that authentically captures and shares your love with those you love — today and beyond your lifetime.</p>
                             </div>
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">How does LifeWink work?</h3>
@@ -858,16 +1075,16 @@
                             </div>
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">Where can I download and access LifeWink, and how do I get started?</h3>
-                                <p class="faq-qa-answer">LifeWink is available on desktop, tablet, and mobile. The Complimentary Starter Experience is the best way to get started. Download links are available on our website and in the Apple and Google App Stores.</p>
+                                <p class="faq-qa-answer">LifeWink is available on your desktop, tablet, and mobile devices. The Complimentary Beloved Experience is the best way to get started. Download links are available on our website and in the Apple and Google App Stores.</p>
                             </div>
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">Is there customer support available, and how can I contact them?</h3>
-                                <p class="faq-qa-answer">Yes, customer support is available to assist you. You can reach the LifeWink support team through the support section of the app, which provides our submit feedback feature and support email address.</p>
+                                <p class="faq-qa-answer">Yes, customer support is available to assist you. You can reach the LifeWink support team through the support section of the app, which provides our submit feedback feature and support email address, support@lifewink.com.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Category 2: The LifeWink Experience -->
+                    <!-- Category 2: Classic and AI LifeWinks -->
                     <div class="faq-category" id="faq-experience">
                         <div class="faq-category-header">
                             <div class="faq-category-header-left">
@@ -875,7 +1092,7 @@
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L14.47 7.6L20.72 8.49L16.36 12.74L17.39 18.97L12 16.1L6.61 18.97L7.64 12.74L3.28 8.49L9.53 7.6L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
                                 </div>
                                 <div>
-                                    <h2 class="faq-category-title">The LifeWink Experience</h2>
+                                    <h2 class="faq-category-title">Classic and AI LifeWinks</h2>
                                     <span class="faq-category-count">8 questions</span>
                                 </div>
                             </div>
@@ -887,7 +1104,7 @@
                             </div>
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">What is an AI LifeWink?</h3>
-                                <p class="faq-qa-answer">AI LifeWinks capture what you value most through meaningful prompts across six key topic areas (such as family, adventures, and life lessons), which you can respond to via chat and voice. Your responses are saved and used to build a memory profile that powers an authentic chat and voice AI experience for those you love, shared beyond your lifetime.</p>
+                                <p class="faq-qa-answer">AI LifeWinks authentically capture what you value most through meaningful prompts and questions across six key topic areas (such as family, adventures, and life lessons), which you can respond to via chat and voice. Your responses are saved and used to build your AI LifeWink that powers an authentic chat and voice AI experience for those you love, shared beyond your lifetime.</p>
                             </div>
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">What is a Beloved?</h3>
@@ -907,16 +1124,16 @@
                             </div>
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">Can I preview my LifeWinks?</h3>
-                                <p class="faq-qa-answer">Yes. You can save, preview, and edit Classic LifeWinks as you create them. You can also preview your AI LifeWink using chat and voice as if you were a Recipient to ensure it feels authentic and true to you.</p>
+                                <p class="faq-qa-answer">Yes. You can save, preview, and edit Classic LifeWinks as you create them. You can also preview your AI LifeWink via chat and voice to ensure it feels authentic and true to you.</p>
                             </div>
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">How will my LifeWinks be delivered after my passing?</h3>
-                                <p class="faq-qa-answer">Beyond your lifetime, your assigned Guardian notifies LifeWink. Dated Classic LifeWinks are delivered according to the schedule and instructions you set. Undated Classic LifeWinks are assigned a delivery date by your Steward and delivered as planned. AI LifeWinks are delivered to your Recipients to access.</p>
+                                <p class="faq-qa-answer">Beyond your lifetime, your assigned Guardian notifies LifeWink. Dated Classic LifeWinks are delivered according to the schedule and instructions you set. Undated Classic LifeWinks are assigned a delivery date by your Steward and delivered as planned. AI LifeWinks are delivered to your Recipients to access after your Guardian notifies LifeWink. Beloveds can choose when AI LifeWinks are delivered, either immediately or 1, 2, or 3 weeks after their passing, through their profile settings.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Category 3: Complimentary Starter Experience -->
+                    <!-- Category 3: Complimentary Experience -->
                     <div class="faq-category" id="faq-complimentary">
                         <div class="faq-category-header">
                             <div class="faq-category-header-left">
@@ -924,47 +1141,47 @@
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="10" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/><path d="M12 10V21" stroke="currentColor" stroke-width="2"/><path d="M3 13H21" stroke="currentColor" stroke-width="2"/><path d="M12 10C12 10 9.5 3 7 3C4.5 3 3 5 5.5 7.5C8 10 12 10 12 10Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10C12 10 14.5 3 17 3C19.5 3 21 5 18.5 7.5C16 10 12 10 12 10Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
                                 </div>
                                 <div>
-                                    <h2 class="faq-category-title">Complimentary Starter Experience</h2>
+                                    <h2 class="faq-category-title">Complimentary Experience</h2>
                                     <span class="faq-category-count">9 questions</span>
                                 </div>
                             </div>
                         </div>
                         <div class="faq-category-items">
                             <div class="faq-qa-pair">
-                                <h3 class="faq-qa-question">What is the Complimentary Starter Experience?</h3>
-                                <p class="faq-qa-answer">The Complimentary Starter Experience is a free 30-day experience that gives you access to both Classic LifeWinks and AI LifeWinks, so you can begin capturing and sharing your love before subscribing.</p>
+                                <h3 class="faq-qa-question">What is the Complimentary Beloved Experience?</h3>
+                                <p class="faq-qa-answer">The Complimentary Beloved Experience is a free 30-day period that gives you access to both Classic LifeWinks and AI LifeWinks, so you can begin experiencing LifeWinks before subscribing.</p>
                             </div>
                             <div class="faq-qa-pair">
-                                <h3 class="faq-qa-question">When does the 30-day Complimentary Starter Experience begin?</h3>
-                                <p class="faq-qa-answer">It begins the moment you activate your account.</p>
+                                <h3 class="faq-qa-question">When does the 30-day Complimentary Beloved Experience begin?</h3>
+                                <p class="faq-qa-answer">The Complimentary Experience begins after signing in and clicking "Start Complimentary Experience."</p>
                             </div>
                             <div class="faq-qa-pair">
-                                <h3 class="faq-qa-question">What can I do with Classic LifeWinks during the Complimentary Starter Experience?</h3>
+                                <h3 class="faq-qa-question">What can I do with Classic LifeWinks during the Complimentary Beloved Experience?</h3>
                                 <p class="faq-qa-answer">You can create, edit, and preview up to three Classic LifeWinks.</p>
                             </div>
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">What happens once I have created my three free Classic LifeWinks?</h3>
-                                <p class="faq-qa-answer">Sharing the Classic LifeWinks you have created and continuing to create Classic LifeWinks requires a paid subscription.</p>
+                                <p class="faq-qa-answer">You have the option to subscribe to a paid plan and have full access to both capturing and sharing Classic LifeWinks.</p>
                             </div>
                             <div class="faq-qa-pair">
-                                <h3 class="faq-qa-question">What can I do with AI LifeWinks during the Complimentary Starter Experience?</h3>
-                                <p class="faq-qa-answer">You can create one AI LifeWink and begin responding to prompts via chat and voice, with the free AI credits provided.</p>
+                                <h3 class="faq-qa-question">What can I do with AI LifeWinks during the Complimentary Beloved Experience?</h3>
+                                <p class="faq-qa-answer">You can create one AI LifeWink Recipient by responding to prompts and questions via chat and voice with the free AI credits provided.</p>
                             </div>
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">What happens once my free AI credits run out?</h3>
-                                <p class="faq-qa-answer">Sharing the AI LifeWink you have created and continuing to create AI LifeWinks requires a paid subscription.</p>
+                                <p class="faq-qa-answer">You have the option to subscribe to a paid plan and have full access to both capturing and sharing AI LifeWinks.</p>
                             </div>
                             <div class="faq-qa-pair">
-                                <h3 class="faq-qa-question">Can I subscribe during the Complimentary Starter Experience?</h3>
+                                <h3 class="faq-qa-question">Can I subscribe during the Complimentary Beloved Experience?</h3>
                                 <p class="faq-qa-answer">Yes, you can subscribe at any time during the 30 days without waiting for it to end.</p>
                             </div>
                             <div class="faq-qa-pair">
-                                <h3 class="faq-qa-question">Will subscribing end or reset my Complimentary Starter Experience?</h3>
-                                <p class="faq-qa-answer">No. The Complimentary Starter Experience continues for the full 30 days for any features you have not yet subscribed to.</p>
+                                <h3 class="faq-qa-question">Will subscribing end or reset my Complimentary Beloved Experience?</h3>
+                                <p class="faq-qa-answer">No. The Complimentary Beloved Experience continues for the full 30 days for any features you have not yet subscribed to.</p>
                             </div>
                             <div class="faq-qa-pair">
-                                <h3 class="faq-qa-question">What happens when the Complimentary Starter Experience ends?</h3>
-                                <p class="faq-qa-answer">Creating and sharing LifeWinks is paused until you activate a paid subscription. Any drafts created during the Complimentary Starter Experience will not be delivered without an active subscription.</p>
+                                <h3 class="faq-qa-question">What happens when the Complimentary Beloved Experience ends?</h3>
+                                <p class="faq-qa-answer">You have the option to subscribe to a paid plan and have full access to both capturing and sharing Classic and AI LifeWinks.</p>
                             </div>
                         </div>
                     </div>
@@ -997,7 +1214,7 @@
                             </div>
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">What does the Unlimited AI LifeWinks plan include?</h3>
-                                <p class="faq-qa-answer">Unlimited creation and sharing of AI LifeWinks, with the ability to contribute to prompts via chat and voice and preview your AI LifeWink as a Recipient.</p>
+                                <p class="faq-qa-answer">Unlimited creation and sharing of AI LifeWinks, with the ability to contribute to prompts and questions via chat and voice and preview your AI LifeWink before sharing.</p>
                             </div>
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">What does the Unlimited Combined plan include?</h3>
@@ -1012,8 +1229,8 @@
                                 <p class="faq-qa-answer">Yes. You can unsubscribe and return later.</p>
                             </div>
                             <div class="faq-qa-pair">
-                                <h3 class="faq-qa-question">What happens to my LifeWinks if my subscription ends?</h3>
-                                <p class="faq-qa-answer">All LifeWinks you have created remain securely stored. Any scheduled LifeWinks will still be delivered on time and privately, exactly as you intended.</p>
+                                <h3 class="faq-qa-question">What happens if my subscription ends?</h3>
+                                <p class="faq-qa-answer">You'll still have full access to your created LifeWinks as a Beloved. You just won't be able to create new Classic or AI LifeWinks or add Recipients until you resubscribe. All of your LifeWinks remain securely stored, and any scheduled LifeWinks will still be delivered on time — privately, safely, and exactly as you intended.</p>
                             </div>
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">Do Recipients pay to receive Classic LifeWinks?</h3>
@@ -1021,12 +1238,12 @@
                             </div>
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">Do Recipients pay to receive AI LifeWinks?</h3>
-                                <p class="faq-qa-answer">Recipients receive a Complimentary Starter Experience that includes free credits to interact with AI LifeWinks via chat and voice, with the option to purchase more credits thereafter.</p>
+                                <p class="faq-qa-answer">Recipients receive a Complimentary AI Recipient Experience that includes free credits to interact with your AI LifeWinks via chat and voice, with the option to purchase more credits thereafter.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Category 5: Privacy, Security & Trust -->
+                    <!-- Category 5: Privacy, Safety and Security -->
                     <div class="faq-category" id="faq-privacy">
                         <div class="faq-category-header">
                             <div class="faq-category-header-left">
@@ -1034,7 +1251,7 @@
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6V11C4 16.55 7.84 21.74 12 23C16.16 21.74 20 16.55 20 11V6L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 12L11 15L16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                                 </div>
                                 <div>
-                                    <h2 class="faq-category-title">Privacy, Security &amp; Trust</h2>
+                                    <h2 class="faq-category-title">Privacy, Safety &amp; Security</h2>
                                     <span class="faq-category-count">7 questions</span>
                                 </div>
                             </div>
@@ -1042,11 +1259,11 @@
                         <div class="faq-category-items">
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">How are LifeWinks authentic?</h3>
-                                <p class="faq-qa-answer">LifeWinks are informed solely by the Beloved's input. Classic LifeWinks are created entirely by the Beloved. AI LifeWinks are built from 125+ prompts and questions answered by the Beloved — nothing else.</p>
+                                <p class="faq-qa-answer">LifeWinks are informed solely by the Beloved's input. Classic LifeWinks are created entirely by the Beloved. AI LifeWinks are built from 125+ prompts and questions via chat and voice answered by the Beloved — nothing else.</p>
                             </div>
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">What safety guardrails are in place?</h3>
-                                <p class="faq-qa-answer">User well-being is our highest priority. LifeWink is designed as a safe, respectful adult experience. Beloveds must be 18+, and Recipients must be 18+ unless guardian consent is provided. Users are reminded that AI is not a real person, and if interactions involve self-harm or harm to others, the AI responds appropriately and does not continue the interaction. Concerns can be raised at any time through our support channels.</p>
+                                <p class="faq-qa-answer">User well-being is our highest priority. LifeWink is designed as a safe, respectful adult experience. Beloveds must be 18+, and Recipients must be 18+ unless guardian consent is provided. Users are reminded that AI LifeWink are not a real person, and if interactions involve self-harm or harm to others, the AI LifeWink responds appropriately and does not continue the interaction. Concerns can be raised at any time through our support channels.</p>
                             </div>
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">How are LifeWinks kept private?</h3>
@@ -1058,7 +1275,7 @@
                             </div>
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">Who has access to my LifeWink data?</h3>
-                                <p class="faq-qa-answer">Only you have access while you are alive. After your passing, only the Recipients you have designated can access their assigned LifeWinks. Your personal data and LifeWink content are never sold or shared with third parties. Your information is used solely to provide the LifeWink service.</p>
+                                <p class="faq-qa-answer">Only you as the Beloved have access. Beyond your lifetime, only the Recipients you have designated can access their assigned LifeWinks. Your personal data and LifeWink content are never sold or shared with third parties. Your information is used solely to provide the LifeWink service.</p>
                             </div>
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">Is my payment information secure?</h3>
@@ -1066,7 +1283,7 @@
                             </div>
                             <div class="faq-qa-pair">
                                 <h3 class="faq-qa-question">Can I delete my account?</h3>
-                                <p class="faq-qa-answer">Yes. If you delete your account, all LifeWinks and associated data are permanently removed.</p>
+                                <p class="faq-qa-answer">You can find the option to delete your account on the Settings page. Once deleted, LifeWink will retain your data for 7 days. If you log back in within this period, your account will be restored. After 7 days, all user data will be permanently deleted from LifeWink's database.</p>
                             </div>
                         </div>
                     </div>

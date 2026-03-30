@@ -10,7 +10,7 @@
          url('../fonts/Axiforma-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
 }
 
 @font-face {
@@ -19,7 +19,7 @@
          url('../fonts/Axiforma-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
 }
 
 @font-face {
@@ -28,7 +28,7 @@
          url('../fonts/Axiforma-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
 }
 
 @font-face {
@@ -37,7 +37,7 @@
          url('../fonts/Axiforma-SemiBold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
 }
 
 @font-face {
@@ -46,7 +46,7 @@
          url('../fonts/Axiforma-Bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
 }
 
 @font-face {
@@ -55,7 +55,7 @@
          url('../fonts/Axiforma-ExtraBold.woff') format('woff');
     font-weight: 800;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
 }
 
 @font-face {
@@ -64,7 +64,7 @@
          url('../fonts/Axiforma-Heavy.woff') format('woff');
     font-weight: 900;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
 }
 
 /* CSS Variables */
@@ -207,7 +207,7 @@ ul {
     right: 0;
     z-index: 1000;
     background: transparent;
-    transition: all var(--transition-normal);
+    transition: background var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal), backdrop-filter var(--transition-normal);
 }
 
 .navbar.scrolled {
@@ -255,6 +255,7 @@ ul {
     align-items: center;
     justify-content: space-between;
     height: 72px;
+    min-height: 72px;
 }
 
 .logo {
@@ -303,6 +304,7 @@ ul {
     color: #FFFFFF;
     transition: color var(--transition-fast);
     position: relative;
+    padding-top: 2px;
 }
 
 .nav-link::after {
@@ -357,7 +359,8 @@ ul {
     color: var(--primary-blue);
     font-weight: 500;
     font-size: 0.875rem;
-    padding: 10px 28px 8px;
+    padding: 10px 28px;
+    border: 1px solid transparent;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
     text-align: center;
     letter-spacing: 0.02em;
@@ -411,12 +414,12 @@ ul {
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px;
+    padding: 10px;
 }
 
 .mobile-menu-btn span {
@@ -459,11 +462,13 @@ ul {
     opacity: 0;
     transition: all var(--transition-normal);
     z-index: 999;
+    pointer-events: none;
 }
 
 .mobile-menu.active {
     transform: translateY(0);
     opacity: 1;
+    pointer-events: auto;
 }
 
 .mobile-nav-link {
@@ -1159,7 +1164,7 @@ ul {
     }
 
     .hero-subtitle {
-        font-size: 0.875rem;
+        font-size: 0.9375rem;
     }
 
     .hero-devices-wrapper {
@@ -1195,7 +1200,7 @@ ul {
 
 @media (max-width: 480px) {
     .hero-subtitle {
-        font-size: 0.825rem;
+        font-size: 0.9375rem;
     }
 
     .hero-devices-wrapper {
@@ -2514,6 +2519,41 @@ ul {
 }
 
 /* ========================================
+   SOC-2 Trust Inline (Private and Safe)
+   ======================================== */
+.soc2-trust-inline {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: #f0f7ff;
+    border: 1px solid #d4e6fc;
+    border-radius: 12px;
+}
+
+.soc2-trust-badge {
+    width: 64px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.soc2-trust-text {
+    font-size: 1.125rem;
+    color: #1a1a1a;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .soc2-trust-inline {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px;
+    }
+}
+
+/* ========================================
    Footer - Glassmorphic on Primary Blue
    ======================================== */
 .footer {
@@ -2981,6 +3021,57 @@ ul {
         justify-content: center;
     }
 
+    /* Mobile touch target & readability fixes */
+    .hero-subtitle {
+        font-size: 0.9375rem;
+    }
+
+    .btn,
+    .hero-btn,
+    .nav-cta,
+    .toggle-btn,
+    .complimentary-card-btn {
+        min-height: 44px;
+    }
+
+    .footer-main {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-left {
+        align-items: center;
+    }
+
+    .footer-nav {
+        align-items: center;
+    }
+
+    .footer-right {
+        align-items: center;
+    }
+
+    .footer-col-download {
+        align-items: center;
+    }
+
+    .footer-badges {
+        justify-content: center;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-soc2-seal {
+        margin: 0 auto;
+    }
+
+    .footer-bottom-left,
+    .footer-bottom-right {
+        justify-content: center;
+    }
+
     :root {
         --section-padding: 60px;
     }
@@ -2997,7 +3088,7 @@ ul {
     }
 
     .hero-subtitle {
-        font-size: 0.825rem;
+        font-size: 0.9375rem;
     }
 
     .btn {
@@ -3894,8 +3985,8 @@ ul {
     color: var(--gray-900);
     letter-spacing: -0.02em;
     margin-bottom: 4px;
-    white-space: nowrap;
-
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .classic-rect-desc {
@@ -3944,13 +4035,19 @@ ul {
         height: 180px;
     }
     .classic-rect-title {
-        font-size: 1.1rem;
+        font-size: 0.95rem;
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
     .classic-rect-desc {
         font-size: 0.875rem;
     }
     .classic-rect-card {
         padding: 20px 16px 20px;
+    }
+    .classic-rect-text {
+        padding: 0 8px;
     }
 }
 
@@ -7493,8 +7590,8 @@ ul {
         display: none;
     }
     .complimentary-sticky-btn {
-        font-size: 0.7rem;
-        padding: 6px 12px;
+        font-size: 0.8rem;
+        padding: 8px 16px;
     }
 }
 
@@ -8206,8 +8303,26 @@ ul {
         min-height: auto;
     }
 
+    /* Fix: Ensure subs-included section is visible on mobile */
+    .subs-included {
+        padding: 50px 0 60px;
+        overflow: visible;
+    }
+
+    .subs-included .fade-in-up {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    /* Fix: Stack included-content to single column on mobile */
     .included-content {
+        grid-template-columns: 1fr;
         gap: 32px;
+    }
+
+    .included-left {
+        align-items: center;
+        text-align: center;
     }
 
     .included-title {
@@ -8216,6 +8331,16 @@ ul {
 
     .included-brief {
         font-size: 0.925rem;
+    }
+
+    /* Fix: Stack included features vertically with proper spacing */
+    .included-right {
+        gap: 12px;
+    }
+
+    .included-feature-row {
+        padding: 18px 20px;
+        gap: 14px;
     }
 
     .included-feature-icon {
@@ -8234,6 +8359,21 @@ ul {
 
     .included-feature-desc {
         font-size: 0.875rem;
+    }
+
+    /* Fix: Features list text too small on mobile - minimum 14px */
+    .features-list li {
+        font-size: 0.875rem;
+    }
+
+    /* Fix: Pricing commitment text too small on mobile - minimum 13px */
+    .pricing-commitment {
+        font-size: 0.825rem;
+    }
+
+    /* Fix: Complimentary card horizontal padding too wide on mobile */
+    .complimentary-card {
+        padding: 24px 22px;
     }
 
     .faq-title {
@@ -8265,6 +8405,40 @@ ul {
 
     .price {
         font-size: 1.5rem;
+    }
+
+    /* Fix: Ensure subs-included visibility at smallest screens */
+    .subs-included {
+        padding: 40px 0 50px;
+    }
+
+    .subs-included .fade-in-up {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    .included-content {
+        gap: 24px;
+    }
+
+    .included-feature-row {
+        padding: 16px 16px;
+        gap: 12px;
+    }
+
+    /* Fix: Features list text minimum 14px on small mobile */
+    .features-list li {
+        font-size: 0.875rem;
+    }
+
+    /* Fix: Pricing commitment text minimum 13px on small mobile */
+    .pricing-commitment {
+        font-size: 0.825rem;
+    }
+
+    /* Fix: Complimentary card padding reduced for small screens */
+    .complimentary-card {
+        padding: 20px 20px;
     }
 }
 
@@ -9119,5 +9293,227 @@ ul {
 
     .nav-container {
         padding: 0 16px;
+    }
+}
+
+/* ========================================
+   HOW IT WORKS - Mobile Responsiveness Fixes
+   ======================================== */
+
+/* --- Fix 1: AI LifeWinks dual phone mockups overflow on mobile --- */
+@media (max-width: 480px) {
+    .asym-card-images {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .asym-card-images img {
+        max-width: 60%;
+        max-height: none;
+    }
+
+    /* Single image cards - allow larger sizing */
+    .asym-narrow .asym-card-images img {
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .asym-card-images img {
+        max-width: 45%;
+    }
+
+    /* Single image in narrow cards */
+    .asym-narrow .asym-card-images {
+        flex-direction: column;
+    }
+
+    .asym-narrow .asym-card-images img {
+        max-width: 55%;
+    }
+}
+
+/* --- Fix 2: Section label H2s too small on mobile (was 0.8rem / 12.8px) --- */
+@media (max-width: 768px) {
+    .hiw-section-label {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hiw-section-label {
+        font-size: 1rem;
+    }
+}
+
+/* --- Fix 3: Reduce blank gap between AI section and CTA/footer on mobile --- */
+@media (max-width: 768px) {
+    .hiw-gradient-classic {
+        padding-top: 60px;
+    }
+
+    .hiw-gradient-ai {
+        padding-top: 60px;
+    }
+
+    .hiw-section {
+        padding: 40px 0;
+    }
+
+    /* Hidden final CTA should not contribute any space */
+    .hiw-final-cta[style*="display: none"],
+    .hiw-final-cta[style*="display:none"] {
+        padding: 0;
+        margin: 0;
+        height: 0;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 480px) {
+    .hiw-gradient-classic {
+        padding-top: 40px;
+    }
+
+    .hiw-gradient-ai {
+        padding-top: 40px;
+    }
+
+    .hiw-section {
+        padding: 32px 0;
+    }
+}
+
+/* --- Fix 4: Desktop monitor image in hero overflows on mobile --- */
+@media (max-width: 768px) {
+    .hiw-hero-right {
+        overflow: hidden;
+        max-width: 100%;
+    }
+
+    .hiw-hero-devices {
+        overflow: hidden;
+        max-width: 100%;
+    }
+
+    .hiw-device-monitor {
+        right: -80px;
+        width: 280px;
+    }
+
+    .hiw-device-monitor img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hiw-device-monitor {
+        right: -60px;
+        width: 220px;
+    }
+
+    .hiw-devices-phones {
+        margin-left: 5px;
+        margin-right: 0;
+    }
+
+    .hiw-device-phone-left {
+        width: 110px;
+    }
+
+    .hiw-device-phone-center {
+        width: 62px;
+    }
+}
+
+@media (max-width: 375px) {
+    .hiw-device-monitor {
+        right: -50px;
+        width: 190px;
+    }
+
+    .hiw-device-phone-left {
+        width: 100px;
+    }
+
+    .hiw-device-phone-center {
+        width: 56px;
+    }
+
+    .hiw-devices-phones {
+        gap: 8px;
+        margin-left: 0;
+        padding-top: 24px;
+    }
+
+    .hiw-hero-devices {
+        min-height: 220px;
+    }
+}
+
+/* --- Fix 5: Footer layout - proper stacking on mobile --- */
+@media (max-width: 480px) {
+    .footer-main {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 28px;
+    }
+
+    .footer-col {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-col-logo {
+        align-items: center;
+    }
+
+    .footer-nav {
+        align-items: center;
+    }
+
+    .footer-badges {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-col-title {
+        text-align: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+}
+
+/* --- Fix 6: HIW section title wrapping on mobile --- */
+@media (max-width: 480px) {
+    .hiw-section-title .text-blue {
+        white-space: normal;
+    }
+
+    .hiw-section-header {
+        max-width: 100%;
+        padding: 0 8px;
+    }
+
+    .hiw-section-title {
+        font-size: 1.2rem;
+        line-height: 1.4;
+    }
+
+    /* Ensure hiw-final-title wraps on small screens */
+    .hiw-final-title {
+        white-space: normal;
+        word-wrap: break-word;
     }
 }
