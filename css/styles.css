@@ -7489,7 +7489,7 @@ ul {
     align-items: center;
     justify-content: space-between;
     background: linear-gradient(135deg, #0050C8 0%, #0169EB 100%);
-    padding: 12px 48px;
+    padding: 14px 48px;
     z-index: 998;
     box-shadow: 0 4px 16px rgba(0, 40, 120, 0.25);
     border-bottom: 1.5px solid rgba(255, 255, 255, 0.5);
@@ -7521,6 +7521,10 @@ ul {
     border-radius: 50px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    margin-left: 6px;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
 }
 
 .complimentary-sticky-title {
@@ -7529,6 +7533,7 @@ ul {
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: -0.02em;
+    padding-top: 6px;
 }
 
 .complimentary-sticky-right {
@@ -7542,6 +7547,7 @@ ul {
     font-family: var(--font-family);
     font-size: 1.5rem;
     font-weight: 800;
+    padding-top: 4px;
 }
 
 .complimentary-sticky-btn {
@@ -7551,6 +7557,7 @@ ul {
     font-size: 0.85rem;
     font-weight: 700;
     padding: 10px 24px;
+    border: 1px solid transparent;
     border-radius: 50px;
     text-decoration: none;
     white-space: nowrap;
@@ -8072,17 +8079,18 @@ ul {
     flex-shrink: 0;
     width: 44px;
     height: 44px;
-    background: rgba(1, 105, 235, 0.1);
+    background: #0169EB;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #0169EB;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(1, 105, 235, 0.3), 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: all var(--transition-normal);
 }
 
 .included-feature-row:hover .included-feature-icon {
-    background: rgba(1, 105, 235, 0.15);
+    background: #0155c0;
     transform: scale(1.05);
 }
 
