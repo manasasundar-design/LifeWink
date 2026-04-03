@@ -42,48 +42,64 @@
         <a href="download.html" class="btn btn-primary mobile-cta">Try LifeWink for Free</a>
     </div>
 
-    <!-- Hero Section - Split Layout with Gradient -->
-    <section class="hiw-hero-split">
-        <div class="hiw-hero-gradient-bg"></div>
-        <div class="container-wide">
-            <div class="hiw-hero-grid">
-                <!-- Left Content -->
-                <div class="hiw-hero-left fade-in-left">
-                    <h1 class="hiw-hero-title-lg">How It Works</h1>
-                    <p class="hiw-hero-intro">LifeWink provides two ways to capture and share your love — multimedia Classic&nbsp;LifeWinks and AI&nbsp;LifeWinks</p>
-                    <div class="hiw-hero-divider"></div>
-                    <p class="hiw-hero-subtitle-lg">All LifeWinks are authentically created by you, the Beloved, and delivered to those you love, your Recipients, on-time and privately beyond your lifetime.</p>
-                    <a href="download.html" class="btn hero-btn">
-                        Try LifeWink for Free
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- Right - Device Mockups (Figma layout) -->
-                <div class="hiw-hero-right fade-in-right">
-                    <div class="hiw-hero-devices" id="hiwHeroDevices">
-                        <!-- Two phones - bottom aligned, in front -->
-                        <div class="hiw-devices-phones">
-                            <!-- Phone Left -->
-                            <div class="hiw-device hiw-device-phone-left">
-                                <img src="images/hero-tablet-right.png" alt="LifeWink Tablet - AI Chat">
-                            </div>
-                            <!-- Phone Center -->
-                            <div class="hiw-device hiw-device-phone-center">
-                                <img src="images/hero-phone-left.png" alt="LifeWink Mobile - Wedding Message">
-                            </div>
+    <!-- Hero Scroll Container (provides scroll room for animation) -->
+    <div class="hiw-video-scroll" id="hiwVideoScroll">
+        <!-- Sticky wrapper keeps hero pinned during scroll animation -->
+        <div class="hiw-video-sticky">
+            <!-- Hero Section - Split Layout with Gradient -->
+            <section class="hiw-hero-split">
+                <div class="hiw-hero-gradient-bg"></div>
+                <div class="container-wide">
+                    <div class="hiw-hero-grid">
+                        <!-- Left Content -->
+                        <div class="hiw-hero-left fade-in-left">
+                            <h1 class="hiw-hero-title-lg">How It Works</h1>
+                            <p class="hiw-hero-intro">LifeWink provides two ways to capture and share your love — multimedia Classic&nbsp;LifeWinks and AI&nbsp;LifeWinks</p>
+                            <div class="hiw-hero-divider"></div>
+                            <p class="hiw-hero-subtitle-lg">All LifeWinks are authentically created by you, the Beloved, and delivered to those you love, your Recipients, privately and safely beyond your lifetime</p>
+                            <a href="download.html" class="btn hero-btn">
+                                Try LifeWink for Free
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
                         </div>
-                        <!-- Monitor - Right edge, 3/4 visible, behind phones -->
-                        <div class="hiw-device hiw-device-monitor">
-                            <img src="images/hero-desktop-center.png" alt="LifeWink Desktop Dashboard">
+
+                        <!-- Right - Device Mockups + Video -->
+                        <div class="hiw-hero-right fade-in-right">
+                            <!-- Video player (absolutely positioned over devices, initially hidden) -->
+                            <div class="hiw-video-player" id="hiwVideoPlayer">
+                                <video id="hiwVideo" preload="metadata" playsinline>
+                                    <source src="images/story/jim-video.mp4" type="video/mp4">
+                                </video>
+                                <div class="hiw-video-overlay" id="hiwVideoOverlay">
+                                    <button class="hiw-video-play-btn" aria-label="Play video">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Device mockups -->
+                            <div class="hiw-hero-devices" id="hiwHeroDevices">
+                                <div class="hiw-devices-phones">
+                                    <div class="hiw-device hiw-device-phone-left">
+                                        <img src="images/hero-tablet-right.png" alt="LifeWink Tablet - AI Chat">
+                                    </div>
+                                    <div class="hiw-device hiw-device-phone-center">
+                                        <img src="images/hero-phone-left.png" alt="LifeWink Mobile - Wedding Message">
+                                    </div>
+                                </div>
+                                <div class="hiw-device hiw-device-monitor">
+                                    <img src="images/hero-desktop-center.png" alt="LifeWink Desktop Dashboard">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
-    </section>
+    </div>
 
     <!-- Section 1: Classic LifeWinks - Asymmetric Bento Grid -->
     <section class="hiw-section hiw-gradient-section hiw-gradient-classic">
@@ -140,7 +156,7 @@
                     </div>
                     <div class="asym-card-text">
                         <h3 class="classic-2x2-title">Authentic Capture</h3>
-                        <p class="classic-2x2-desc">Beloveds create authentic AI LifeWinks using chat and voice responses to 125+ meaningful prompts and questions across six key topic areas.</p>
+                        <p class="classic-2x2-desc">Beloveds create authentic AI LifeWinks using Chat and Voice responses to 125+ meaningful prompts and questions across six key topic areas.</p>
                     </div>
                 </div>
 
@@ -172,7 +188,7 @@
                     </div>
                     <div class="asym-card-text">
                         <h3 class="classic-2x2-title">Preview Before Sharing</h3>
-                        <p class="classic-2x2-desc">Beloveds preview the chat and voice experience of their authentic AI LifeWinks before scheduling delivery to their Recipients.</p>
+                        <p class="classic-2x2-desc">Beloveds preview the Chat and Voice experience of their authentic AI LifeWinks before scheduling delivery to their Recipients.</p>
                     </div>
                 </div>
             </div>
@@ -188,7 +204,7 @@
         <div class="container">
             <div class="hiw-final-cta-text">
                 <h2 class="hiw-final-title">Turn your love into LifeWinks Today</h2>
-                <p class="hiw-final-subtitle">Authentically capture and share your love by creating multimedia Classic LifeWinks and building authentic chat and voice AI LifeWinks.</p>
+                <p class="hiw-final-subtitle">Authentically capture and share your love by creating multimedia Classic LifeWinks and building authentic Chat and Voice AI LifeWinks.</p>
                 <a href="download.html" class="hiw-final-btn">
                     Try LifeWink for Free
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -238,6 +254,29 @@
                         <a href="index.html" class="footer-logo">
                             <img src="images/logo-white.png" alt="LifeWink">
                         </a>
+                        <div class="footer-follow-contact-row">
+                        <div class="footer-follow-group">
+                                                <div class="footer-social">
+                            <a href="#" class="footer-social-icon" aria-label="Facebook">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            </a>
+                            <a href="#" class="footer-social-icon" aria-label="Instagram">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                            </a>
+                            <a href="#" class="footer-social-icon" aria-label="TikTok">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                            </a>
+                            <a href="#" class="footer-social-icon" aria-label="YouTube">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            </a>
+                            <a href="#" class="footer-social-icon" aria-label="X">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            </a>
+                        </div>
+                        </div>
+                        <a href="mailto:support@lifewink.com" class="footer-contact-email">support@lifewink.com</a>
+                        </div>
+                        <p class="footer-copyright">&copy; 2026 LifeWink. All rights reserved.</p>
                     </div>
                     <div class="footer-col footer-col-nav">
                         <h4 class="footer-col-title">Navigation</h4>
@@ -262,41 +301,206 @@
                                 <img src="images/badges/web-app.png" alt="Use Web App">
                             </a>
                         </div>
-                        <div class="footer-follow-contact-row">
-                        <div class="footer-follow-group">
-                        <h4 class="footer-col-title footer-follow-title">Follow Us</h4>
-                        <div class="footer-social">
-                            <a href="#" class="footer-social-icon" aria-label="Facebook">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                            </a>
-                            <a href="#" class="footer-social-icon" aria-label="Instagram">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                            </a>
-                            <a href="#" class="footer-social-icon" aria-label="TikTok">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-                            </a>
-                            <a href="#" class="footer-social-icon" aria-label="YouTube">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                            </a>
-                            <a href="#" class="footer-social-icon" aria-label="X">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                            </a>
-                        </div>
-                        </div>
-                        <div class="footer-contact-group">
-                        <h4 class="footer-col-title footer-contact-title">Contact</h4>
-                        <a href="mailto:support@lifewink.com" class="footer-contact-email">support@lifewink.com</a>
-                        </div>
-                        </div>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p class="footer-copyright">&copy; 2026 LifeWink. All rights reserved.</p>
+                    <p class="footer-watermark">Share Your Love</p>
                 </div>
             </div>
         </footer>
     </div>
 
+    <script>
+// HiW Video Scroll Animation (Our Story pattern)
+(function() {
+    function initVideoScroll() {
+        var scrollContainer = document.getElementById('hiwVideoScroll');
+        var videoPlayer = document.getElementById('hiwVideoPlayer');
+        var heroDevices = document.getElementById('hiwHeroDevices');
+        var heroLeft = document.querySelector('.hiw-hero-left');
+        var phoneLeft = document.querySelector('.hiw-device-phone-left');
+        var phoneCenter = document.querySelector('.hiw-device-phone-center');
+        var monitor = document.querySelector('.hiw-device-monitor');
+        if (!scrollContainer || !videoPlayer) return;
+
+        var isMobile = window.matchMedia('(max-width: 768px)').matches;
+        if (isMobile) return; // No scroll animation on mobile
+
+        function easeOutCubic(t) {
+            return 1 - Math.pow(1 - t, 3);
+        }
+
+        var currentProgress = 0;
+        var targetProgress = 0;
+        var animating = false;
+        var LERP_SPEED = 0.04;
+
+        function updateTarget() {
+            var rect = scrollContainer.getBoundingClientRect();
+            var scrollHeight = scrollContainer.offsetHeight - window.innerHeight;
+            if (scrollHeight <= 0) scrollHeight = 1;
+            var scrolled = -rect.top;
+            targetProgress = Math.min(Math.max(scrolled / scrollHeight, 0), 1);
+        }
+
+        function applyAnimation(progress) {
+            // Phase 1 (0-0.20): Mockups fade out, video fades in on right side (small)
+            // Phase 2 (0.20-0.35): Video grows slightly in place on right (35% -> 45%)
+            // Phase 3 (0.35-0.55): Video slides from right to center, text fades out
+            // Phase 4 (0.55-0.75): Video scales up to ~65vw
+            // Phase 5 (0.75-1.0): Dwell time, video stays centered
+
+            var p1 = Math.min(progress / 0.20, 1);
+            var p1e = easeOutCubic(p1);
+
+            var p2 = Math.max(0, Math.min((progress - 0.20) / 0.15, 1));
+            var p2e = easeOutCubic(p2);
+
+            var p3 = Math.max(0, Math.min((progress - 0.35) / 0.20, 1));
+            var p3e = easeOutCubic(p3);
+
+            var p4 = Math.max(0, Math.min((progress - 0.55) / 0.20, 1));
+            var p4e = easeOutCubic(p4);
+
+            // Phase 1: Mockups shrink down (scale to 0)
+            if (heroDevices) {
+                var mockupScale = 1 - p1e; // 1 -> 0
+                var mockupOpacity = 1 - p1e;
+                heroDevices.style.transform = 'scale(' + mockupScale.toFixed(3) + ')';
+                heroDevices.style.opacity = mockupOpacity.toFixed(3);
+            }
+
+            // Phase 1: Video grows from small (scale up from 0)
+            var videoAppear = p1e; // 0 -> 1
+            videoPlayer.style.opacity = videoAppear.toFixed(3);
+            var baseTranslateX = 0;
+
+            // Calculate shift to move video from right column center to viewport center
+            var heroRight = document.querySelector('.hiw-hero-right');
+            if (heroRight) {
+                var rightRect = heroRight.getBoundingClientRect();
+                var rightCenterX = rightRect.left + rightRect.width / 2;
+                var viewportCenterX = window.innerWidth / 2;
+                var shiftX = viewportCenterX - rightCenterX;
+
+                // Phase 1: video grows from 0.3 scale + Phase 3: slide to center
+                var currentShiftX = shiftX * p3e;
+                var videoScale = 0.3 + (0.7 * p1e); // 0.3 -> 1.0 during phase 1
+                videoPlayer.style.transform = 'translate(calc(-50% + ' + currentShiftX.toFixed(1) + 'px), -50%) scale(' + videoScale.toFixed(3) + ')';
+            }
+
+            // Scale via width:
+            // Phase 1: starts at CSS default (70% of hero-right = ~400px)
+            // Phase 2: grows slightly (scale 1.0 -> 1.2)
+            // Phase 3: stays at 1.2 while moving
+            // Phase 4: scales to ~65vw
+            var heroRightWidth = heroRight ? heroRight.offsetWidth : 700;
+            var baseWidth = Math.min(heroRightWidth * 0.7, 400);
+            var targetWidthPx = window.innerWidth * 0.65;
+
+            var currentWidthPx;
+            if (progress <= 0.20) {
+                currentWidthPx = baseWidth;
+            } else if (progress <= 0.35) {
+                currentWidthPx = baseWidth * (1 + 0.2 * p2e);
+            } else if (progress <= 0.55) {
+                currentWidthPx = baseWidth * 1.2;
+            } else {
+                var midWidth = baseWidth * 1.2;
+                currentWidthPx = midWidth + (targetWidthPx - midWidth) * p4e;
+            }
+            videoPlayer.style.width = currentWidthPx + 'px';
+            videoPlayer.style.maxWidth = 'none';
+
+            // Border radius: 16px -> 8px during phase 4
+            var startRadius = 16;
+            var endRadius = 8;
+            var currentRadius = startRadius - (startRadius - endRadius) * p4e;
+            videoPlayer.style.borderRadius = currentRadius + 'px';
+
+            // Box shadow: glow reduces during phase 4
+            var glowInv = 1 - p4e;
+            var g1o = (0.35 * glowInv).toFixed(3);
+            var g2o = (0.2 * glowInv).toFixed(3);
+            var g1s = Math.round(20 * glowInv);
+            var g1b = Math.round(60 * glowInv);
+            var g2s = Math.round(40 * glowInv);
+            var g2b = Math.round(120 * glowInv);
+            var so = (0.1 * p4e).toFixed(3);
+            videoPlayer.style.boxShadow = '0 0 ' + g1b + 'px ' + g1s + 'px rgba(255,255,255,' + g1o + '), 0 0 ' + g2b + 'px ' + g2s + 'px rgba(255,255,255,' + g2o + '), 0 4px 20px rgba(0,0,0,' + so + ')';
+
+            // Phase 3: Fade out hero text
+            if (heroLeft) {
+                heroLeft.style.opacity = (1 - p3e).toFixed(3);
+            }
+
+            // Pointer events
+            videoPlayer.style.pointerEvents = p1e > 0.8 ? 'auto' : 'none';
+            if (heroDevices) {
+                heroDevices.style.pointerEvents = p1e > 0.5 ? 'none' : 'auto';
+            }
+        }
+
+        function animationLoop() {
+            updateTarget();
+            var diff = targetProgress - currentProgress;
+            if (Math.abs(diff) > 0.0005) {
+                currentProgress += diff * LERP_SPEED;
+                applyAnimation(currentProgress);
+                requestAnimationFrame(animationLoop);
+            } else {
+                currentProgress = targetProgress;
+                applyAnimation(currentProgress);
+                animating = false;
+            }
+        }
+
+        function startAnimation() {
+            if (!animating) {
+                animating = true;
+                requestAnimationFrame(animationLoop);
+            }
+        }
+
+        window.addEventListener('scroll', startAnimation, { passive: true });
+        applyAnimation(0);
+    }
+
+    function initHiwVideoPlayer() {
+        var video = document.getElementById('hiwVideo');
+        var overlay = document.getElementById('hiwVideoOverlay');
+        if (!video || !overlay) return;
+
+        overlay.addEventListener('click', function() {
+            video.play();
+            video.controls = true;
+            overlay.classList.add('hidden');
+        });
+
+        video.addEventListener('ended', function() {
+            overlay.classList.remove('hidden');
+            video.controls = false;
+        });
+
+        video.addEventListener('pause', function() {
+            if (video.currentTime > 0 && !video.ended) {
+                overlay.classList.remove('hidden');
+                video.controls = false;
+            }
+        });
+
+        video.addEventListener('play', function() {
+            overlay.classList.add('hidden');
+            video.controls = true;
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        initVideoScroll();
+        initHiwVideoPlayer();
+    });
+})();
+</script>
     <script src="js/main.js"></script>
 </body>
 </html>

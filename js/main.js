@@ -345,6 +345,7 @@ function initParallaxEffects() {
    HIW Hero - 3-Device Parallax on Scroll
    ======================================== */
 function initHIWDeviceParallax() {
+
     const hiwHeroSection = document.querySelector('.hiw-hero-split');
     const hiwDevices = document.querySelectorAll('.hiw-device[data-parallax-speed]');
 
