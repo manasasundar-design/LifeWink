@@ -3407,35 +3407,31 @@ ul {
 }
 
 /* ========================================
-   HIW Video Scroll Section (Our Story pattern)
+   Video Section (shared by HIW + Our Story)
    ======================================== */
-.hiw-video-scroll {
-    position: relative;
-    height: 500vh;
+.video-section {
+    padding: 60px 0;
+    text-align: center;
 }
 
-.hiw-video-sticky {
-    position: sticky;
-    top: 0;
-    height: 100vh;
+.video-section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 24px;
+    text-align: center;
 }
 
 .hiw-video-player {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70%;
-    max-width: 400px;
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
     aspect-ratio: 16 / 9;
     border-radius: 16px;
     overflow: hidden;
     background: #000;
-    box-shadow: 0 0 60px 20px rgba(255, 255, 255, 0.35),
-                0 0 120px 40px rgba(255, 255, 255, 0.2);
-    will-change: transform, width, opacity;
-    opacity: 0;
-    pointer-events: none;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
     z-index: 5;
 }
 
@@ -3497,20 +3493,10 @@ ul {
     margin-left: 4px;
 }
 
-/* Mobile: disable scroll animation, show hero normally */
+/* Mobile: video section adjustments */
 @media (max-width: 768px) {
-    .hiw-video-scroll {
-        height: auto;
-    }
-
-    .hiw-video-sticky {
-        position: relative;
-        top: auto;
-        height: auto;
-    }
-
-    .hiw-video-player {
-        display: none;
+    .video-section {
+        padding: 40px 0;
     }
 
     .hiw-video-play-btn {
@@ -3522,11 +3508,6 @@ ul {
         width: 22px;
         height: 22px;
     }
-}
-
-/* Device will-change for GPU acceleration during animation */
-.hiw-device {
-    will-change: transform, opacity;
 }
 
 

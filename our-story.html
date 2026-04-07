@@ -16,69 +16,19 @@
         .story-hero {
             position: relative;
             padding: 120px 0 75px;
-            background: #0068E6;
-        }
-
-        /* Hide navbar during video expansion */
-        .navbar.hide-navbar {
-            transform: translateY(-100%) !important;
-            transition: transform 0.4s ease !important;
-        }
-
-        /* Scroll-animated video section */
-        .story-video-scroll {
-            position: relative;
-            z-index: 1;
-            height: 160vh;
-            background: linear-gradient(180deg,
-                #0068E6 0%,
-                #0068E6 80px,
-                #0A75ED 120px,
-                #1882F3 160px,
-                #2D94F8 210px,
-                #46A4FA 260px,
-                #62B3FC 320px,
-                #82C4FD 380px,
-                #A8D8FE 440px,
-                #C8E6FF 510px,
-                #E2F1FF 580px,
-                #F2F8FF 650px,
-                #FAFCFF 720px,
-                #FFFFFF 800px
-            );
-            margin-top: -40px;
-            padding-top: 0;
-            margin-bottom: 0;
-        }
-
-        .story-video-sticky {
-            position: sticky;
-            top: 90px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: calc(100vh - 90px);
-            transition: top 0.4s ease, min-height 0.4s ease;
-        }
-
-        body.navbar-hidden .story-video-sticky {
-            top: 0;
-            min-height: 100vh;
+            background: linear-gradient(180deg, #0068E6 0%, #0068E6 70%, #FFFFFF 100%);
         }
 
         .story-video-wrapper {
             position: relative;
-            width: 60%;
-            max-width: 1000px;
-            max-height: 75vh;
+            width: 100%;
+            max-width: 900px;
             margin: 0 auto;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 0 60px 20px rgba(255, 255, 255, 0.35), 0 0 120px 40px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
             background: var(--gray-200);
             aspect-ratio: 16 / 9;
-            will-change: transform;
-            transform: translateZ(0);
         }
 
         .story-hero::before {
@@ -347,19 +297,12 @@
         }
 
         @media (min-width: 1600px) {
-            .story-video-wrapper {
-                max-width: 1100px;
-            }
             .story-hero {
                 padding: 100px 0 20px;
             }
         }
 
         @media (min-width: 1920px) {
-            .story-video-wrapper {
-                width: 55%;
-                max-width: 1300px;
-            }
             .story-hero {
                 padding: 90px 0 15px;
             }
@@ -376,21 +319,6 @@
 
             .story-hero-subtitle {
                 white-space: normal;
-            }
-
-            .story-video-scroll {
-                height: auto;
-                padding-bottom: 40px;
-            }
-
-            .story-video-sticky {
-                position: relative;
-                top: auto;
-                min-height: auto;
-            }
-
-            .story-video-wrapper {
-                width: 90% !important;
             }
 
             .founder-section {
@@ -628,25 +556,6 @@
         </div>
     </section>
 
-    <!-- Video Section with Scroll Animation -->
-    <div class="story-video-scroll" id="videoScrollContainer">
-        <div class="story-video-sticky">
-            <div class="story-video-wrapper" id="videoWrapper">
-                <video id="storyVideo">
-                    <source src="images/story/jim-video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="video-overlay" id="videoOverlay">
-                    <button class="video-play-btn" aria-label="Play video">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Founder Message Section -->
     <section class="founder-section">
         <div class="container">
@@ -676,6 +585,26 @@
                         <p class="founder-title">Founder</p>
                         <p class="founder-title">Chief Trust Officer and CEO</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h3 class="video-section-title">A Message from Our Founder</h3>
+            <div class="story-video-wrapper" id="videoWrapper">
+                <video id="storyVideo" preload="metadata" playsinline>
+                    <source src="images/story/jim-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay" id="videoOverlay">
+                    <button class="video-play-btn" aria-label="Play video">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
@@ -830,117 +759,51 @@
                 observer.observe(el);
             });
 
-            // Video play button functionality
+            // Video play button with fullscreen
             const video = document.getElementById('storyVideo');
             const overlay = document.getElementById('videoOverlay');
 
             if (video && overlay) {
-                // Click overlay to play
                 overlay.addEventListener('click', function() {
+                    // Try fullscreen on the video element
+                    if (video.requestFullscreen) {
+                        video.requestFullscreen();
+                    } else if (video.webkitRequestFullscreen) {
+                        video.webkitRequestFullscreen();
+                    } else if (video.webkitEnterFullscreen) {
+                        // iOS Safari
+                        video.webkitEnterFullscreen();
+                    }
                     video.play();
                     video.controls = true;
                     overlay.classList.add('hidden');
                 });
 
-                // Show overlay again when video ends
                 video.addEventListener('ended', function() {
+                    if (document.fullscreenElement) {
+                        document.exitFullscreen();
+                    } else if (document.webkitFullscreenElement) {
+                        document.webkitExitFullscreen();
+                    }
                     overlay.classList.remove('hidden');
                     video.controls = false;
                 });
 
-                // Show overlay when video is paused (optional - clicking video area)
-                video.addEventListener('pause', function() {
-                    if (video.currentTime > 0 && !video.ended) {
-                        // Only show overlay if paused manually, not at the end
-                        overlay.classList.remove('hidden');
+                document.addEventListener('fullscreenchange', function() {
+                    if (!document.fullscreenElement) {
+                        video.pause();
                         video.controls = false;
+                        overlay.classList.remove('hidden');
                     }
                 });
 
-                // Hide overlay when playing
-                video.addEventListener('play', function() {
-                    overlay.classList.add('hidden');
-                    video.controls = true;
-                });
-            }
-
-            // Scroll-driven video scaling animation
-            const scrollContainer = document.getElementById('videoScrollContainer');
-            const videoWrapper = document.getElementById('videoWrapper');
-
-            if (scrollContainer && videoWrapper) {
-                const navbar = document.getElementById('navbar');
-                const startScale = 1;
-                const endScale = 1.35;  // 60% * 1.35 = 81%, keeps padding on all sides
-                const startRadius = 16;
-                const endRadius = 8;
-                let lastProgress = -1;
-                let navbarHidden = false;
-
-                function easeOutCubic(t) {
-                    return 1 - Math.pow(1 - t, 3);
-                }
-
-                function updateVideoScale() {
-                    const rect = scrollContainer.getBoundingClientRect();
-                    const scrollHeight = scrollContainer.offsetHeight - window.innerHeight;
-                    const scrolled = -rect.top;
-                    const rawProgress = Math.min(Math.max(scrolled / scrollHeight, 0), 1);
-
-                    // Round to avoid sub-pixel jitter
-                    const progress = Math.round(rawProgress * 1000) / 1000;
-                    if (progress === lastProgress) return;
-                    lastProgress = progress;
-
-                    // Hide navbar when video is scaling, show when back at top or past video
-                    if (navbar) {
-                        if (progress > 0.1 && progress < 1) {
-                            if (!navbarHidden) {
-                                navbar.classList.add('hide-navbar');
-                                document.body.classList.add('navbar-hidden');
-                                navbarHidden = true;
-                            }
-                        } else {
-                            if (navbarHidden) {
-                                navbar.classList.remove('hide-navbar');
-                                document.body.classList.remove('navbar-hidden');
-                                navbarHidden = false;
-                            }
-                        }
-                    }
-
-                    const easedProgress = easeOutCubic(progress);
-                    const currentScale = startScale + (endScale - startScale) * easedProgress;
-                    const currentRadius = startRadius - (startRadius - endRadius) * easedProgress;
-
-                    videoWrapper.style.transform = 'translateZ(0) scale(' + currentScale + ')';
-                    videoWrapper.style.borderRadius = currentRadius + 'px';
-
-                    // Glow reduces as video scales up
-                    var inv = 1 - easedProgress;
-                    var g1o = (0.35 * inv).toFixed(3);
-                    var g2o = (0.2 * inv).toFixed(3);
-                    var g1s = Math.round(20 * inv);
-                    var g1b = Math.round(60 * inv);
-                    var g2s = Math.round(40 * inv);
-                    var g2b = Math.round(120 * inv);
-                    var so = (0.1 * easedProgress).toFixed(3);
-                    videoWrapper.style.boxShadow = '0 0 ' + g1b + 'px ' + g1s + 'px rgba(255,255,255,' + g1o + '), 0 0 ' + g2b + 'px ' + g2s + 'px rgba(255,255,255,' + g2o + '), 0 4px 20px rgba(0,0,0,' + so + ')';
-                }
-
-                let ticking = false;
-                window.addEventListener('scroll', function() {
-                    if (!ticking) {
-                        requestAnimationFrame(function() {
-                            updateVideoScale();
-                            ticking = false;
-                        });
-                        ticking = true;
+                document.addEventListener('webkitfullscreenchange', function() {
+                    if (!document.webkitFullscreenElement) {
+                        video.pause();
+                        video.controls = false;
+                        overlay.classList.remove('hidden');
                     }
                 });
-
-                // Run once on load
-                updateVideoScale();
             }
         });
     </script>
