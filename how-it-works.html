@@ -42,64 +42,46 @@
         <a href="download.html" class="btn btn-primary mobile-cta">Try LifeWink for Free</a>
     </div>
 
-    <!-- Hero Scroll Container (provides scroll room for animation) -->
-    <div class="hiw-video-scroll" id="hiwVideoScroll">
-        <!-- Sticky wrapper keeps hero pinned during scroll animation -->
-        <div class="hiw-video-sticky">
-            <!-- Hero Section - Split Layout with Gradient -->
-            <section class="hiw-hero-split">
-                <div class="hiw-hero-gradient-bg"></div>
-                <div class="container-wide">
-                    <div class="hiw-hero-grid">
-                        <!-- Left Content -->
-                        <div class="hiw-hero-left fade-in-left">
-                            <h1 class="hiw-hero-title-lg">How It Works</h1>
-                            <p class="hiw-hero-intro">LifeWink provides two ways to capture and share your love — multimedia Classic&nbsp;LifeWinks and AI&nbsp;LifeWinks</p>
-                            <div class="hiw-hero-divider"></div>
-                            <p class="hiw-hero-subtitle-lg">All LifeWinks are authentically created by you, the Beloved, and delivered to those you love, your Recipients, privately and safely beyond your lifetime</p>
-                            <a href="download.html" class="btn hero-btn">
-                                Try LifeWink for Free
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </a>
-                        </div>
+    <!-- Hero Section - Split Layout with Gradient -->
+    <section class="hiw-hero-split">
+        <div class="hiw-hero-gradient-bg"></div>
+        <div class="container-wide">
+            <div class="hiw-hero-grid">
+                <!-- Left Content -->
+                <div class="hiw-hero-left fade-in-left">
+                    <h1 class="hiw-hero-title-lg">How It Works</h1>
+                    <p class="hiw-hero-intro">LifeWink provides two ways to capture and share your love — multimedia Classic&nbsp;LifeWinks and AI&nbsp;LifeWinks</p>
+                    <div class="hiw-hero-divider"></div>
+                    <p class="hiw-hero-subtitle-lg">All LifeWinks are authentically created by you, the Beloved, and delivered to those you love, your Recipients, privately and safely beyond your lifetime</p>
+                    <a href="download.html" class="btn hero-btn">
+                        Try LifeWink for Free
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
 
-                        <!-- Right - Device Mockups + Video -->
-                        <div class="hiw-hero-right fade-in-right">
-                            <!-- Video player (absolutely positioned over devices, initially hidden) -->
-                            <div class="hiw-video-player" id="hiwVideoPlayer">
-                                <video id="hiwVideo" preload="metadata" playsinline>
-                                    <source src="images/story/jim-video.mp4" type="video/mp4">
-                                </video>
-                                <div class="hiw-video-overlay" id="hiwVideoOverlay">
-                                    <button class="hiw-video-play-btn" aria-label="Play video">
-                                        <svg viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M8 5v14l11-7z"/>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <!-- Device mockups -->
-                            <div class="hiw-hero-devices" id="hiwHeroDevices">
-                                <div class="hiw-devices-phones">
-                                    <div class="hiw-device hiw-device-phone-left">
-                                        <img src="images/hero-tablet-right.png" alt="LifeWink Tablet - AI Chat">
-                                    </div>
-                                    <div class="hiw-device hiw-device-phone-center">
-                                        <img src="images/hero-phone-left.png" alt="LifeWink Mobile - Wedding Message">
-                                    </div>
-                                </div>
-                                <div class="hiw-device hiw-device-monitor">
-                                    <img src="images/hero-desktop-center.png" alt="LifeWink Desktop Dashboard">
-                                </div>
-                            </div>
+                <!-- Right - Video -->
+                <div class="hiw-hero-right fade-in-right">
+                    <div class="hiw-hero-video-wrapper" id="hiwVideoPlayer">
+                        <video id="hiwVideo" preload="metadata" playsinline>
+                            <source src="images/story/jim-video.mp4" type="video/mp4">
+                        </video>
+                        <div class="hiw-video-overlay" id="hiwVideoOverlay">
+                            <button class="hiw-video-play-btn" aria-label="Play video">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Gradient Transition -->
+    <div class="video-section"></div>
 
     <!-- Section 1: Classic LifeWinks - Asymmetric Bento Grid -->
     <section class="hiw-section hiw-gradient-section hiw-gradient-classic">
@@ -311,192 +293,57 @@
     </div>
 
     <script>
-// HiW Video Scroll Animation (Our Story pattern)
+// Video Player with Modal Lightbox
 (function() {
-    function initVideoScroll() {
-        var scrollContainer = document.getElementById('hiwVideoScroll');
-        var videoPlayer = document.getElementById('hiwVideoPlayer');
-        var heroDevices = document.getElementById('hiwHeroDevices');
-        var heroLeft = document.querySelector('.hiw-hero-left');
-        var phoneLeft = document.querySelector('.hiw-device-phone-left');
-        var phoneCenter = document.querySelector('.hiw-device-phone-center');
-        var monitor = document.querySelector('.hiw-device-monitor');
-        if (!scrollContainer || !videoPlayer) return;
-
-        var isMobile = window.matchMedia('(max-width: 768px)').matches;
-        if (isMobile) return; // No scroll animation on mobile
-
-        function easeOutCubic(t) {
-            return 1 - Math.pow(1 - t, 3);
-        }
-
-        var currentProgress = 0;
-        var targetProgress = 0;
-        var animating = false;
-        var LERP_SPEED = 0.04;
-
-        function updateTarget() {
-            var rect = scrollContainer.getBoundingClientRect();
-            var scrollHeight = scrollContainer.offsetHeight - window.innerHeight;
-            if (scrollHeight <= 0) scrollHeight = 1;
-            var scrolled = -rect.top;
-            targetProgress = Math.min(Math.max(scrolled / scrollHeight, 0), 1);
-        }
-
-        function applyAnimation(progress) {
-            // Phase 1 (0-0.20): Mockups fade out, video fades in on right side (small)
-            // Phase 2 (0.20-0.35): Video grows slightly in place on right (35% -> 45%)
-            // Phase 3 (0.35-0.55): Video slides from right to center, text fades out
-            // Phase 4 (0.55-0.75): Video scales up to ~65vw
-            // Phase 5 (0.75-1.0): Dwell time, video stays centered
-
-            var p1 = Math.min(progress / 0.20, 1);
-            var p1e = easeOutCubic(p1);
-
-            var p2 = Math.max(0, Math.min((progress - 0.20) / 0.15, 1));
-            var p2e = easeOutCubic(p2);
-
-            var p3 = Math.max(0, Math.min((progress - 0.35) / 0.20, 1));
-            var p3e = easeOutCubic(p3);
-
-            var p4 = Math.max(0, Math.min((progress - 0.55) / 0.20, 1));
-            var p4e = easeOutCubic(p4);
-
-            // Phase 1: Mockups shrink down (scale to 0)
-            if (heroDevices) {
-                var mockupScale = 1 - p1e; // 1 -> 0
-                var mockupOpacity = 1 - p1e;
-                heroDevices.style.transform = 'scale(' + mockupScale.toFixed(3) + ')';
-                heroDevices.style.opacity = mockupOpacity.toFixed(3);
-            }
-
-            // Phase 1: Video grows from small (scale up from 0)
-            var videoAppear = p1e; // 0 -> 1
-            videoPlayer.style.opacity = videoAppear.toFixed(3);
-            var baseTranslateX = 0;
-
-            // Calculate shift to move video from right column center to viewport center
-            var heroRight = document.querySelector('.hiw-hero-right');
-            if (heroRight) {
-                var rightRect = heroRight.getBoundingClientRect();
-                var rightCenterX = rightRect.left + rightRect.width / 2;
-                var viewportCenterX = window.innerWidth / 2;
-                var shiftX = viewportCenterX - rightCenterX;
-
-                // Phase 1: video grows from 0.3 scale + Phase 3: slide to center
-                var currentShiftX = shiftX * p3e;
-                var videoScale = 0.3 + (0.7 * p1e); // 0.3 -> 1.0 during phase 1
-                videoPlayer.style.transform = 'translate(calc(-50% + ' + currentShiftX.toFixed(1) + 'px), -50%) scale(' + videoScale.toFixed(3) + ')';
-            }
-
-            // Scale via width:
-            // Phase 1: starts at CSS default (70% of hero-right = ~400px)
-            // Phase 2: grows slightly (scale 1.0 -> 1.2)
-            // Phase 3: stays at 1.2 while moving
-            // Phase 4: scales to ~65vw
-            var heroRightWidth = heroRight ? heroRight.offsetWidth : 700;
-            var baseWidth = Math.min(heroRightWidth * 0.7, 400);
-            var targetWidthPx = window.innerWidth * 0.65;
-
-            var currentWidthPx;
-            if (progress <= 0.20) {
-                currentWidthPx = baseWidth;
-            } else if (progress <= 0.35) {
-                currentWidthPx = baseWidth * (1 + 0.2 * p2e);
-            } else if (progress <= 0.55) {
-                currentWidthPx = baseWidth * 1.2;
-            } else {
-                var midWidth = baseWidth * 1.2;
-                currentWidthPx = midWidth + (targetWidthPx - midWidth) * p4e;
-            }
-            videoPlayer.style.width = currentWidthPx + 'px';
-            videoPlayer.style.maxWidth = 'none';
-
-            // Border radius: 16px -> 8px during phase 4
-            var startRadius = 16;
-            var endRadius = 8;
-            var currentRadius = startRadius - (startRadius - endRadius) * p4e;
-            videoPlayer.style.borderRadius = currentRadius + 'px';
-
-            // Box shadow: glow reduces during phase 4
-            var glowInv = 1 - p4e;
-            var g1o = (0.35 * glowInv).toFixed(3);
-            var g2o = (0.2 * glowInv).toFixed(3);
-            var g1s = Math.round(20 * glowInv);
-            var g1b = Math.round(60 * glowInv);
-            var g2s = Math.round(40 * glowInv);
-            var g2b = Math.round(120 * glowInv);
-            var so = (0.1 * p4e).toFixed(3);
-            videoPlayer.style.boxShadow = '0 0 ' + g1b + 'px ' + g1s + 'px rgba(255,255,255,' + g1o + '), 0 0 ' + g2b + 'px ' + g2s + 'px rgba(255,255,255,' + g2o + '), 0 4px 20px rgba(0,0,0,' + so + ')';
-
-            // Phase 3: Fade out hero text
-            if (heroLeft) {
-                heroLeft.style.opacity = (1 - p3e).toFixed(3);
-            }
-
-            // Pointer events
-            videoPlayer.style.pointerEvents = p1e > 0.8 ? 'auto' : 'none';
-            if (heroDevices) {
-                heroDevices.style.pointerEvents = p1e > 0.5 ? 'none' : 'auto';
-            }
-        }
-
-        function animationLoop() {
-            updateTarget();
-            var diff = targetProgress - currentProgress;
-            if (Math.abs(diff) > 0.0005) {
-                currentProgress += diff * LERP_SPEED;
-                applyAnimation(currentProgress);
-                requestAnimationFrame(animationLoop);
-            } else {
-                currentProgress = targetProgress;
-                applyAnimation(currentProgress);
-                animating = false;
-            }
-        }
-
-        function startAnimation() {
-            if (!animating) {
-                animating = true;
-                requestAnimationFrame(animationLoop);
-            }
-        }
-
-        window.addEventListener('scroll', startAnimation, { passive: true });
-        applyAnimation(0);
-    }
-
     function initHiwVideoPlayer() {
         var video = document.getElementById('hiwVideo');
         var overlay = document.getElementById('hiwVideoOverlay');
         if (!video || !overlay) return;
 
-        overlay.addEventListener('click', function() {
-            video.play();
-            video.controls = true;
-            overlay.classList.add('hidden');
-        });
+        // Create modal
+        var backdrop = document.createElement('div');
+        backdrop.className = 'video-modal-backdrop';
+        var container = document.createElement('div');
+        container.className = 'video-modal-container';
+        var closeBtn = document.createElement('button');
+        closeBtn.className = 'video-modal-close';
+        closeBtn.innerHTML = '&#10005;';
+        closeBtn.setAttribute('aria-label', 'Close video');
+        var modalVideo = document.createElement('video');
+        modalVideo.preload = 'metadata';
+        modalVideo.playsinline = true;
+        modalVideo.controls = true;
+        modalVideo.src = video.querySelector('source').src;
+        container.appendChild(closeBtn);
+        container.appendChild(modalVideo);
+        backdrop.appendChild(container);
+        document.body.appendChild(backdrop);
 
-        video.addEventListener('ended', function() {
-            overlay.classList.remove('hidden');
-            video.controls = false;
-        });
+        function openModal() {
+            backdrop.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            setTimeout(function() { modalVideo.play(); }, 300);
+        }
 
-        video.addEventListener('pause', function() {
-            if (video.currentTime > 0 && !video.ended) {
-                overlay.classList.remove('hidden');
-                video.controls = false;
-            }
-        });
+        function closeModal() {
+            modalVideo.pause();
+            modalVideo.currentTime = 0;
+            backdrop.classList.remove('active');
+            document.body.style.overflow = '';
+        }
 
-        video.addEventListener('play', function() {
-            overlay.classList.add('hidden');
-            video.controls = true;
+        overlay.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        backdrop.addEventListener('click', function(e) {
+            if (e.target === backdrop) closeModal();
+        });
+        modalVideo.addEventListener('ended', closeModal);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && backdrop.classList.contains('active')) closeModal();
         });
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-        initVideoScroll();
         initHiwVideoPlayer();
     });
 })();
