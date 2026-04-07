@@ -61,19 +61,18 @@
                     </a>
                 </div>
 
-                <!-- Right - Device Mockups -->
+                <!-- Right - Video -->
                 <div class="hiw-hero-right fade-in-right">
-                    <div class="hiw-hero-devices" id="hiwHeroDevices">
-                        <div class="hiw-devices-phones">
-                            <div class="hiw-device hiw-device-phone-left">
-                                <img src="images/hero-tablet-right.png" alt="LifeWink Tablet - AI Chat">
-                            </div>
-                            <div class="hiw-device hiw-device-phone-center">
-                                <img src="images/hero-phone-left.png" alt="LifeWink Mobile - Wedding Message">
-                            </div>
-                        </div>
-                        <div class="hiw-device hiw-device-monitor">
-                            <img src="images/hero-desktop-center.png" alt="LifeWink Desktop Dashboard">
+                    <div class="hiw-hero-video-wrapper" id="hiwVideoPlayer">
+                        <video id="hiwVideo" preload="metadata" playsinline>
+                            <source src="images/story/jim-video.mp4" type="video/mp4">
+                        </video>
+                        <div class="hiw-video-overlay" id="hiwVideoOverlay">
+                            <button class="hiw-video-play-btn" aria-label="Play video">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -81,24 +80,8 @@
         </div>
     </section>
 
-    <!-- Video Section -->
-    <section class="video-section">
-        <div class="container">
-            <h3 class="video-section-title">See How LifeWink Works</h3>
-            <div class="hiw-video-player" id="hiwVideoPlayer">
-                <video id="hiwVideo" preload="metadata" playsinline>
-                    <source src="images/story/jim-video.mp4" type="video/mp4">
-                </video>
-                <div class="hiw-video-overlay" id="hiwVideoOverlay">
-                    <button class="hiw-video-play-btn" aria-label="Play video">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Gradient Transition -->
+    <div class="video-section"></div>
 
     <!-- Section 1: Classic LifeWinks - Asymmetric Bento Grid -->
     <section class="hiw-section hiw-gradient-section hiw-gradient-classic">
@@ -310,53 +293,53 @@
     </div>
 
     <script>
-// Video Player with Fullscreen
+// Video Player with Modal Lightbox
 (function() {
     function initHiwVideoPlayer() {
         var video = document.getElementById('hiwVideo');
         var overlay = document.getElementById('hiwVideoOverlay');
-        var player = document.getElementById('hiwVideoPlayer');
         if (!video || !overlay) return;
 
-        overlay.addEventListener('click', function() {
-            // Try fullscreen on the video element
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.webkitRequestFullscreen) {
-                video.webkitRequestFullscreen();
-            } else if (video.webkitEnterFullscreen) {
-                // iOS Safari
-                video.webkitEnterFullscreen();
-            }
-            video.play();
-            video.controls = true;
-            overlay.classList.add('hidden');
-        });
+        // Create modal
+        var backdrop = document.createElement('div');
+        backdrop.className = 'video-modal-backdrop';
+        var container = document.createElement('div');
+        container.className = 'video-modal-container';
+        var closeBtn = document.createElement('button');
+        closeBtn.className = 'video-modal-close';
+        closeBtn.innerHTML = '&#10005;';
+        closeBtn.setAttribute('aria-label', 'Close video');
+        var modalVideo = document.createElement('video');
+        modalVideo.preload = 'metadata';
+        modalVideo.playsinline = true;
+        modalVideo.controls = true;
+        modalVideo.src = video.querySelector('source').src;
+        container.appendChild(closeBtn);
+        container.appendChild(modalVideo);
+        backdrop.appendChild(container);
+        document.body.appendChild(backdrop);
 
-        video.addEventListener('ended', function() {
-            if (document.fullscreenElement) {
-                document.exitFullscreen();
-            } else if (document.webkitFullscreenElement) {
-                document.webkitExitFullscreen();
-            }
-            overlay.classList.remove('hidden');
-            video.controls = false;
-        });
+        function openModal() {
+            backdrop.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            setTimeout(function() { modalVideo.play(); }, 300);
+        }
 
-        document.addEventListener('fullscreenchange', function() {
-            if (!document.fullscreenElement) {
-                video.pause();
-                video.controls = false;
-                overlay.classList.remove('hidden');
-            }
-        });
+        function closeModal() {
+            modalVideo.pause();
+            modalVideo.currentTime = 0;
+            backdrop.classList.remove('active');
+            document.body.style.overflow = '';
+        }
 
-        document.addEventListener('webkitfullscreenchange', function() {
-            if (!document.webkitFullscreenElement) {
-                video.pause();
-                video.controls = false;
-                overlay.classList.remove('hidden');
-            }
+        overlay.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        backdrop.addEventListener('click', function(e) {
+            if (e.target === backdrop) closeModal();
+        });
+        modalVideo.addEventListener('ended', closeModal);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && backdrop.classList.contains('active')) closeModal();
         });
     }
 

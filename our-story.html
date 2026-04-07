@@ -17,11 +17,11 @@
             position: relative;
             padding: 120px 0 190px;
             background: linear-gradient(180deg,
-                #0068E6 0%,
-                #0068E6 63%,
-                #1882F3 73%,
-                #62B3FC 82%,
-                #C8E6FF 91%,
+                #0068E6 0,
+                #0068E6 150px,
+                #1882F3 60%,
+                #62B3FC 75%,
+                #C8E6FF 88%,
                 #FFFFFF 100%
             );
         }
@@ -175,7 +175,7 @@
         .founder-section {
             position: relative;
             z-index: 3;
-            padding: 100px 0;
+            padding: 80px 0 100px;
             background: var(--white);
         }
 
@@ -187,8 +187,8 @@
         }
 
         .founder-image-wrapper {
-            position: sticky;
-            top: 120px;
+            position: static;
+            margin-top: 10px;
         }
 
         .founder-image {
@@ -299,19 +299,19 @@
 
         @media (min-width: 1440px) {
             .story-hero {
-                padding: 110px 0 30px;
+                padding: 110px 0 100px;
             }
         }
 
         @media (min-width: 1600px) {
             .story-hero {
-                padding: 100px 0 20px;
+                padding: 100px 0 90px;
             }
         }
 
         @media (min-width: 1920px) {
             .story-hero {
-                padding: 90px 0 15px;
+                padding: 90px 0 80px;
             }
         }
 
@@ -600,8 +600,7 @@
     <!-- Video Section -->
     <section class="video-section">
         <div class="container">
-            <h3 class="video-section-title">A Message from Our Founder</h3>
-            <div class="story-video-wrapper" id="videoWrapper">
+            <div class="story-video-wrapper fade-in-up" id="videoWrapper">
                 <video id="storyVideo" preload="metadata" playsinline>
                     <source src="images/story/jim-video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -766,50 +765,51 @@
                 observer.observe(el);
             });
 
-            // Video play button with fullscreen
+            // Video play button with modal lightbox
             const video = document.getElementById('storyVideo');
             const overlay = document.getElementById('videoOverlay');
 
             if (video && overlay) {
-                overlay.addEventListener('click', function() {
-                    // Try fullscreen on the video element
-                    if (video.requestFullscreen) {
-                        video.requestFullscreen();
-                    } else if (video.webkitRequestFullscreen) {
-                        video.webkitRequestFullscreen();
-                    } else if (video.webkitEnterFullscreen) {
-                        // iOS Safari
-                        video.webkitEnterFullscreen();
-                    }
-                    video.play();
-                    video.controls = true;
-                    overlay.classList.add('hidden');
-                });
+                // Create modal
+                const backdrop = document.createElement('div');
+                backdrop.className = 'video-modal-backdrop';
+                const container = document.createElement('div');
+                container.className = 'video-modal-container';
+                const closeBtn = document.createElement('button');
+                closeBtn.className = 'video-modal-close';
+                closeBtn.innerHTML = '&#10005;';
+                closeBtn.setAttribute('aria-label', 'Close video');
+                const modalVideo = document.createElement('video');
+                modalVideo.preload = 'metadata';
+                modalVideo.playsinline = true;
+                modalVideo.controls = true;
+                modalVideo.src = video.querySelector('source').src;
+                container.appendChild(closeBtn);
+                container.appendChild(modalVideo);
+                backdrop.appendChild(container);
+                document.body.appendChild(backdrop);
 
-                video.addEventListener('ended', function() {
-                    if (document.fullscreenElement) {
-                        document.exitFullscreen();
-                    } else if (document.webkitFullscreenElement) {
-                        document.webkitExitFullscreen();
-                    }
-                    overlay.classList.remove('hidden');
-                    video.controls = false;
-                });
+                function openModal() {
+                    backdrop.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    setTimeout(function() { modalVideo.play(); }, 300);
+                }
 
-                document.addEventListener('fullscreenchange', function() {
-                    if (!document.fullscreenElement) {
-                        video.pause();
-                        video.controls = false;
-                        overlay.classList.remove('hidden');
-                    }
-                });
+                function closeModal() {
+                    modalVideo.pause();
+                    modalVideo.currentTime = 0;
+                    backdrop.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
 
-                document.addEventListener('webkitfullscreenchange', function() {
-                    if (!document.webkitFullscreenElement) {
-                        video.pause();
-                        video.controls = false;
-                        overlay.classList.remove('hidden');
-                    }
+                overlay.addEventListener('click', openModal);
+                closeBtn.addEventListener('click', closeModal);
+                backdrop.addEventListener('click', function(e) {
+                    if (e.target === backdrop) closeModal();
+                });
+                modalVideo.addEventListener('ended', closeModal);
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && backdrop.classList.contains('active')) closeModal();
                 });
             }
         });
