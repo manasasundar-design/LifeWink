@@ -1768,7 +1768,7 @@ ul {
 
 .section-label-pill {
     display: inline-block;
-    font-size: 0.7rem;
+    font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -1834,7 +1834,7 @@ ul {
 
 .section-label {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -5448,8 +5448,8 @@ ul {
 
 /* Section label — matches homepage "Explore LifeWink" style */
 .hiw-section-label {
-    font-size: 0.8rem;
-    font-weight: 700;
+    font-size: 1.75rem;
+    font-weight: 800;
     color: var(--primary-blue);
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -5459,16 +5459,6 @@ ul {
     align-items: center;
     justify-content: center;
     gap: 7px;
-}
-
-.hiw-section-label-dot {
-    width: 6px;
-    height: 6px;
-    background: var(--primary-blue);
-    position: relative;
-    top: -1px;
-    border-radius: 50%;
-    flex-shrink: 0;
 }
 
 .hiw-section-light {
@@ -8827,7 +8817,7 @@ ul {
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     border: 1.5px solid rgba(255, 255, 255, 0.35);
     border-radius: 50px;
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -9459,6 +9449,18 @@ ul {
     .hiw-device-showcase {
         max-width: 1100px;
     }
+
+    .hiw-section-title {
+        font-size: 2.5rem;
+    }
+
+    .classic-rect-title {
+        font-size: 1.25rem;
+    }
+
+    .classic-rect-desc {
+        font-size: 1rem;
+    }
 }
 
 /* ----- WIDE DESKTOP (1336px - 1649px) — 17-20" monitors ----- */
@@ -9707,13 +9709,13 @@ ul {
 /* --- Fix 2: Section label H2s too small on mobile (was 0.8rem / 12.8px) --- */
 @media (max-width: 768px) {
     .hiw-section-label {
-        font-size: 1rem;
+        font-size: 1.125rem;
     }
 }
 
 @media (max-width: 480px) {
     .hiw-section-label {
-        font-size: 1rem;
+        font-size: 1.125rem;
     }
 }
 
