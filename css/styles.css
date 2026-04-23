@@ -9198,6 +9198,13 @@ ul {
     transform: translateX(-50%) translateY(-100%);
 }
 
+/* Hide splash words until Axiforma is loaded — prevents fallback-font flash
+   and guarantees the rotation timer can't advance invisibly. The JS gate in
+   initSplashIntro adds .fonts-loaded to <html> right before starting. */
+html:not(.fonts-loaded) .splash-word {
+    visibility: hidden;
+}
+
 /* Main hero content starts hidden, revealed after splash */
 .hero-content-wrapper {
     opacity: 0;

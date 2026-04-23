@@ -898,11 +898,21 @@ function initRotatingWords() {
         currentIndex = nextIndex;
     }
 
-    // Delay the infinite rotation start if splash is active
+    // Delay the infinite rotation start if splash is active.
+    // Also wait for fonts to be ready (with a 2s safety timeout) so the first
+    // rotation isn't lost to the font-block period on cold visits where the
+    // splash is skipped (e.g. 2nd+ visits, or pages without a splash overlay).
     const startDelay = hasSplash ? 11000 : 1500;
-    setTimeout(() => {
-        setInterval(rotateWord, INTERVAL);
-    }, startDelay);
+    const heroFontsReady = (document.fonts && document.fonts.ready)
+        ? document.fonts.ready
+        : Promise.resolve();
+    const heroFontTimeout = new Promise(resolve => setTimeout(resolve, 2000));
+
+    Promise.race([heroFontsReady, heroFontTimeout]).then(() => {
+        setTimeout(() => {
+            setInterval(rotateWord, INTERVAL);
+        }, startDelay);
+    });
 }
 
 
@@ -957,14 +967,6 @@ function initSplashIntro(splashEl) {
 
     applySplashWidth();
     splashWrapper.style.transition = 'width 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-
-    // Re-measure after fonts load to get accurate Axiforma widths
-    if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(() => {
-            splashWidths = measureWordWidths(splashWords);
-            applySplashWidth();
-        });
-    }
 
     // Re-measure on viewport resize (debounced)
     let splashResizeTimer;
@@ -1033,8 +1035,17 @@ function initSplashIntro(splashEl) {
         }, 800); // Wait for splash fade-out transition
     }
 
-    // Start the splash word rotation after a brief initial pause
-    setTimeout(() => {
+    // Start the splash word rotation — but only after Axiforma is actually
+    // painted, so words don't silently tick past during the font-block period.
+    // A 2s safety timeout ensures the splash never hangs if fonts fail to load.
+    function startSplashRotation() {
+        // Re-measure now that Axiforma is painted (widths differ from fallback)
+        splashWidths = measureWordWidths(splashWords);
+        applySplashWidth();
+
+        // Reveal splash words (CSS hides them until this class is present)
+        document.documentElement.classList.add('fonts-loaded');
+
         const splashTimer = setInterval(() => {
             rotateSplashWord();
             // Stop interval once all words have been shown
@@ -1044,7 +1055,17 @@ function initSplashIntro(splashEl) {
                 setTimeout(() => revealHero(), 1500);
             }
         }, SPLASH_INTERVAL);
-    }, 200);
+    }
+
+    const fontsReady = (document.fonts && document.fonts.ready)
+        ? document.fonts.ready
+        : Promise.resolve();
+    const fontTimeout = new Promise(resolve => setTimeout(resolve, 2000));
+
+    Promise.race([fontsReady, fontTimeout]).then(() => {
+        // Brief settle pause so the first word registers before rotating away
+        setTimeout(startSplashRotation, 200);
+    });
 }
 
 
