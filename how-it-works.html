@@ -63,10 +63,8 @@
 
                 <!-- Right - Video -->
                 <div class="hiw-hero-right fade-in-right">
-                    <div class="hiw-hero-video-wrapper" id="hiwVideoPlayer">
-                        <video id="hiwVideo" preload="metadata" playsinline>
-                            <source src="images/story/jim-video.mp4" type="video/mp4">
-                        </video>
+                    <div class="hiw-hero-video-wrapper" id="hiwVideoPlayer" data-youtube-id="6yGt_joJ9GI">
+                        <img src="images/story/hiw-thumbnail.png" alt="How LifeWink works">
                         <div class="hiw-video-overlay" id="hiwVideoOverlay">
                             <button class="hiw-video-play-btn" aria-label="Play video">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
@@ -293,14 +291,16 @@
     </div>
 
     <script>
-// Video Player with Modal Lightbox
+// YouTube Video Player with Modal Lightbox
 (function() {
     function initHiwVideoPlayer() {
-        var video = document.getElementById('hiwVideo');
+        var player = document.getElementById('hiwVideoPlayer');
         var overlay = document.getElementById('hiwVideoOverlay');
-        if (!video || !overlay) return;
+        if (!player || !overlay) return;
 
-        // Create modal
+        var youtubeId = player.getAttribute('data-youtube-id');
+        if (!youtubeId) return;
+
         var backdrop = document.createElement('div');
         backdrop.className = 'video-modal-backdrop';
         var container = document.createElement('div');
@@ -309,27 +309,30 @@
         closeBtn.className = 'video-modal-close';
         closeBtn.innerHTML = '&#10005;';
         closeBtn.setAttribute('aria-label', 'Close video');
-        var modalVideo = document.createElement('video');
-        modalVideo.preload = 'metadata';
-        modalVideo.playsinline = true;
-        modalVideo.controls = true;
-        modalVideo.src = video.querySelector('source').src;
         container.appendChild(closeBtn);
-        container.appendChild(modalVideo);
         backdrop.appendChild(container);
         document.body.appendChild(backdrop);
 
+        var iframe = null;
+
         function openModal() {
+            iframe = document.createElement('iframe');
+            iframe.src = 'https://www.youtube.com/embed/' + youtubeId + '?autoplay=1&rel=0&modestbranding=1';
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+            iframe.setAttribute('allowfullscreen', '');
+            iframe.setAttribute('title', 'How LifeWink works');
+            container.appendChild(iframe);
             backdrop.classList.add('active');
             document.body.style.overflow = 'hidden';
-            setTimeout(function() { modalVideo.play(); }, 300);
         }
 
         function closeModal() {
-            modalVideo.pause();
-            modalVideo.currentTime = 0;
             backdrop.classList.remove('active');
             document.body.style.overflow = '';
+            if (iframe) {
+                iframe.remove();
+                iframe = null;
+            }
         }
 
         overlay.addEventListener('click', openModal);
@@ -337,7 +340,6 @@
         backdrop.addEventListener('click', function(e) {
             if (e.target === backdrop) closeModal();
         });
-        modalVideo.addEventListener('ended', closeModal);
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && backdrop.classList.contains('active')) closeModal();
         });
