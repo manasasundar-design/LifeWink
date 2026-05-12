@@ -2746,6 +2746,14 @@ ul {
     width: auto;
 }
 
+.footer-badge img[src*="web-app"] {
+    background: #FFFFFF;
+    border: 1.5px solid #000000;
+    border-radius: 7px;
+    box-sizing: border-box;
+    padding: 1px 2px;
+}
+
 .footer-bottom {
     padding-top: 24px;
     padding-bottom: 0;
@@ -3503,29 +3511,30 @@ ul {
 }
 
 .hiw-video-play-btn {
-    width: 70px;
-    height: 70px;
-    background: var(--primary-blue);
+    width: 64px;
+    height: 64px;
+    background: #FFFFFF;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 30px rgba(1, 105, 235, 0.4);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
     border: none;
 }
 
+.hiw-video-overlay:hover .hiw-video-play-btn,
 .hiw-video-play-btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 12px 40px rgba(1, 105, 235, 0.5);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
 .hiw-video-play-btn svg {
-    width: 28px;
-    height: 28px;
-    color: white;
-    margin-left: 4px;
+    width: 40px;
+    height: 40px;
+    color: var(--primary-blue);
+    margin-left: 5px;
 }
 
 /* ========================================
