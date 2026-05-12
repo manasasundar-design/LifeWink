@@ -68,25 +68,81 @@
         }
 
         .story-hero-subtitle {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: #FFFFFF;
-            line-height: 1.6;
+            line-height: 1.65;
             max-width: 900px;
             margin: 0 auto;
             white-space: nowrap;
         }
 
+        .video-section-heading {
+            font-size: clamp(1.5rem, 2.5vw, 1.75rem);
+            font-weight: 700;
+            color: var(--gray-900);
+            letter-spacing: -0.02em;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .video-section-heading {
+                font-size: 1.5rem;
+                margin-bottom: 24px;
+            }
+        }
+
         /* Video Container — old styles replaced by scroll-animated version above */
 
-        .story-video-wrapper video,
-        .story-video-wrapper iframe {
+        .story-video-wrapper > img,
+        .story-video-wrapper > iframe {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
-        .story-video-wrapper video {
+        /* YouTube-style title bar at top of thumbnail */
+        .video-title-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 14px 20px 28px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 100%);
+            color: #FFFFFF;
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.3;
+            text-align: left;
+            z-index: 3;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 12px;
+        }
+
+        .video-title-avatar {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-title-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
+        }
+
+        .video-title-text {
+            flex: 1;
         }
 
         /* Video Overlay with Play Button */
@@ -96,7 +152,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.35);
+            background: rgba(0, 0, 0, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -106,7 +162,7 @@
         }
 
         .video-overlay:hover {
-            background: rgba(0, 0, 0, 0.25);
+            background: rgba(0, 0, 0, 0.02);
         }
 
         .video-overlay.hidden {
@@ -116,28 +172,30 @@
         }
 
         .video-play-btn {
-            width: 90px;
-            height: 90px;
-            background: var(--primary-blue);
+            width: 64px;
+            height: 64px;
+            background: #FFFFFF;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 30px rgba(1, 105, 235, 0.4);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
             border: none;
+            margin-top: 60px;
         }
 
+        .video-overlay:hover .video-play-btn,
         .video-play-btn:hover {
             transform: scale(1.1);
-            box-shadow: 0 12px 40px rgba(1, 105, 235, 0.5);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
         }
 
         .video-play-btn svg {
-            width: 36px;
-            height: 36px;
-            color: white;
+            width: 40px;
+            height: 40px;
+            color: var(--primary-blue);
             margin-left: 5px;
         }
 
@@ -175,7 +233,7 @@
         .founder-section {
             position: relative;
             z-index: 3;
-            padding: 80px 0 100px;
+            padding: 20px 0 100px;
             background: var(--white);
         }
 
@@ -600,11 +658,13 @@
     <!-- Video Section -->
     <section class="video-section">
         <div class="container">
-            <div class="story-video-wrapper fade-in-up" id="videoWrapper">
-                <video id="storyVideo" preload="metadata" playsinline>
-                    <source src="images/story/jim-video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <h2 class="video-section-heading fade-in-up">About LifeWink</h2>
+            <div class="story-video-wrapper fade-in-up" id="storyVideoPlayer" data-youtube-id="6yGt_joJ9GI">
+                <img src="images/story/our-story-video-thumbnail.jpg" alt="The LifeWink story">
+                <div class="video-title-overlay">
+                    <span class="video-title-avatar"><img src="images/story/mylifewinks-avatar.jpg" alt="MyLifeWinks"></span>
+                    <span class="video-title-text">LifeWink — Turn your love into LifeWinks today.</span>
+                </div>
                 <div class="video-overlay" id="videoOverlay">
                     <button class="video-play-btn" aria-label="Play video">
                         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -765,52 +825,57 @@
                 observer.observe(el);
             });
 
-            // Video play button with modal lightbox
-            const video = document.getElementById('storyVideo');
+            // YouTube video player with modal lightbox
+            const player = document.getElementById('storyVideoPlayer');
             const overlay = document.getElementById('videoOverlay');
 
-            if (video && overlay) {
-                // Create modal
-                const backdrop = document.createElement('div');
-                backdrop.className = 'video-modal-backdrop';
-                const container = document.createElement('div');
-                container.className = 'video-modal-container';
-                const closeBtn = document.createElement('button');
-                closeBtn.className = 'video-modal-close';
-                closeBtn.innerHTML = '&#10005;';
-                closeBtn.setAttribute('aria-label', 'Close video');
-                const modalVideo = document.createElement('video');
-                modalVideo.preload = 'metadata';
-                modalVideo.playsinline = true;
-                modalVideo.controls = true;
-                modalVideo.src = video.querySelector('source').src;
-                container.appendChild(closeBtn);
-                container.appendChild(modalVideo);
-                backdrop.appendChild(container);
-                document.body.appendChild(backdrop);
+            if (player && overlay) {
+                const youtubeId = player.getAttribute('data-youtube-id');
 
-                function openModal() {
-                    backdrop.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                    setTimeout(function() { modalVideo.play(); }, 300);
+                if (youtubeId) {
+                    const backdrop = document.createElement('div');
+                    backdrop.className = 'video-modal-backdrop';
+                    const container = document.createElement('div');
+                    container.className = 'video-modal-container';
+                    const closeBtn = document.createElement('button');
+                    closeBtn.className = 'video-modal-close';
+                    closeBtn.innerHTML = '&#10005;';
+                    closeBtn.setAttribute('aria-label', 'Close video');
+                    container.appendChild(closeBtn);
+                    backdrop.appendChild(container);
+                    document.body.appendChild(backdrop);
+
+                    let iframe = null;
+
+                    function openModal() {
+                        iframe = document.createElement('iframe');
+                        iframe.src = 'https://www.youtube.com/embed/' + youtubeId + '?autoplay=1&rel=0&modestbranding=1';
+                        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+                        iframe.setAttribute('allowfullscreen', '');
+                        iframe.setAttribute('title', 'The LifeWink story');
+                        container.appendChild(iframe);
+                        backdrop.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+
+                    function closeModal() {
+                        backdrop.classList.remove('active');
+                        document.body.style.overflow = '';
+                        if (iframe) {
+                            iframe.remove();
+                            iframe = null;
+                        }
+                    }
+
+                    overlay.addEventListener('click', openModal);
+                    closeBtn.addEventListener('click', closeModal);
+                    backdrop.addEventListener('click', function(e) {
+                        if (e.target === backdrop) closeModal();
+                    });
+                    document.addEventListener('keydown', function(e) {
+                        if (e.key === 'Escape' && backdrop.classList.contains('active')) closeModal();
+                    });
                 }
-
-                function closeModal() {
-                    modalVideo.pause();
-                    modalVideo.currentTime = 0;
-                    backdrop.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-
-                overlay.addEventListener('click', openModal);
-                closeBtn.addEventListener('click', closeModal);
-                backdrop.addEventListener('click', function(e) {
-                    if (e.target === backdrop) closeModal();
-                });
-                modalVideo.addEventListener('ended', closeModal);
-                document.addEventListener('keydown', function(e) {
-                    if (e.key === 'Escape' && backdrop.classList.contains('active')) closeModal();
-                });
             }
         });
     </script>
